@@ -137,18 +137,4 @@ public class Carro {
     public int hashCode() {
         return Objects.hash(getRenavam());
     }
-    
-    public static void main(String[] args) {
-        Carro carro = new CarroBuilder()
-                .renavam("123")
-                .placa("123")
-                .ano(0)
-                .cor("Preto")
-                .quilometragem(0)
-                .valor(0)
-                .motor(new Motor())
-                .build();
-                
-        System.out.println(carro);   
-    }
 }
