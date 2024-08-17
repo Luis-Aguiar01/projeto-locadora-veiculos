@@ -1,7 +1,7 @@
 package com.projeto.locadora.controllers;
 
-import com.projeto.locadora.models.cliente.Cliente;
-import com.projeto.locadora.models.cliente.ClienteBuilder;
+import com.projeto.locadora.entities.cliente.Cliente;
+import com.projeto.locadora.entities.cliente.ClienteBuilder;
 import com.projeto.locadora.services.ClienteService;
 import java.time.LocalDate;
 import java.util.Scanner;

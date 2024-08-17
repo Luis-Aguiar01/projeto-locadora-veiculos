@@ -1,7 +1,7 @@
 package com.projeto.locadora.repositories.cliente;
 
-import com.projeto.locadora.models.cliente.Cliente;
-import com.projeto.locadora.models.usuario.Usuario;
+import com.projeto.locadora.entities.cliente.Cliente;
+import com.projeto.locadora.entities.usuario.Usuario;
 
 import java.util.List;
 import java.util.Optional;

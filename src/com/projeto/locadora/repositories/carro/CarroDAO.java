@@ -4,7 +4,7 @@ import com.projeto.locadora.enums.Disponibilidade;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
-import com.projeto.locadora.models.carro.Carro;
+import com.projeto.locadora.entities.carro.Carro;
 import java.util.List;
 import java.util.Optional;
 

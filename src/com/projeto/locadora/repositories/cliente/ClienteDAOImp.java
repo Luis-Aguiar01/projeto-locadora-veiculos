@@ -1,7 +1,7 @@
 package com.projeto.locadora.repositories.cliente;
 
 import com.projeto.locadora.exceptions.EntityNotFoundException;
-import com.projeto.locadora.models.cliente.Cliente;
+import com.projeto.locadora.entities.cliente.Cliente;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

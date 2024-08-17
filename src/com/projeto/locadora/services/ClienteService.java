@@ -1,7 +1,7 @@
 package com.projeto.locadora.services;
 
 import com.projeto.locadora.exceptions.EntityNotFoundException;
-import com.projeto.locadora.models.cliente.Cliente;
+import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.repositories.cliente.ClienteDAO;
 import com.projeto.locadora.repositories.cliente.ClienteDAOImp;
 
