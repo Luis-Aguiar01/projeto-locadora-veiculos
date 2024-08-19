@@ -1,7 +1,24 @@
 package com.projeto.locadora.enums;
 
 public enum EstadoVeiculo {
-    MANUTENCAO_NECESSARIA,
-    EM_MANUTENCAO,
-    MANUTENCAO_EM_DIA;
+    MANUTENCAO_NECESSARIA(1, "Manutencao Necessaria"),
+    EM_MANUTENCAO(2, "Em Manutencao"),
+    MANUTENCAO_EM_DIA(3, "Manutencao em Dia");
+    
+    private int codigoEstadoVeiculo;
+    private String estadoVeiculo;
+    
+    EstadoVeiculo(int codigoEstadoVeiculo, String estadoVeiculo)
+    {
+        this.codigoEstadoVeiculo = codigoEstadoVeiculo;
+        this.estadoVeiculo = estadoVeiculo;
+    }
+
+    public int getCodigoEstadoVeiculo() {
+        return codigoEstadoVeiculo;
+    }
+    
+    public String getEstadoVeiculo() {
+        return estadoVeiculo;
+    }
 }
