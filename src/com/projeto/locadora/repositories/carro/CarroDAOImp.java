@@ -1,6 +1,6 @@
 package com.projeto.locadora.repositories.carro;
 
-import com.projeto.locadora.enums.Disponibilidade;
+import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
@@ -69,7 +69,7 @@ public class CarroDAOImp implements CarroDAO {
     }
     
     @Override
-    public List<Carro> getAllCarsByDisponibilidade(Disponibilidade disponibilidade) {
+    public List<Carro> getAllCarsByDisponibilidade(DisponibilidadeVeiculo disponibilidade) {
         return carros.stream()
                 .filter(c -> c.getDisponibilidade().equals(disponibilidade))
                 .collect(Collectors.collectingAndThen(
@@ -89,7 +89,7 @@ public class CarroDAOImp implements CarroDAO {
     }
 
     @Override
-    public void alterarDisponibilidadeCarro(String renavam, Disponibilidade novaDisponibilidade) {
+    public void alterarDisponibilidadeCarro(String renavam, DisponibilidadeVeiculo novaDisponibilidade) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a troca de disponibilidade.");
 
         carro.setDisponibilidade(novaDisponibilidade);

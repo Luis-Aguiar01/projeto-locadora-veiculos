@@ -1,6 +1,6 @@
 package com.projeto.locadora.entities.carro;
 
-import com.projeto.locadora.enums.Disponibilidade;
+import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
@@ -14,7 +14,7 @@ public interface CarroBuilder {
     CarroBuilder cor(String cor);
     CarroBuilder quilometragem(double quilometragem);
     CarroBuilder valor(double valor);
-    CarroBuilder disponibilidade(Disponibilidade disponibilidade);
+    CarroBuilder disponibilidade(DisponibilidadeVeiculo disponibilidade);
     CarroBuilder motor(Motor motor);
     CarroBuilder transmissao(Transmissao transmissao);
     CarroBuilder estadoVeiculo(EstadoVeiculo estadoVeiculo);
@@ -26,7 +26,7 @@ public interface CarroBuilder {
     String getCor();
     double getQuilometragem();
     double getValor();
-    Disponibilidade getDisponibilidade();
+    DisponibilidadeVeiculo getDisponibilidade();
     Motor getMotor();
     Transmissao getTransmissao();
     EstadoVeiculo getEstadoVeiculo();

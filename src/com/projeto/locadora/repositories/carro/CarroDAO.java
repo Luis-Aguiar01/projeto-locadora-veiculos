@@ -1,6 +1,6 @@
 package com.projeto.locadora.repositories.carro;
 
-import com.projeto.locadora.enums.Disponibilidade;
+import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
@@ -15,12 +15,12 @@ public interface CarroDAO {
     void excluirCarro(String renavam);
     List<Carro> getAllCars();
     List<Carro> getAllCarsByModelo(Modelo modelo);
-    List<Carro> getAllCarsByDisponibilidade(Disponibilidade disponibilidade);
+    List<Carro> getAllCarsByDisponibilidade(DisponibilidadeVeiculo disponibilidade);
     List<Carro> getAllCarsByEstado(EstadoVeiculo estado);
     List<Carro> getAllCarsByTransmissao(Transmissao transmissao);
     void alterarCorCarro(String renavam, String novaCor);
     void alterarQuilometragemCarro(String renavam, double novaQuilometragem);
     void alterarValorCarro(String renavam, double novoValor);
-    void alterarDisponibilidadeCarro(String renavam, Disponibilidade novaDisponibilidade);
+    void alterarDisponibilidadeCarro(String renavam, DisponibilidadeVeiculo novaDisponibilidade);
     void alterarEstadoCarro(String renavam, EstadoVeiculo novoEstado);
 }

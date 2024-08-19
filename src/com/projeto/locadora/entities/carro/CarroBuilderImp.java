@@ -1,6 +1,6 @@
 package com.projeto.locadora.entities.carro;
 
-import com.projeto.locadora.enums.Disponibilidade;
+import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
@@ -15,7 +15,7 @@ public class CarroBuilderImp implements CarroBuilder {
     private double quilometragem;
     private double valor;
     private EstadoVeiculo estado;
-    private Disponibilidade disponibilidade;
+    private DisponibilidadeVeiculo disponibilidade;
     private Motor motor;
     private Transmissao transmissao;
 
@@ -67,7 +67,7 @@ public class CarroBuilderImp implements CarroBuilder {
     }
     
     @Override
-    public Disponibilidade getDisponibilidade() {
+    public DisponibilidadeVeiculo getDisponibilidade() {
         return disponibilidade;
     }
 
@@ -77,7 +77,7 @@ public class CarroBuilderImp implements CarroBuilder {
     }
     
     @Override
-    public CarroBuilder disponibilidade(Disponibilidade disponibilidade) {
+    public CarroBuilder disponibilidade(DisponibilidadeVeiculo disponibilidade) {
         this.disponibilidade = disponibilidade;
         return this;
     }

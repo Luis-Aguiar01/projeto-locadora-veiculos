@@ -1,13 +1,13 @@
 package com.projeto.locadora.enums;
 
-public enum Disponibilidade {
+public enum DisponibilidadeVeiculo {
     DISPONIVEL (1, "Disponivel"),
     INDISPONIVE (2, "Indisponivel");
     
     private int codigoDisponibilidade;
     private String situacaoDisponibilidade;
 
-    private Disponibilidade(int codigoDisponibilidade, String situacaoDisponibilidade) 
+    private DisponibilidadeVeiculo(int codigoDisponibilidade, String situacaoDisponibilidade) 
     {
         this.codigoDisponibilidade = codigoDisponibilidade;
         this.situacaoDisponibilidade = situacaoDisponibilidade;
