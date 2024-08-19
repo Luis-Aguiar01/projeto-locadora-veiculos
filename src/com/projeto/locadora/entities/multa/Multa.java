@@ -3,21 +3,44 @@ package com.projeto.locadora.entities.multa;
 import java.time.LocalDateTime;
 
 public class Multa {
-    private Integer codigo;
-    private String descricao;
+    private final Integer codigo;
+    private final String descricao;
     private Double valor;
-    private LocalDateTime dataHora;
-    
+    private final LocalDateTime dataHora;
     
     private static int nextCodigo = 1;
     
-    public Multa(Builder builder) {
+    public Multa(MultaBuilder builder) {
         this.codigo = nextCodigo;
         nextCodigo++;
         dataHora = LocalDateTime.now();
         
         this.descricao = builder.getDescricao();
         this.valor = builder.getValor();
+    }
+
+    public Integer getCodigo() {
+        return codigo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public Double getValor() {
+        return valor;
+    }
+
+    public LocalDateTime getDataHora() {
+        return dataHora;
+    }
+
+    public static int getNextCodigo() {
+        return nextCodigo;
+    }
+
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
     
     @Override
@@ -29,12 +52,12 @@ public class Multa {
     }
     
     public static void main(String[] args) {
-        Multa multa1 = new MultaBuilder()
+        Multa multa1 = new MultaBuilderImp()
                 .descricao("Não devolveu no prazo")
                 .valor(500.99)
                 .build();
         
-        Multa multa2 = new MultaBuilder()
+        Multa multa2 = new MultaBuilderImp()
                 .descricao("Danificou o carro")
                 .valor(500.99)
                 .build();

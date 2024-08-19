@@ -20,7 +20,7 @@ public class Carro {
     private Motor motor;
     private Transmissao transmissao;
 
-    public Carro(Builder builder) {
+    public Carro(CarroBuilder builder) {
         this.renavam = builder.getRenavam();
         this.placa = builder.getPlaca();
         this.modelo = builder.getModelo();
@@ -139,7 +139,7 @@ public class Carro {
     }
     
     public static void main(String[] args) {
-        Carro c = new CarroBuilder()
+        Carro c = new CarroBuilderImp()
                 .cor("Azul")
                 .ano(2022)
                 .build();

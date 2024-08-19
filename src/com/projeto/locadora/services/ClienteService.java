@@ -35,21 +35,13 @@ public class ClienteService {
     public void alterarEmailCliente(String cpf, String novoEmail) {
         clienteRepositorio.alterarEmailCliente(cpf, novoEmail);
     }
-
-    public void alterarSenhaCliente(String cpf, String novaSenha) {
-        clienteRepositorio.alterarSenhaCliente(cpf, novaSenha);
-    }
-
+    
     public void alterarEnderecoCliente(String cpf, String novoEndereco) {
         clienteRepositorio.alterarEnderecoCliente(cpf, novoEndereco);
     }
 
     public void alterarTelefoneCliente(String cpf, String novoTelefone) {
         clienteRepositorio.alterarTelefoneCliente(cpf, novoTelefone);
-    }
-
-    public void alterarEstadoDoCliente(String cpf, boolean novoEstado) {
-        clienteRepositorio.alterarEstadoCliente(cpf, novoEstado);
     }
 
     public static ClienteService getInstance() {

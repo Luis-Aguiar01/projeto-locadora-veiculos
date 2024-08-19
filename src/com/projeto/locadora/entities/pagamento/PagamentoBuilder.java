@@ -1,5 +1,5 @@
 package com.projeto.locadora.entities.pagamento;
 
-public class PagamentoBuilder implements Builder {
+public interface PagamentoBuilder {
     
 }

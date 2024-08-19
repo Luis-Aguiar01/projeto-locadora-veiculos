@@ -44,13 +44,6 @@ public class ClienteDAOImp implements ClienteDAO {
     }
 
     @Override
-    public void alterarSenhaCliente(String cpf, String novaSenha) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de senha.");
-        cliente.setSenha(novaSenha);
-        atualizarCliente(cpf, cliente);
-    }
-
-    @Override
     public void alterarEnderecoCliente(String cpf, String novoEndereco) {
         Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
         cliente.setEndereco(novoEndereco);
@@ -61,13 +54,6 @@ public class ClienteDAOImp implements ClienteDAO {
     public void alterarTelefoneCliente(String cpf, String novoTelefone) {
         Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
         cliente.setTelefone(novoTelefone);
-        atualizarCliente(cpf, cliente);
-    }
-
-    @Override
-    public void alterarEstadoCliente(String cpf, boolean novoEstado) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração do estado.");
-        cliente.setSuspenso(novoEstado);
         atualizarCliente(cpf, cliente);
     }
 

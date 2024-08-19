@@ -1,61 +1,41 @@
 package com.projeto.locadora.entities.cliente;
 
 import com.projeto.locadora.entities.usuario.Usuario;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Cliente extends Usuario {
-    private final int codigoCliente;
-    private boolean suspenso;
-    private static int nextCodigo = 1;
-
-    public Cliente(Builder clienteBuilder) {
+    
+    public Cliente(ClienteBuilder clienteBuilder) {
         super(clienteBuilder);
-
-        this.codigoCliente = nextCodigo;
-        this.suspenso = clienteBuilder.getSuspenso();
-        nextCodigo++;
-    }
-
-    public int getCodigoCliente() {
-        return codigoCliente;
-    }
-
-    public boolean isSuspenso() {
-        return suspenso;
-    }
-
-    public void setSuspenso(boolean suspenso) {
-        this.suspenso = suspenso;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", codigoCliente= " + codigoCliente + ", suspenso= " + suspenso + " }";
+        return super.toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Cliente cliente)) return false;
-        return getCodigoCliente() == cliente.getCodigoCliente();
+        return super.getCpf().equals(cliente.getCpf());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCodigoCliente());
+        return Objects.hash(getCpf());
     }
 
     public static void main(String[] args) {
-        Cliente cliente = new ClienteBuilder()
+        Cliente cliente = new ClienteBuilderImp()
                 .cpf("1")
                 .nome("Luis")
                 .email("luis@gmail.com")
-                .senha("123")
-                .dataNascimento(LocalDate.now())
+                .dataNascimento(LocalDateTime.now())
                 .endereco("Av. Aleatorio, 123")
                 .telefone("123123231")
-                .dataRegistro(LocalDate.now())
+                .dataRegistro(LocalDateTime.now())
                 .build();
 
         System.out.println(cliente);

@@ -1,9 +1,9 @@
 package com.projeto.locadora.controllers;
 
 import com.projeto.locadora.entities.cliente.Cliente;
-import com.projeto.locadora.entities.cliente.ClienteBuilder;
+import com.projeto.locadora.entities.cliente.ClienteBuilderImp;
 import com.projeto.locadora.services.ClienteService;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class ClienteController {
@@ -28,10 +28,7 @@ public class ClienteController {
 
         System.out.println("E-mail: ");
         String email = input.nextLine();
-
-        System.out.println("Senha: ");
-        String senha = input.nextLine();
-
+        
         System.out.println("Data de nascimento(YYYY-MM-DD): ");
         String dataNascimento = input.nextLine();
 
@@ -41,16 +38,14 @@ public class ClienteController {
         System.out.println("Telefone: ");
         String telefone = input.nextLine();
 
-        Cliente cliente = new ClienteBuilder()
+        Cliente cliente = new ClienteBuilderImp()
                 .nome(nome)
                 .cpf(cpf)
                 .email(email)
-                .senha(senha)
-                .dataNascimento(LocalDate.parse(dataNascimento))
+                .dataNascimento(LocalDateTime.parse(dataNascimento))
                 .endereco(endereco)
                 .telefone(telefone)
-                .dataRegistro(LocalDate.now())
-                .suspenso(false)
+                .dataRegistro(LocalDateTime.now())
                 .build();
 
         service.inserirCliente(cliente);
