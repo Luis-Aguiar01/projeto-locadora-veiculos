@@ -28,7 +28,7 @@ public class Funcionario extends Usuario {
         return super.toString();
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Funcionario funcionario = new FuncionarioBuilderImp()
                 .cpf("111.111.111-11")
                 .nome("João")
@@ -41,6 +41,6 @@ public class Funcionario extends Usuario {
                 .build();
 
         System.out.println(funcionario);
-    }
+    }*/
 }
 

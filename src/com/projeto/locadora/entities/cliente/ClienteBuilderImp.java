@@ -1,12 +1,13 @@
 package com.projeto.locadora.entities.cliente;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class ClienteBuilderImp implements ClienteBuilder {
     private String cpf;
     private String nome;
     private String email;
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
     private String endereco;
     private String telefone;
     private LocalDateTime dataRegistro;
@@ -32,7 +33,7 @@ public class ClienteBuilderImp implements ClienteBuilder {
     }
 
     @Override
-    public ClienteBuilderImp dataNascimento(LocalDateTime dataNascimento) {
+    public ClienteBuilderImp dataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
         return this;
     }
@@ -76,7 +77,7 @@ public class ClienteBuilderImp implements ClienteBuilder {
     }
 
     @Override
-    public LocalDateTime getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 

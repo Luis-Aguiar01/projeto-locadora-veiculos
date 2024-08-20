@@ -1,12 +1,13 @@
 package com.projeto.locadora.entities.usuario;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Usuario {
     private final String cpf;
     private final String nome;
     private String email;
-    private final LocalDateTime dataNascimento;
+    private final LocalDate dataNascimento;
     private String endereco;
     private String telefone;
     private final LocalDateTime dataRegistro;
@@ -37,7 +38,7 @@ public abstract class Usuario {
         this.email = email;
     }
     
-    public LocalDateTime getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
     

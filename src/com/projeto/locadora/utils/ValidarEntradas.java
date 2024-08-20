@@ -1,14 +1,17 @@
 package com.projeto.locadora.utils;
 
+import com.projeto.locadora.exceptions.MinimumAgeRequirementException;
 import com.projeto.locadora.exceptions.NumberOutOfRangeException;
 import com.projeto.locadora.exceptions.RegexPatternMismatchException;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class ValidarEntradas 
 {
     private static final Scanner scanner = new Scanner(System.in);
     
-    private static int validarEntradaInteira(String mensagem) 
+    public static int validarEntradaInteira(String mensagem) 
     {
         int numero = 0;
         boolean condicao = false;
@@ -44,7 +47,7 @@ public class ValidarEntradas
         return numero;
     }
 
-    private static double validarEntradaDouble(String mensagem) 
+    public static double validarEntradaDouble(String mensagem) 
     {
         double numero = 0.0;
         boolean condicao = false;
@@ -80,7 +83,7 @@ public class ValidarEntradas
         return numero;
     }
 
-    private static String validarEntradaString(String mensagem, String Regex) 
+    public static String validarEntradaString(String mensagem, String regex) 
     {
         boolean condicao = false;
         String dado = "";
@@ -92,7 +95,7 @@ public class ValidarEntradas
             
             try
             {
-                if(dado.matches(Regex))
+                if(dado.matches(regex))
                 {
                     condicao = true;
                 }
@@ -104,10 +107,44 @@ public class ValidarEntradas
             catch(RegexPatternMismatchException e)
             {
                 System.out.println("Formato Inválido. Por favor, siga o padrão.");
-            }
-                
+            }  
         }
         
         return dado;
+    }
+    
+    public static LocalDate validarEntradaData(String mensagem) 
+    {
+        boolean condicao = false;
+        LocalDate dataNascimento = null;
+        LocalDate dataMinima = LocalDate.now().minusYears(18); 
+        
+        while(!condicao)
+        {
+            try
+            {
+                System.out.print(mensagem);
+                dataNascimento = LocalDate.parse(scanner.nextLine());
+                
+                if(dataNascimento.isBefore(dataMinima) || dataNascimento.isEqual(dataMinima))
+                {
+                    condicao = true;
+                }
+                else
+                {
+                    throw new MinimumAgeRequirementException();
+                }
+            }
+            catch(DateTimeException e)
+            {
+                System.out.println("Formato Inválido. Por favor, siga o padrão.");
+            }  
+            catch(MinimumAgeRequirementException e)
+            {
+                System.out.println("Data Inválida. O cliente deve ter pelo menos 18 anos completos.");
+            }
+        }
+        
+        return dataNascimento;
     }
 }

@@ -1,5 +1,6 @@
 package com.projeto.locadora.entities.funcionario;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class FuncionarioBuilderImp implements FuncionarioBuilder {
@@ -7,7 +8,7 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
     private String nome;
     private String email;
     private String senha;
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
     private String endereco;
     private String telefone;
     private LocalDateTime dataRegistro;
@@ -37,7 +38,7 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
     }
 
     @Override
-    public FuncionarioBuilderImp dataNascimento(LocalDateTime dataNascimento) {
+    public FuncionarioBuilderImp dataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
         return this;
     }
@@ -86,7 +87,7 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
     }
 
     @Override
-    public LocalDateTime getDataNascimento() {
+    public LocalDate getDataNascimento() {
         return dataNascimento;
     }
 
