@@ -5,13 +5,14 @@ import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
 import com.projeto.locadora.entities.motor.Motor;
+import com.projeto.locadora.enums.Cor;
 
 public class CarroBuilderImp implements CarroBuilder {
     private String renavam;
     private String placa;
     private Modelo modelo;
     private int ano;
-    private String cor;
+    private Cor cor;
     private double quilometragem;
     private double valor;
     private EstadoVeiculo estado;
@@ -42,7 +43,7 @@ public class CarroBuilderImp implements CarroBuilder {
     }
     
     @Override
-    public String getCor() {
+    public Cor getCor() {
         return cor;
     }
     
@@ -113,7 +114,7 @@ public class CarroBuilderImp implements CarroBuilder {
     }
 
     @Override
-    public CarroBuilder cor(String cor) {
+    public CarroBuilder cor(Cor cor) {
         this.cor = cor;
         return this;
     }

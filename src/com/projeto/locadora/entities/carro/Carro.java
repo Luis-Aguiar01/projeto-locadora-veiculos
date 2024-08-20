@@ -4,6 +4,7 @@ import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.entities.motor.Motor;
+import com.projeto.locadora.enums.Cor;
 import com.projeto.locadora.enums.Transmissao;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ public class Carro {
     private String placa;
     private final Modelo modelo;
     private final int ano;
-    private String cor;
+    private Cor cor;
     private double quilometragem;
     private double valor;
     private EstadoVeiculo estado;
@@ -50,7 +51,7 @@ public class Carro {
         return ano;
     }
 
-    public String getCor() {
+    public Cor getCor() {
         return cor;
     }
 
@@ -82,7 +83,7 @@ public class Carro {
         this.placa = placa;
     }
 
-    public void setCor(String cor) {
+    public void setCor(Cor cor) {
         this.cor = cor;
     }
 
@@ -140,7 +141,7 @@ public class Carro {
     
     public static void main(String[] args) {
         Carro c = new CarroBuilderImp()
-                .cor("Azul")
+                .cor(Cor.AZUL)
                 .ano(2022)
                 .build();
         

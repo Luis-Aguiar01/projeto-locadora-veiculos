@@ -5,13 +5,14 @@ import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
 import com.projeto.locadora.entities.motor.Motor;
+import com.projeto.locadora.enums.Cor;
 
 public interface CarroBuilder {
     CarroBuilder renavam(String renavam);
     CarroBuilder placa(String placa);
     CarroBuilder modelo(Modelo modelo);
     CarroBuilder ano(int ano);
-    CarroBuilder cor(String cor);
+    CarroBuilder cor(Cor cor);
     CarroBuilder quilometragem(double quilometragem);
     CarroBuilder valor(double valor);
     CarroBuilder disponibilidade(DisponibilidadeVeiculo disponibilidade);
@@ -23,7 +24,7 @@ public interface CarroBuilder {
     String getPlaca();
     Modelo getModelo();
     int getAno();
-    String getCor();
+    Cor getCor();
     double getQuilometragem();
     double getValor();
     DisponibilidadeVeiculo getDisponibilidade();

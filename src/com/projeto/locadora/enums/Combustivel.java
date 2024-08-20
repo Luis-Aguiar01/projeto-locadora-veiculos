@@ -6,8 +6,8 @@ public enum Combustivel {
     DIESEL (3, "Diesel"),
     GAS_NATURAL (4, "Gas Natural");
     
-    private int codigoCombustivel;
-    private String nomeCombustivel;
+    private final int codigoCombustivel;
+    private final String nomeCombustivel;
     
     Combustivel(int codigoCombustivel, String nomeCombustivel)
     {

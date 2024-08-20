@@ -2,14 +2,14 @@ package com.projeto.locadora.repositories.carro;
 
 import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.enums.Modelo;
-import com.projeto.locadora.enums.Transmissao;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.entities.carro.Carro;
+import com.projeto.locadora.enums.Cor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarroDAOImp implements CarroDAO {
@@ -49,41 +49,11 @@ public class CarroDAOImp implements CarroDAO {
     }
 
     @Override
-    public List<Carro> getAllCarsByModelo(Modelo modelo) {
+    public List<Carro> retornarTodosOsCarrosPorFiltro(Predicate<Carro> condition) {
         return carros.stream()
-                .filter(c -> c.getModelo().equals(modelo))
+                .filter(condition)
                 .collect(Collectors.collectingAndThen(
-                        Collectors.toList(),
-                        Collections::unmodifiableList
-                ));
-    }
-
-    @Override
-    public List<Carro> getAllCarsByTransmissao(Transmissao transmissao) {
-        return carros.stream()
-                .filter(c -> c.getTransmissao().equals(transmissao))
-                .collect(Collectors.collectingAndThen(
-                        Collectors.toList(),
-                        Collections::unmodifiableList
-                ));
-    }
-    
-    @Override
-    public List<Carro> getAllCarsByDisponibilidade(DisponibilidadeVeiculo disponibilidade) {
-        return carros.stream()
-                .filter(c -> c.getDisponibilidade().equals(disponibilidade))
-                .collect(Collectors.collectingAndThen(
-                        Collectors.toList(),
-                        Collections::unmodifiableList
-                ));
-    }
-
-    @Override
-    public List<Carro> getAllCarsByEstado(EstadoVeiculo estado) {
-        return carros.stream()
-                .filter(c -> c.getEstado().equals(estado))
-                .collect(Collectors.collectingAndThen(
-                        Collectors.toList(),
+                        Collectors.toList(), 
                         Collections::unmodifiableList
                 ));
     }
@@ -91,7 +61,6 @@ public class CarroDAOImp implements CarroDAO {
     @Override
     public void alterarDisponibilidadeCarro(String renavam, DisponibilidadeVeiculo novaDisponibilidade) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a troca de disponibilidade.");
-
         carro.setDisponibilidade(novaDisponibilidade);
         atualizarCarro(renavam, carro);
     }
@@ -99,15 +68,13 @@ public class CarroDAOImp implements CarroDAO {
     @Override
     public void alterarEstadoCarro(String renavam, EstadoVeiculo novoEstado) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a troca de estado.");
-
         carro.setEstado(novoEstado);
         atualizarCarro(renavam, carro);
     }
 
     @Override
-    public void alterarCorCarro(String renavam, String novaCor) {
+    public void alterarCorCarro(String renavam, Cor novaCor) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a troca de cor.");
-
         carro.setCor(novaCor);
         atualizarCarro(renavam, carro);
     }
@@ -115,7 +82,6 @@ public class CarroDAOImp implements CarroDAO {
     @Override
     public void alterarQuilometragemCarro(String renavam, double novaQuilometragem) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a alteração da quilometragem.");
-
         carro.setQuilometragem(novaQuilometragem);
         atualizarCarro(renavam, carro);
     }
@@ -123,7 +89,6 @@ public class CarroDAOImp implements CarroDAO {
     @Override
     public void alterarValorCarro(String renavam, double novoValor) {
         Carro carro = getCarro(renavam, "Carro não encontrado para a alteração de valor.");
-
         carro.setValor(novoValor);
         atualizarCarro(renavam, carro);
     }
