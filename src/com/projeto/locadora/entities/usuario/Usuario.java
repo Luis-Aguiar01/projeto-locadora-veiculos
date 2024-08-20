@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public abstract class Usuario {
     private final String cpf;
-    private final String nome;
+    private String nome;
     private String email;
     private final LocalDate dataNascimento;
     private String endereco;
@@ -28,6 +28,10 @@ public abstract class Usuario {
 
     public String getNome() {
         return nome;
+    }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
     public String getEmail() {

@@ -2,6 +2,7 @@ package com.projeto.locadora.services;
 
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.entities.cliente.Cliente;
+import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.repositories.cliente.ClienteDAO;
 import com.projeto.locadora.repositories.cliente.ClienteDAOImp;
 
@@ -19,9 +20,37 @@ public class ClienteService {
                         () -> new EntityNotFoundException("Cliente com o CPF:\"" + cpf + "\" não encontrado.")
                 );
     }
+    
+    public boolean checarCpf(Cliente cliente)
+    {
+        return clienteRepositorio.getAllClientes()
+                .stream()
+                .anyMatch(c -> c.getCpf().equals(cliente.getCpf()));
+    }
 
-    public void inserirCliente(Cliente cliente) {
-        clienteRepositorio.inserirCliente(cliente);
+    public void inserirCliente(Cliente cliente) 
+    {
+        if(!checarCpf(cliente))
+        {
+            
+            String nome = "";
+            String[] nomes = cliente.getNome().split(" ");
+            
+            for(String n : nomes)
+            {
+                nome += n.substring(0,1).toUpperCase();
+                nome += n.substring(1);
+                nome += " ";
+            }
+           
+            cliente.setNome(nome.trim());
+            
+            clienteRepositorio.inserirCliente(cliente);
+        }
+        else
+        {
+            throw new CpfAlreadyRegisteredException();
+        }
     }
 
     public List<Cliente> retornarTodosOsClientes() {

@@ -2,6 +2,7 @@ package com.projeto.locadora.controllers;
 
 import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.entities.cliente.ClienteBuilderImp;
+import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.services.ClienteService;
 import java.time.LocalDateTime;
 import com.projeto.locadora.utils.ValidarEntradas;
@@ -20,29 +21,37 @@ public class ClienteController {
         System.out.println();
         System.out.println("Insira as informações do cliente abaixo:");
 
-        String nome = ValidarEntradas.validarEntradaString("Informe o Nome Completo: ", "([A-Za-zÀ-Ü-à-ü]+)(\\s[A-Za-zÀ-Ü-à-ü]+)+");
+        //String nome = ValidarEntradas.validarEntradaString("Informe o Nome Completo: ", "([A-Za-zÀ-Ü-à-ü]+)(\\s[A-Za-zÀ-Ü-à-ü]+)+");
 
-        String cpf = ValidarEntradas.validarEntradaString("Informe o CPF (XXX.XXX.XXX-XX): ", "\\\\d{3}\\\\.\\\\d{3}\\\\.\\\\d{3}-\\\\d{2}");
+        //String cpf = ValidarEntradas.validarEntradaString("Informe o CPF (XXX.XXX.XXX-XX): ", "\\\\d{3}\\\\.\\\\d{3}\\\\.\\\\d{3}-\\\\d{2}");
 
-        String email = ValidarEntradas.validarEntradaString("Informe o E-mail: ", "([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+");
+        //String email = ValidarEntradas.validarEntradaString("Informe o E-mail: ", "([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+");
         
-        LocalDate dataNascimento = ValidarEntradas.validarEntradaData("Informe a Data de Nascimento (YYYY-MM-DD): ");
+        //LocalDate dataNascimento = ValidarEntradas.validarEntradaData("Informe a Data de Nascimento (YYYY-MM-DD): ");
 
-        String endereco = ValidarEntradas.validarEntradaString("Informe o Endereco: ", "[A-Za-zÀ-Ü-à-ü1-9,.-°]+");
+        //String endereco = ValidarEntradas.validarEntradaString("Informe o Endereco: ", "[A-Za-zÀ-Ü-à-ü1-9,.-°]+");
 
-        String telefone = ValidarEntradas.validarEntradaString("Informe o Telefone (+55(XX)XXXXX-XXXX): ", "\\+55\\([1-9]{2}\\)[1-9]{5}-[1-9]{4}");
+        //String telefone = ValidarEntradas.validarEntradaString("Informe o Telefone (+55(XX)XXXXX-XXXX): ", "\\+55\\([1-9]{2}\\)[1-9]{5}-[1-9]{4}");
 
         Cliente cliente = new ClienteBuilderImp()
-                .nome(nome)
-                .cpf(cpf)
-                .email(email)
-                .dataNascimento(dataNascimento)
-                .endereco(endereco)
-                .telefone(telefone)
+                .nome("cristiano oliveira")
+                .cpf("111.111.111-22")
+                .email("c@gmail.com")
+                .dataNascimento(LocalDate.now())
+                .endereco("Av vapo")
+                .telefone("123")
                 .dataRegistro(LocalDateTime.now())
                 .build();
 
-        service.inserirCliente(cliente);
+        try
+        {
+            service.inserirCliente(cliente);
+        }
+        catch(CpfAlreadyRegisteredException e)
+        {
+            System.out.println("Usuario com CPF já cadastrado.");
+        }
+        
         System.out.println(service.retornarTodosOsClientes());
     }
 
@@ -55,5 +64,6 @@ public class ClienteController {
         ClienteController controller = ClienteController.getInstance();
 
         controller.cadastrarCliente();
+        //controller.cadastrarCliente();
     }
 }

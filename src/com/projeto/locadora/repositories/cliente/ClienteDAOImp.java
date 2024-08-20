@@ -40,36 +40,36 @@ public class ClienteDAOImp implements ClienteDAO {
     public void alterarEmailCliente(String cpf, String novoEmail) {
         Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de e-mail.");
         cliente.setEmail(novoEmail);
-        atualizarCliente(cpf, cliente);
+        //atualizarCliente(cpf, cliente);
     }
 
     @Override
     public void alterarEnderecoCliente(String cpf, String novoEndereco) {
         Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
         cliente.setEndereco(novoEndereco);
-        atualizarCliente(cpf, cliente);
+        //atualizarCliente(cpf, cliente);
     }
 
     @Override
     public void alterarTelefoneCliente(String cpf, String novoTelefone) {
         Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
         cliente.setTelefone(novoTelefone);
-        atualizarCliente(cpf, cliente);
+        //atualizarCliente(cpf, cliente);
     }
-
-    private void atualizarCliente(String cpf, Cliente cliente) {
-        int clienteIndice = encontrarIndiceCliente(cpf);
-        clientes.set(clienteIndice, cliente);
-    }
-
+    
     private Cliente getCliente(String cpf, String msgException) {
         return encontrarClientePorCpf(cpf)
                 .orElseThrow(
                     () -> new EntityNotFoundException(msgException)
                 );
     }
+    
+    /*private void atualizarCliente(String cpf, Cliente cliente) {
+        int clienteIndice = encontrarIndiceCliente(cpf);
+        clientes.set(clienteIndice, cliente);
+    }*/
 
-    private int encontrarIndiceCliente(String cpf) {
+    /*private int encontrarIndiceCliente(String cpf) {
         for (int i = 0; i < clientes.size(); i++) {
             if (clientes.get(i).getCpf().equals(cpf)) {
                 return i;
@@ -77,7 +77,7 @@ public class ClienteDAOImp implements ClienteDAO {
         }
 
         return -1;
-    }
+    }*/
 
     public static ClienteDAOImp getInstance() {
         return repository;
