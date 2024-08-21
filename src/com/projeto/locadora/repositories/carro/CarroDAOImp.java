@@ -2,7 +2,6 @@ package com.projeto.locadora.repositories.carro;
 
 import com.projeto.locadora.enums.DisponibilidadeVeiculo;
 import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.enums.Cor;
 import java.util.ArrayList;
@@ -38,8 +37,7 @@ public class CarroDAOImp implements CarroDAO {
     }
 
     @Override
-    public void excluirCarro(String renavam) {
-        Carro carro = getCarro(renavam, "Carro para o renavam informado não encontrado.");
+    public void excluirCarro(Carro carro) {
         carros.remove(carro);
     }
 
@@ -59,60 +57,28 @@ public class CarroDAOImp implements CarroDAO {
     }
 
     @Override
-    public void alterarDisponibilidadeCarro(String renavam, DisponibilidadeVeiculo novaDisponibilidade) {
-        Carro carro = getCarro(renavam, "Carro não encontrado para a troca de disponibilidade.");
+    public void alterarDisponibilidadeCarro(Carro carro, DisponibilidadeVeiculo novaDisponibilidade) {
         carro.setDisponibilidade(novaDisponibilidade);
-        atualizarCarro(renavam, carro);
     }
 
     @Override
-    public void alterarEstadoCarro(String renavam, EstadoVeiculo novoEstado) {
-        Carro carro = getCarro(renavam, "Carro não encontrado para a troca de estado.");
+    public void alterarEstadoCarro(Carro carro, EstadoVeiculo novoEstado) {
         carro.setEstado(novoEstado);
-        atualizarCarro(renavam, carro);
     }
 
     @Override
-    public void alterarCorCarro(String renavam, Cor novaCor) {
-        Carro carro = getCarro(renavam, "Carro não encontrado para a troca de cor.");
+    public void alterarCorCarro(Carro carro, Cor novaCor) {
         carro.setCor(novaCor);
-        atualizarCarro(renavam, carro);
     }
 
     @Override
-    public void alterarQuilometragemCarro(String renavam, double novaQuilometragem) {
-        Carro carro = getCarro(renavam, "Carro não encontrado para a alteração da quilometragem.");
+    public void alterarQuilometragemCarro(Carro carro, double novaQuilometragem) {
         carro.setQuilometragem(novaQuilometragem);
-        atualizarCarro(renavam, carro);
     }
 
     @Override
-    public void alterarValorCarro(String renavam, double novoValor) {
-        Carro carro = getCarro(renavam, "Carro não encontrado para a alteração de valor.");
+    public void alterarValorCarro(Carro carro, double novoValor) {
         carro.setValor(novoValor);
-        atualizarCarro(renavam, carro);
-    }
-
-    private Carro getCarro(String renavam, String msgException) {
-        return encontrarCarroPorRenavam(renavam)
-                .orElseThrow(
-                        () -> new EntityNotFoundException(msgException)
-                );
-    }
-
-    private void atualizarCarro(String renavam, Carro carro) {
-        int carroIndice = encontrarIndiceCarro(renavam);
-        carros.set(carroIndice, carro);
-    }
-
-    private int encontrarIndiceCarro(String renavam) {
-        for (int i = 0; i < carros.size(); i++) {
-            if (carros.get(i).getRenavam().equals(renavam)) {
-                return i;
-            }
-        }
-
-        return -1;
     }
 
     public static CarroDAOImp getInstance() {

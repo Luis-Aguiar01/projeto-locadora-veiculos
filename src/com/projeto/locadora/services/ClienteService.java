@@ -57,20 +57,19 @@ public class ClienteService {
         return clienteRepositorio.getAllClientes();
     }
 
-    public void excluirCliente(String cpf) {
-        clienteRepositorio.excluirCliente(cpf);
-    }
-
     public void alterarEmailCliente(String cpf, String novoEmail) {
-        clienteRepositorio.alterarEmailCliente(cpf, novoEmail);
+        Cliente cliente = encontrarClientePorCpf(cpf);
+        clienteRepositorio.alterarEmailCliente(cliente, novoEmail);
     }
     
     public void alterarEnderecoCliente(String cpf, String novoEndereco) {
-        clienteRepositorio.alterarEnderecoCliente(cpf, novoEndereco);
+        Cliente cliente = encontrarClientePorCpf(cpf);
+        clienteRepositorio.alterarEnderecoCliente(cliente, novoEndereco);
     }
 
     public void alterarTelefoneCliente(String cpf, String novoTelefone) {
-        clienteRepositorio.alterarTelefoneCliente(cpf, novoTelefone);
+        Cliente cliente = encontrarClientePorCpf(cpf);
+        clienteRepositorio.alterarTelefoneCliente(cliente, novoTelefone);
     }
 
     public static ClienteService getInstance() {

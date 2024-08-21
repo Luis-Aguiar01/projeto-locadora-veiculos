@@ -8,8 +8,7 @@ public interface ClienteDAO {
     Optional<Cliente> encontrarClientePorCpf(String cpf);
     void inserirCliente(Cliente usuario);
     List<Cliente> getAllClientes();
-    void excluirCliente(String cpf);
-    void alterarEmailCliente(String cpf, String novoEmail);
-    void alterarEnderecoCliente(String cpf, String novoEndereco);
-    void alterarTelefoneCliente(String cpf, String novoTelefone);
+    void alterarEmailCliente(Cliente cliente, String novoEmail);
+    void alterarEnderecoCliente(Cliente cliente, String novoEndereco);
+    void alterarTelefoneCliente(Cliente cliente, String novoTelefone);
 }

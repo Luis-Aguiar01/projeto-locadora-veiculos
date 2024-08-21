@@ -35,7 +35,8 @@ public class CarroService {
     }
     
     public void excluirCarro(String renavam) {
-        carroRepositorio.excluirCarro(renavam);
+        Carro carro = encontrarCarroPorRenavam(renavam);
+        carroRepositorio.excluirCarro(carro);
     }
 
     public List<Carro> retornarTodosOsCarros() {
@@ -63,19 +64,23 @@ public class CarroService {
     }
     
     public void alterarCorCarro(String renavam, Cor novaCor) {
-        carroRepositorio.alterarCorCarro(renavam, novaCor);
+        Carro carro = encontrarCarroPorRenavam(renavam);
+        carroRepositorio.alterarCorCarro(carro, novaCor);
     }
     
     public void alterarQuilometragemCarro(String renavam, double novaQuilometragem) {
-        carroRepositorio.alterarQuilometragemCarro(renavam, novaQuilometragem);
+        Carro carro = encontrarCarroPorRenavam(renavam);
+        carroRepositorio.alterarQuilometragemCarro(carro, novaQuilometragem);
     }
     
     public void alterarValorCarro(String renavam, double novoValor) {
-        carroRepositorio.alterarValorCarro(renavam, novoValor);
+        Carro carro = encontrarCarroPorRenavam(renavam);
+        carroRepositorio.alterarValorCarro(carro, novoValor);
     }
 
     public void alterarStatusCarro(String renavam, DisponibilidadeVeiculo novaDisponibilidade) {
-        carroRepositorio.alterarDisponibilidadeCarro(renavam, novaDisponibilidade);
+        Carro carro = encontrarCarroPorRenavam(renavam);
+        carroRepositorio.alterarDisponibilidadeCarro(carro, novaDisponibilidade);
     }
 
     public static CarroService getInstance() {

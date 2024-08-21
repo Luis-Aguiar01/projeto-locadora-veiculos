@@ -1,6 +1,5 @@
 package com.projeto.locadora.repositories.cliente;
 
-import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.entities.cliente.Cliente;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -31,54 +30,20 @@ public class ClienteDAOImp implements ClienteDAO {
     }
 
     @Override
-    public void excluirCliente(String cpf) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a exclusão.");
-        clientes.remove(cliente);
+    public void alterarEmailCliente(Cliente cliente, String novoEmail) {
+        cliente.setEmail(novoEmail); 
     }
 
     @Override
-    public void alterarEmailCliente(String cpf, String novoEmail) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de e-mail.");
-        cliente.setEmail(novoEmail);
-        //atualizarCliente(cpf, cliente);
-    }
-
-    @Override
-    public void alterarEnderecoCliente(String cpf, String novoEndereco) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
+    public void alterarEnderecoCliente(Cliente cliente, String novoEndereco) {
         cliente.setEndereco(novoEndereco);
-        //atualizarCliente(cpf, cliente);
     }
 
     @Override
-    public void alterarTelefoneCliente(String cpf, String novoTelefone) {
-        Cliente cliente = getCliente(cpf, "Cliente não encontrado para a alteração de endereço.");
+    public void alterarTelefoneCliente(Cliente cliente, String novoTelefone) { 
         cliente.setTelefone(novoTelefone);
-        //atualizarCliente(cpf, cliente);
     }
     
-    private Cliente getCliente(String cpf, String msgException) {
-        return encontrarClientePorCpf(cpf)
-                .orElseThrow(
-                    () -> new EntityNotFoundException(msgException)
-                );
-    }
-    
-    /*private void atualizarCliente(String cpf, Cliente cliente) {
-        int clienteIndice = encontrarIndiceCliente(cpf);
-        clientes.set(clienteIndice, cliente);
-    }*/
-
-    /*private int encontrarIndiceCliente(String cpf) {
-        for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(i).getCpf().equals(cpf)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }*/
-
     public static ClienteDAOImp getInstance() {
         return repository;
     }
