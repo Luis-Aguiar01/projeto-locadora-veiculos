@@ -28,7 +28,7 @@ public class FuncionarioService {
                 .anyMatch(f -> f.getCpf().equals(funcionario.getCpf()));
     }
     
-    public void InserirFuncionario(Funcionario funcionario){
+    public void inserirFuncionario(Funcionario funcionario){
         if(!checarCpf(funcionario)){
             String nome = funcionario.getNome();
             
