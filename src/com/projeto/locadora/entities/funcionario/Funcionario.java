@@ -6,11 +6,17 @@ import java.time.Month;
 import java.util.Objects;
 
 public class Funcionario extends Usuario {
-
+    
+    private String senha;
+    
     public Funcionario(FuncionarioBuilder builder) {
         super(builder);
     }
-
+    
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,4 +49,3 @@ public class Funcionario extends Usuario {
         System.out.println(funcionario);
     }*/
 }
-
