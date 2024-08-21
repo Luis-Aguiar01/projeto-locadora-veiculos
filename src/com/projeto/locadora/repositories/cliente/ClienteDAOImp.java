@@ -28,6 +28,11 @@ public class ClienteDAOImp implements ClienteDAO {
     public List<Cliente> getAllClientes() {
         return Collections.unmodifiableList(clientes);
     }
+    
+    @Override
+    public void alterarNomeCliente(Cliente cliente, String novoNome) {
+        cliente.setNome(novoNome); 
+    }
 
     @Override
     public void alterarEmailCliente(Cliente cliente, String novoEmail) {

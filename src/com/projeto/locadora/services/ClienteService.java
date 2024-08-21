@@ -5,6 +5,7 @@ import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.repositories.cliente.ClienteDAO;
 import com.projeto.locadora.repositories.cliente.ClienteDAOImp;
+import com.projeto.locadora.utils.FormatarDados;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class ClienteService {
     public Cliente encontrarClientePorCpf(String cpf) {
         return clienteRepositorio.encontrarClientePorCpf(cpf)
                 .orElseThrow(
-                        () -> new EntityNotFoundException("Cliente com o CPF:\"" + cpf + "\" não encontrado.")
+                        () -> new EntityNotFoundException("Cliente com o CPF: \"" + cpf + "\" não encontrado.")
                 );
     }
     
@@ -33,17 +34,11 @@ public class ClienteService {
         if(!checarCpf(cliente))
         {
             
-            String nome = "";
-            String[] nomes = cliente.getNome().split(" ");
+            String nome = cliente.getNome();
             
-            for(String n : nomes)
-            {
-                nome += n.substring(0,1).toUpperCase();
-                nome += n.substring(1);
-                nome += " ";
-            }
+            nome = FormatarDados.formatarNome(nome);
            
-            cliente.setNome(nome.trim());
+            cliente.setNome(nome);
             
             clienteRepositorio.inserirCliente(cliente);
         }
@@ -56,19 +51,20 @@ public class ClienteService {
     public List<Cliente> retornarTodosOsClientes() {
         return clienteRepositorio.getAllClientes();
     }
+    
+    public void alterarNomeCliente(Cliente cliente, String novoNome) {
+        clienteRepositorio.alterarNomeCliente(cliente, novoNome);
+    }
 
-    public void alterarEmailCliente(String cpf, String novoEmail) {
-        Cliente cliente = encontrarClientePorCpf(cpf);
+    public void alterarEmailCliente(Cliente cliente, String novoEmail) {
         clienteRepositorio.alterarEmailCliente(cliente, novoEmail);
     }
     
-    public void alterarEnderecoCliente(String cpf, String novoEndereco) {
-        Cliente cliente = encontrarClientePorCpf(cpf);
+    public void alterarEnderecoCliente(Cliente cliente, String novoEndereco) {
         clienteRepositorio.alterarEnderecoCliente(cliente, novoEndereco);
     }
 
-    public void alterarTelefoneCliente(String cpf, String novoTelefone) {
-        Cliente cliente = encontrarClientePorCpf(cpf);
+    public void alterarTelefoneCliente(Cliente cliente, String novoTelefone) {
         clienteRepositorio.alterarTelefoneCliente(cliente, novoTelefone);
     }
 
