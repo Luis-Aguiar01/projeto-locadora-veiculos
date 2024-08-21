@@ -55,9 +55,10 @@ public class FuncionarioController {
         
         System.out.println("|| [1] - Alterar Nome do Funcionario.");
         System.out.println("|| [2] - Alterar E-mail do Funcionario.");
-        System.out.println("|| [3] - Alterar Endereco do Funcionario.");
-        System.out.println("|| [4] - Alterar Telefone do Funcionario.");
-        System.out.println("|| [5] - Sair.");
+        System.out.println("|| [3] - Alterar Senha do Funcionario.");
+        System.out.println("|| [4] - Alterar Endereco do Funcionario.");
+        System.out.println("|| [5] - Alterar Telefone do Funcionario.");
+        System.out.println("|| [6] - Sair.");
         System.out.println();
         
         
@@ -84,15 +85,20 @@ public class FuncionarioController {
                     }
                     case 3:
                     {
-                        alterarEnderecoFuncionario();
+                        alterarSenhaFuncionario();
                         break;
                     }
                     case 4:
                     {
-                        alterarTelefoneFuncionario();
+                        alterarEnderecoFuncionario();
                         break;
                     }
                     case 5:
+                    {
+                        alterarTelefoneFuncionario();
+                        break;
+                    }
+                    case 6:
                     {
                         System.out.println("Saindo");
                         break;
@@ -102,7 +108,7 @@ public class FuncionarioController {
                         System.out.println("Opcao invalida");
                     }
                 }
-            }while(opcao > 5);
+            }while(opcao > 6);
         }
         catch(EntityNotFoundException e)
         {
@@ -147,6 +153,21 @@ public class FuncionarioController {
         String email = ValidarEntradas.validarEntradaString("Informe o novo e-mail do funcionario: ", "([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+");
         
         service.alterarEmailFuncionario(funcionario, email);
+    }
+    
+    public void alterarSenhaFuncionario() throws EntityNotFoundException
+    {
+        System.out.println("=============================================================");
+        System.out.println("||               ALTERAR SENHA FUNCIONARIO                 ||");
+        System.out.println("=============================================================");
+        System.out.println();   
+        
+        Funcionario funcionario = solicitaCpfFuncionario();
+        
+        // A senha deve começar com uma letra maiuscula, e deve ter de 8 a 16 caracteres, podendo ser letras maiusculas, minusculas, numeros e caracteres especiais
+        String senha = ValidarEntradas.validarEntradaString("Informe a nova senha do funcionario: ", "^[A-Z][A-Za-z0-9!@#$%^&*(),.?\":{}|<>]{7,15}$");
+        
+        service.alterarSenhaFuncionario(funcionario, senha);
     }
     
     public void alterarEnderecoFuncionario() throws EntityNotFoundException
