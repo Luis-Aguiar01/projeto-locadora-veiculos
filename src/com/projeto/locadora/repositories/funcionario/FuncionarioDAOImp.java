@@ -29,6 +29,11 @@ public class FuncionarioDAOImp implements FuncionarioDAO{
     public List<Funcionario> getAllFuncionarios() {
         return Collections.unmodifiableList(funcionarios);
     }
+    
+    @Override
+    public void alterarNomeFuncionario(Funcionario funcionario, String novoNome){
+        funcionario.setNome(novoNome);
+    }
 
     @Override
     public void alterarEmailFuncionario(Funcionario funcionario, String novoEmail) {
