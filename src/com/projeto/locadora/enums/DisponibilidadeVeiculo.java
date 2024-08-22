@@ -4,8 +4,8 @@ public enum DisponibilidadeVeiculo {
     DISPONIVEL (1, "Disponivel"),
     INDISPONIVEL (2, "Indisponivel");
     
-    private int codigoDisponibilidade;
-    private String situacaoDisponibilidade;
+    private final int codigoDisponibilidade;
+    private final String situacaoDisponibilidade;
 
     private DisponibilidadeVeiculo(int codigoDisponibilidade, String situacaoDisponibilidade) 
     {

@@ -70,57 +70,27 @@ public class ClienteController {
         System.out.println("|| [5] - Sair.");
         System.out.println();
         
-        
-        
-        try
-        {
+        try {
+            int opcao = 1;
             
-            int opcao;
-            
-            do{
+            while (opcao != 5)  {
                 opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
                 
-                switch(opcao)
-                {
-                    case 1: 
-                    {
-                        alterarNomeCliente();
-                        break;
-                    }
-                    case 2:
-                    {
-                        alterarEmailCliente();
-                        break;
-                    }
-                    case 3:
-                    {
-                        alterarEnderecoCliente();
-                        break;
-                    }
-                    case 4:
-                    {
-                        alterarTelefoneCliente();
-                        break;
-                    }
-                    case 5:
-                    {
-                        System.out.println("Saindo");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("Opcao invalida");
-                    }
+                switch(opcao)  {
+                    case 1 -> alterarNomeCliente();
+                    case 2 -> alterarEmailCliente();
+                    case 3 -> alterarEnderecoCliente();
+                    case 4 -> alterarTelefoneCliente();
+                    case 5 -> System.out.println("Saindo");
+                    default -> System.out.println("Opcao invalida");
                 }
-            }while(opcao > 5);
+            }
         }
-        catch(EntityNotFoundException e)
-        {
+        catch(EntityNotFoundException e ) {
             System.out.println("Erro: " + e.getMessage());
         }
         
         System.out.println(service.retornarTodosOsClientes());
-        
     }
     
     public Cliente solicitaCpfCliente() throws EntityNotFoundException

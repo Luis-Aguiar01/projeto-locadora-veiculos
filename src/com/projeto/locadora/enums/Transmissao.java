@@ -5,8 +5,8 @@ public enum Transmissao {
     AUTOMATICO (2, "Automatico"),
     SEMI_AUTOMATICO (3, "Semi-Automatico");
     
-    private int codigoTransmissao;
-    private String nomeTransmissao;
+    private final int codigoTransmissao;
+    private final String nomeTransmissao;
 
     private Transmissao(int codigoTransmissao, String nomeTransmissao) {
         this.codigoTransmissao = codigoTransmissao;

@@ -1,8 +1,6 @@
 package com.projeto.locadora.entities.funcionario;
 
 import com.projeto.locadora.entities.usuario.Usuario;
-import java.time.LocalDateTime;
-import java.time.Month;
 import java.util.Objects;
 
 public class Funcionario extends Usuario {
@@ -11,6 +9,10 @@ public class Funcionario extends Usuario {
     
     public Funcionario(FuncionarioBuilder builder) {
         super(builder);
+    }
+
+    public String getSenha() {
+        return senha;
     }
     
     public void setSenha(String senha) {
@@ -33,19 +35,4 @@ public class Funcionario extends Usuario {
     public String toString() {
         return super.toString();
     }
-
-    /*public static void main(String[] args) {
-        Funcionario funcionario = new FuncionarioBuilderImp()
-                .cpf("111.111.111-11")
-                .nome("João")
-                .email("joao@gmail.com")
-                .senha("123456")
-                .dataNascimento(LocalDateTime.of(2000, Month.MARCH, 10, 10, 10))
-                .endereco("Av. Aleatório, 123")
-                .telefone("123234421321")
-                .dataRegistro(LocalDateTime.now())
-                .build();
-
-        System.out.println(funcionario);
-    }*/
 }

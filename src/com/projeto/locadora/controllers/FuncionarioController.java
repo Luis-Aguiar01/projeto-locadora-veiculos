@@ -61,8 +61,6 @@ public class FuncionarioController {
         System.out.println("|| [6] - Sair.");
         System.out.println();
         
-        
-        
         try
         {
             

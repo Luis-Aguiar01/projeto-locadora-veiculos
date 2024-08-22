@@ -5,8 +5,8 @@ public enum EstadoVeiculo {
     EM_MANUTENCAO(2, "Em Manutencao"),
     MANUTENCAO_EM_DIA(3, "Manutencao em Dia");
     
-    private int codigoEstadoVeiculo;
-    private String estadoVeiculo;
+    private final int codigoEstadoVeiculo;
+    private final String estadoVeiculo;
     
     EstadoVeiculo(int codigoEstadoVeiculo, String estadoVeiculo)
     {

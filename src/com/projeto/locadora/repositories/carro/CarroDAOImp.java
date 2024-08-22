@@ -1,22 +1,50 @@
 package com.projeto.locadora.repositories.carro;
 
-import com.projeto.locadora.enums.DisponibilidadeVeiculo;
-import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.entities.carro.Carro;
-import com.projeto.locadora.enums.Cor;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import com.projeto.locadora.enums.*;
+import com.projeto.locadora.entities.carro.*;
+import com.projeto.locadora.entities.motor.Motor;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class CarroDAOImp implements CarroDAO {
+   
     private static final List<Carro> carros = new ArrayList<>();
     private static final CarroDAOImp repository = new CarroDAOImp();
 
     private CarroDAOImp() {}
 
+//    static {
+//        Carro carro = new CarroBuilderImp()
+//                .renavam("11111111111")
+//                .placa("AAA-0000")
+//                .modelo(Modelo.CONVERSIVEL)
+//                .ano(2020)
+//                .cor(Cor.PRETO)
+//                .quilometragem(0.0)
+//                .valor(200.0)
+//                .transmissao(Transmissao.AUTOMATICO)
+//                .disponibilidade(DisponibilidadeVeiculo.DISPONIVEL)
+//                .estadoVeiculo(EstadoVeiculo.EM_MANUTENCAO)
+//                .build();
+//        
+//        Carro carro2 = new CarroBuilderImp()
+//                .renavam("22222222222")
+//                .placa("BBB-1111")
+//                .modelo(Modelo.ESPORTIVO)
+//                .ano(2020)
+//                .cor(Cor.BRANCO)
+//                .quilometragem(0.0)
+//                .valor(200.0)
+//                .transmissao(Transmissao.SEMI_AUTOMATICO)
+//                .disponibilidade(DisponibilidadeVeiculo.INDISPONIVEL)
+//                .estadoVeiculo(EstadoVeiculo.MANUTENCAO_EM_DIA)
+//                .build();
+//        
+//        carros.add(carro);
+//        carros.add(carro2);
+//    }
+    
     @Override
     public void cadastrarCarro(Carro carro) {
         carros.add(carro);
@@ -26,13 +54,6 @@ public class CarroDAOImp implements CarroDAO {
     public Optional<Carro> encontrarCarroPorRenavam(String renavam) {
         return carros.stream()
                 .filter(c -> c.getRenavam().equals(renavam))
-                .findFirst();
-    }
-
-    @Override
-    public Optional<Carro> encontrarCarroPorPlaca(String placa) {
-        return carros.stream()
-                .filter(c -> c.getPlaca().equalsIgnoreCase(placa))
                 .findFirst();
     }
 
@@ -79,6 +100,16 @@ public class CarroDAOImp implements CarroDAO {
     @Override
     public void alterarValorCarro(Carro carro, double novoValor) {
         carro.setValor(novoValor);
+    }
+    
+    @Override
+    public void alterarPlacaCarro(Carro carro, String novaPlaca) {
+        carro.setPlaca(novaPlaca);
+    }
+    
+    @Override
+    public void alterarMotorCarro(Carro carro, Motor novoMotor) {
+        carro.setMotor(novoMotor);
     }
 
     public static CarroDAOImp getInstance() {

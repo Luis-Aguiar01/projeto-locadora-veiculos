@@ -1,11 +1,7 @@
 package com.projeto.locadora.entities.carro;
 
-import com.projeto.locadora.enums.DisponibilidadeVeiculo;
-import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.enums.Modelo;
+import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.motor.Motor;
-import com.projeto.locadora.enums.Cor;
-import com.projeto.locadora.enums.Transmissao;
 import java.util.Objects;
 
 public class Carro {
@@ -19,7 +15,7 @@ public class Carro {
     private EstadoVeiculo estado;
     private DisponibilidadeVeiculo disponibilidade;
     private Motor motor;
-    private Transmissao transmissao;
+    private final Transmissao transmissao;
 
     public Carro(CarroBuilder builder) {
         this.renavam = builder.getRenavam();
@@ -107,10 +103,6 @@ public class Carro {
         this.motor = motor;
     }
 
-    public void setTransmissao(Transmissao transmissao) {
-        this.transmissao = transmissao;
-    }
-
     @Override
     public String toString() {
         return "Carro{" + 
@@ -137,14 +129,5 @@ public class Carro {
     @Override
     public int hashCode() {
         return Objects.hash(getRenavam());
-    }
-    
-    public static void main(String[] args) {
-        Carro c = new CarroBuilderImp()
-                .cor(Cor.AZUL)
-                .ano(2022)
-                .build();
-        
-        System.out.println(c);
     }
 }

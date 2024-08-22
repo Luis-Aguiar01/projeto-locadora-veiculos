@@ -1,9 +1,13 @@
 package com.projeto.locadora.utils;
 
 import com.projeto.locadora.enums.Cor;
+import com.projeto.locadora.enums.DisponibilidadeVeiculo;
+import com.projeto.locadora.enums.EstadoVeiculo;
 import com.projeto.locadora.enums.Modelo;
 import com.projeto.locadora.enums.Transmissao;
 import com.projeto.locadora.exceptions.InvalidColorException;
+import com.projeto.locadora.exceptions.InvalidDisponibilidadeVeiculoException;
+import com.projeto.locadora.exceptions.InvalidEstadoVeiculoException;
 import com.projeto.locadora.exceptions.InvalidModelException;
 import com.projeto.locadora.exceptions.InvalidTransmissionException;
 import com.projeto.locadora.exceptions.InvalidValueOfQuilometragemException;
@@ -175,6 +179,66 @@ public class ValidarEntradasCarro {
             }
             
             return transmissao;
+        }
+        
+        public static EstadoVeiculo validarEstadoCarro() {
+            boolean condicao = false;
+            EstadoVeiculo estado = null;
+            
+            while (!condicao) {
+                try {
+                    exibirOpcoesEnum(EstadoVeiculo.class);
+                    Integer escolha = scanner.nextInt();
+                                 
+                    if (validarEscolhaEnum(EstadoVeiculo.class, e -> e.getCodigoEstadoVeiculo() == escolha)) {
+                        condicao = true;
+                        String nomeEnum = encontrarNomeEnum(EstadoVeiculo.class, escolha - 1);
+                        estado = EstadoVeiculo.valueOf(nomeEnum);
+                    }
+                    else {
+                        throw new InvalidEstadoVeiculoException();
+                    }
+                }
+                catch (InvalidEstadoVeiculoException estadoVeiculoException) {
+                    System.out.println("O número escolhido para a transmissão está fora do intervalo. Por favor, digite uma opção válida.");
+                }
+                catch (NumberFormatException formatException) {
+                    System.out.println("O formato inserido para o número não é válido. Por favor, digite apenas numeros.");
+                    scanner.next();
+                }
+            }
+            
+            return estado;
+        }
+        
+        public static DisponibilidadeVeiculo validarDisponibilidadeCarro() {
+            boolean condicao = false;
+            DisponibilidadeVeiculo disponibilidade = null;
+            
+            while (!condicao) {
+                try {
+                    exibirOpcoesEnum(DisponibilidadeVeiculo.class);
+                    Integer escolha = scanner.nextInt();
+                                 
+                    if (validarEscolhaEnum(DisponibilidadeVeiculo.class, d -> d.getCodigoDisponibilidade() == escolha)) {
+                        condicao = true;
+                        String nomeEnum = encontrarNomeEnum(DisponibilidadeVeiculo.class, escolha - 1);
+                        disponibilidade = DisponibilidadeVeiculo.valueOf(nomeEnum);
+                    }
+                    else {
+                        throw new InvalidDisponibilidadeVeiculoException();
+                    }
+                }
+                catch (InvalidDisponibilidadeVeiculoException disponibilidadeException) {
+                    System.out.println("O número escolhido para a transmissão está fora do intervalo. Por favor, digite uma opção válida.");
+                }
+                catch (NumberFormatException formatException) {
+                    System.out.println("O formato inserido para o número não é válido. Por favor, digite apenas numeros.");
+                    scanner.next();
+                }
+            }
+            
+            return disponibilidade;
         }
         
         private static <T extends Enum<T>> void exibirOpcoesEnum(Class<T> enumClass) {
