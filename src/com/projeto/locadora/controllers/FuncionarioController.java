@@ -61,57 +61,31 @@ public class FuncionarioController {
         System.out.println("|| [6] - Sair.");
         System.out.println();
         
-        try
+        int opcao = 1;
+            
+        while(opcao > 6)
         {
-            
-            int opcao;
-            
-            do{
+            try
+            {
                 opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
                 
                 switch(opcao)
                 {
-                    case 1: 
-                    {
-                        alterarNomeFuncionario();
-                        break;
-                    }
-                    case 2:
-                    {
-                        alterarEmailFuncionario();
-                        break;
-                    }
-                    case 3:
-                    {
-                        alterarSenhaFuncionario();
-                        break;
-                    }
-                    case 4:
-                    {
-                        alterarEnderecoFuncionario();
-                        break;
-                    }
-                    case 5:
-                    {
-                        alterarTelefoneFuncionario();
-                        break;
-                    }
-                    case 6:
-                    {
-                        System.out.println("Saindo");
-                        break;
-                    }
-                    default:
-                    {
-                        System.out.println("Opcao invalida");
-                    }
+                    case 1 -> alterarNomeFuncionario();
+                    case 2 -> alterarEmailFuncionario();           
+                    case 3 -> alterarSenhaFuncionario();                   
+                    case 4 -> alterarEnderecoFuncionario();                   
+                    case 5 -> alterarTelefoneFuncionario();            
+                    case 6 -> System.out.println("Saindo");                  
+                    default -> System.out.println("Opcao invalida");   
                 }
-            }while(opcao > 6);
+            }
+            catch(EntityNotFoundException e)
+            {
+                System.out.println("Erro: " + e.getMessage());
+            }    
         }
-        catch(EntityNotFoundException e)
-        {
-            System.out.println("Erro: " + e.getMessage());
-        }
+        
         
         System.out.println(service.retornarTodosOsFuncionarios());
         
