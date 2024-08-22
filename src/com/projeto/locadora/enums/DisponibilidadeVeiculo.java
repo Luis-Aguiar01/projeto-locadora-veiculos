@@ -2,7 +2,7 @@ package com.projeto.locadora.enums;
 
 public enum DisponibilidadeVeiculo {
     DISPONIVEL (1, "Disponivel"),
-    INDISPONIVE (2, "Indisponivel");
+    INDISPONIVEL (2, "Indisponivel");
     
     private int codigoDisponibilidade;
     private String situacaoDisponibilidade;
