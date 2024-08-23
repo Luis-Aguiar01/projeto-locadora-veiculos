@@ -1,7 +1,6 @@
 package com.projeto.locadora.entities.motor;
 
 import com.projeto.locadora.enums.Combustivel;
-import java.util.Arrays;
 import java.util.List;
 
 public class MotorBuilderImp implements MotorBuilder{
@@ -10,7 +9,7 @@ public class MotorBuilderImp implements MotorBuilder{
     private int torque;
     private int numeroCilindros;
     private double consumoCombustivel;
-    private List<Combustivel> combustiveis;
+    private Combustivel combustivel;
     private int anoFabricacao;
 
     public MotorBuilderImp() {}
@@ -41,8 +40,8 @@ public class MotorBuilderImp implements MotorBuilder{
     }
 
     @Override
-    public MotorBuilder combustiveis(Combustivel... combustiveis) {
-        this.combustiveis = Arrays.stream(combustiveis).toList();
+    public MotorBuilder combustivel(Combustivel combustivel) {
+        this.combustivel = combustivel;
         return this;
     }
 
@@ -84,8 +83,8 @@ public class MotorBuilderImp implements MotorBuilder{
     }
 
     @Override
-    public List<Combustivel> getCombustiveis() {
-        return combustiveis;
+    public Combustivel getCombustivel() {
+        return combustivel;
     }
 
     @Override

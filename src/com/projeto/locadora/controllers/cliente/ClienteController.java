@@ -12,6 +12,27 @@ public class ClienteController {
     private static final ClienteController controller = new ClienteController();
 
     private ClienteController() {}
+    
+    public void exibirOpcoesCliente()
+    {
+        int op = 1;
+        
+        while(op != 4)
+        {
+            ClienteInterface.printarMenuCliente();
+            
+            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
+            
+            switch (op) 
+            {
+                case 1 -> cadastrarCliente();
+                case 2 -> alterarCliente();
+                case 3 -> visualizarInformacoesClientePorCpf();
+                case 4 -> System.out.println("Saindo.");
+                default -> System.out.println("Opcao Invalida.");
+            }
+        }  
+    }
 
     public void cadastrarCliente() {
         
@@ -26,8 +47,6 @@ public class ClienteController {
         {
             System.out.println("Usuario com CPF já cadastrado.");
         }
-        
-        System.out.println(service.retornarTodosOsClientes());
     }
     
     public void alterarCliente() {
@@ -39,21 +58,19 @@ public class ClienteController {
                 ClienteInterface.printarMenuEscolhasAlteracao();
                 opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
 
-                switch(opcao)  {
+                switch(opcao){
                     case 1 -> alterarNomeCliente();
                     case 2 -> alterarEmailCliente();
                     case 3 -> alterarEnderecoCliente();
                     case 4 -> alterarTelefoneCliente();
                     case 5 -> System.out.println("Saindo");
                     default -> System.out.println("Opcao invalida");
-                   }
+                }
             }
             catch(EntityNotFoundException e ) {
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        
-        System.out.println(service.retornarTodosOsClientes());
     }
     
     public Cliente solicitaCpfCliente() throws EntityNotFoundException
@@ -107,6 +124,15 @@ public class ClienteController {
         
         service.alterarTelefoneCliente(cliente, telefone);
     }
+    
+    public void visualizarInformacoesClientePorCpf() throws EntityNotFoundException
+    {
+        ClienteInterface.printarInterfaceVisualizarDadosCliente();
+        
+        Cliente cliente = solicitaCpfCliente();
+        
+        System.out.println(cliente);
+    }
 
 
     public static ClienteController getInstance() {
@@ -116,8 +142,6 @@ public class ClienteController {
     public static void main(String[] args) {
         ClienteController controller = ClienteController.getInstance();
 
-        controller.cadastrarCliente();
-        
-        controller.alterarCliente();
+        controller.exibirOpcoesCliente();
     }
 }

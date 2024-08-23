@@ -2,6 +2,7 @@ package com.projeto.locadora.entities.usuario;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public abstract class Usuario {
     private final String cpf;
@@ -68,12 +69,13 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return "{ " + "cpf= " + cpf +
-                ", nome= " + nome +
-                ", email= " + email +
-                ", dataNascimento= " + dataNascimento +
-                ", endereco= " + endereco +
-                ", telefone= " + telefone +
-                ", dataRegistro= " + dataRegistro;
+        return ""
+                + "Nome Completo: " + nome + ".\n"
+                + "CPF: " + cpf + ".\n"
+                + "Data de Nascimento: " + dataNascimento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ".\n"
+                + "Email: " + email + ".\n"
+                + "Telefone: " + telefone + ".\n"
+                + "Endereco: " + endereco + ".\n"
+                + "Data e Horario de Registro: " + dataRegistro.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
     }
 }

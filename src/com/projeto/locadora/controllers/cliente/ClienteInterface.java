@@ -4,6 +4,18 @@ import com.projeto.locadora.utils.OperacoesConsole;
 
 public class ClienteInterface {
     
+    public static void printarMenuCliente() {
+        OperacoesConsole.limparConsole();
+        System.out.println("=============================================================");
+        System.out.println("||                   MENU DE CLIENTE                       ||");
+        System.out.println("=============================================================");
+        System.out.println("|| [1] - Cadastrar Cliente.");
+        System.out.println("|| [2] - Alterar Dados Cliente.");
+        System.out.println("|| [3] - Exibir Dados Cliente.");
+        System.out.println("|| [4] - Sair.");
+        System.out.println("=============================================================");
+    }
+    
     public static void printarMenuEscolhasAlteracao() {
         OperacoesConsole.limparConsole();
         System.out.println("=============================================================");
@@ -52,6 +64,14 @@ public class ClienteInterface {
         OperacoesConsole.limparConsole();
         System.out.println("=========================================================");
         System.out.println("||              ALTERAR TELEFONE CLIENTE               ||");
+        System.out.println("=========================================================");
+        System.out.println();
+    }
+    
+    public static void printarInterfaceVisualizarDadosCliente() {
+        OperacoesConsole.limparConsole();
+        System.out.println("=========================================================");
+        System.out.println("||              VISUALIZAR DADOS CLIENTE               ||");
         System.out.println("=========================================================");
         System.out.println();
     }

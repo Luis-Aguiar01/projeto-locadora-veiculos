@@ -2,9 +2,8 @@ package com.projeto.locadora.enums;
 
 public enum Combustivel {
     GASOLINA (1, "Gasolina"),
-    ETANOL (2, "Etanol"),
-    DIESEL (3, "Diesel"),
-    GAS_NATURAL (4, "Gas Natural");
+    FLEX (2, "Etanol e Gasolina"),
+    DIESEL (3, "Diesel");
     
     private final int codigoCombustivel;
     private final String nomeCombustivel;

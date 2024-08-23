@@ -1,7 +1,6 @@
 package com.projeto.locadora.entities.motor;
 
 import com.projeto.locadora.enums.Combustivel;
-import java.util.List;
 
 public class Motor {
     private final int potencia;
@@ -9,7 +8,7 @@ public class Motor {
     private final int torque;
     private final int numeroCilindros;
     private final double consumoCombustivel;
-    private final List<Combustivel> combustiveis;
+    private final Combustivel combustivel;
     private final int anoFabricacao;
 
     public Motor(MotorBuilderImp motorBuilder) {
@@ -18,7 +17,7 @@ public class Motor {
         this.numeroCilindros = motorBuilder.getNumeroCilindros();
         this.torque = motorBuilder.getTorque();
         this.consumoCombustivel = motorBuilder.getConsumoCombustivel();
-        this.combustiveis = motorBuilder.getCombustiveis();
+        this.combustivel = motorBuilder.getCombustivel();
         this.anoFabricacao = motorBuilder.getAnoFabricacao();
     }
 
@@ -42,8 +41,8 @@ public class Motor {
         return consumoCombustivel;
     }
 
-    public List<Combustivel> getCombustiveis() {
-        return combustiveis;
+    public Combustivel getCombustivel() {
+        return combustivel;
     }
 
     public int getAnoFabricacao() {
@@ -57,23 +56,23 @@ public class Motor {
                 ", volume= " + volumeCilindros +
                 ", numeroCilindros= " + numeroCilindros +
                 ", torque= " + torque +
-                ", combustiveis=" + combustiveis +
+                ", combustiveis=" + combustivel +
                 ", consumoCombustivel= "+ consumoCombustivel +
                 ", ano= " + anoFabricacao +
                 " }";
     }
 
-    public static void main(String[] args) {;
+    /*public static void main(String[] args) {
         Motor motor = new MotorBuilderImp()
                 .potencia(150)
                 .volumeCilindros(2.0)
                 .numeroCilindros(4)
                 .torque(250)
-                .combustiveis(Combustivel.DIESEL, Combustivel.ETANOL)
+                .combustiveis(Combustivel.DIESEL)
                 .anoFabricacao(2023)
                 .consumoCombustivel(8.5)
                 .build();
 
         System.out.println(motor);
-    }
+    }*/
 }
