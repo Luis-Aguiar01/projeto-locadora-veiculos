@@ -3,7 +3,7 @@ package com.projeto.locadora.services;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.motor.Motor;
 import com.projeto.locadora.enums.*;
-import com.projeto.locadora.exceptions.EntityNotFoundException;
+import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.repositories.carro.*;
 import java.util.List;
 
@@ -14,7 +14,12 @@ public class CarroService {
     private CarroService() {}
 
     public void cadastrarCarro(Carro carro) {
-        carroRepositorio.cadastrarCarro(carro);
+        if (!encontrarRenavamCarro(carro)) {
+            carroRepositorio.cadastrarCarro(carro);
+        }
+        else {
+            throw new RenavamAlreadyRegisteredException();
+        }
     }
 
     public Carro encontrarCarroPorRenavam(String renavam) {
@@ -22,6 +27,11 @@ public class CarroService {
                 .orElseThrow(
                         () -> new EntityNotFoundException("Carro com renavam " + renavam + " não encontrado.")
                 );
+    }
+    
+    private boolean encontrarRenavamCarro(Carro carro) {
+        return retornarTodosOsCarros().stream()
+                .anyMatch(c -> c.getRenavam().equals(carro.getRenavam()));
     }
 
     public void excluirCarro(String renavam) {
@@ -32,7 +42,7 @@ public class CarroService {
     public List<Carro> retornarTodosOsCarros() {
         return carroRepositorio.getAllCars();
     }
-
+    
     public List<Carro> retornarTodosOsCarrosPorModelo(Modelo modelo) {
        return carroRepositorio.retornarTodosOsCarrosPorFiltro(c -> c.getModelo().equals(modelo) );
     }
@@ -55,6 +65,10 @@ public class CarroService {
     
     public List<Carro> retornarTodosOsCarrosPorTransmissao(Transmissao transmissao) {
         return carroRepositorio.retornarTodosOsCarrosPorFiltro(c -> c.getTransmissao().equals(transmissao));
+    }
+    
+    public List<Carro> retornarTodosOsCarrosPorMarca(Marca marca) {
+        return carroRepositorio.retornarTodosOsCarrosPorFiltro(c -> c.getMarca().equals(marca));
     }
     
     public void alterarCorCarro(Carro carro, Cor novaCor) {

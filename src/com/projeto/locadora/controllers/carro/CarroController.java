@@ -3,7 +3,7 @@ package com.projeto.locadora.controllers.carro;
 import com.projeto.locadora.entities.carro.*;
 import com.projeto.locadora.entities.motor.*;
 import com.projeto.locadora.enums.*;
-import com.projeto.locadora.exceptions.EntityNotFoundException;
+import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.CarroService;
 import com.projeto.locadora.utils.*;
 import java.util.List;
@@ -14,11 +14,34 @@ public class CarroController {
     
     private CarroController() {}
     
+    public void exibirOpcoesCarro() {
+        int op = 1;
+        
+        while(op != 4) {
+            CarroInterface.printarMenuCarro();
+            
+            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
+            
+            switch (op) {
+                case 1 -> cadastrarNovoCarro();
+                case 2 -> alterarDadosCarroMenu();
+                case 3 -> visualizarInformacoesCarroMenu();
+                case 4 -> {}
+                default -> System.out.println("Opcao Invalida.");
+            }
+        }  
+    }
+    
     private void cadastrarNovoCarro() {
         CarroInterface.printarInterfaceCadastro();
         Carro carro = CarroFactory.criarCarro();
         
-        service.cadastrarCarro(carro);
+        try {
+            service.cadastrarCarro(carro);
+        }
+        catch (RenavamAlreadyRegisteredException renavamException) {
+            System.out.println("Carro com o renavam já cadastrado.");
+        }
     }
     
     private void alterarDadosCarroMenu() {
@@ -37,11 +60,9 @@ public class CarroController {
                     case 5 -> alterarEstadoCarro();
                     case 6 -> alterarPlacaCarro();
                     case 7 -> alterarMotorCarro();
-                    case 8 -> System.out.println("Saindo");
+                    case 8 -> {}
                     default -> System.out.println("Opcao invalida");
                 }
-                
-                 System.out.println(service.retornarTodosOsCarros());
             }
             catch(EntityNotFoundException e ) {
                 System.out.println("Erro: " + e.getMessage());
@@ -53,7 +74,7 @@ public class CarroController {
         CarroInterface.printarInterfaceAlteracaoCor();
         
         Carro carro = encontrarCarroPorRenavam();
-        Cor novaCor = ValidarEntradasCarro.validarCorCarro();
+        Cor novaCor = OperacoesEnum.validarEnum(Cor.class);
         
         service.alterarCorCarro(carro, novaCor);
     }
@@ -81,7 +102,7 @@ public class CarroController {
         CarroInterface.printarInterfaceAlteracaoDisponibilidade();
         
         Carro carro = encontrarCarroPorRenavam();
-        DisponibilidadeVeiculo novaDisponibilidade = ValidarEntradasCarro.validarDisponibilidadeCarro();
+        DisponibilidadeVeiculo novaDisponibilidade = OperacoesEnum.validarEnum(DisponibilidadeVeiculo.class);
         
         service.alterarDisponibilidadeCarro(carro, novaDisponibilidade);
     }
@@ -90,7 +111,7 @@ public class CarroController {
         CarroInterface.printarInterfaceAlteracaoEstado();
         
         Carro carro = encontrarCarroPorRenavam();
-        EstadoVeiculo novoEstado = ValidarEntradasCarro.validarEstadoCarro();
+        EstadoVeiculo novoEstado = OperacoesEnum.validarEnum(EstadoVeiculo.class);
         
         service.alterarEstadoCarro(carro, novoEstado); 
     }
@@ -132,7 +153,8 @@ public class CarroController {
                     case 4 -> visualizarCarrosPorCor();
                     case 5 -> visualizarCarrosPorModelo();
                     case 6 -> visualizarCarrosPorTransmissao();
-                    case 7 -> System.out.println("Saindo...");
+                    case 7 -> visualizarCarrosPorMarca();
+                    case 8 -> {}
                     default -> System.out.println("Opcao invalida");
                 }
             }
@@ -148,48 +170,48 @@ public class CarroController {
     }
     
     private void visualizarCarrosPorEstado() {
-        EstadoVeiculo estado = ValidarEntradasCarro.validarEstadoCarro();
+        EstadoVeiculo estado = OperacoesEnum.validarEnum(EstadoVeiculo.class);
         List<Carro> carrosPorEstado = service.retornarTodosOsCarrosPorEstado(estado);
         CarroInterface.printarInformacoesCarros(carrosPorEstado);
     }
     
+    private void visualizarCarrosPorMarca() {
+        Marca marca = OperacoesEnum.validarEnum(Marca.class);
+        List<Carro> carrosPorMarca = service.retornarTodosOsCarrosPorMarca(marca);
+        CarroInterface.printarInformacoesCarros(carrosPorMarca);
+    }
+    
     private void visualizarCarrosPorDisponibilidade() {
-        DisponibilidadeVeiculo disponibilidade = ValidarEntradasCarro.validarDisponibilidadeCarro();
+        DisponibilidadeVeiculo disponibilidade = OperacoesEnum.validarEnum(DisponibilidadeVeiculo.class);
         List<Carro> carrosPorDispobilidade = service.retornarTodosOsCarrosPorDisponibilidade(disponibilidade);
         CarroInterface.printarInformacoesCarros(carrosPorDispobilidade);
     }
     
     private void visualizarCarrosPorCor() {
-        Cor cor = ValidarEntradasCarro.validarCorCarro();
+        Cor cor = OperacoesEnum.validarEnum(Cor.class);
         List<Carro> carrosPorCor = service.retornarTodosOsCarrosPorCor(cor);
         CarroInterface.printarInformacoesCarros(carrosPorCor);
     }
     
     private void visualizarCarrosPorModelo() {
-        Modelo modelo = ValidarEntradasCarro.validarModelo();
+        Modelo modelo = OperacoesEnum.validarEnum(Modelo.class);
         List<Carro> carrosPorModelo = service.retornarTodosOsCarrosPorModelo(modelo);
-       CarroInterface.printarInformacoesCarros(carrosPorModelo);
+        CarroInterface.printarInformacoesCarros(carrosPorModelo);
     }
     
     private void visualizarCarrosPorTransmissao() {
-        Transmissao transmissao = ValidarEntradasCarro.validarTransmissaoCarro();
+        Transmissao transmissao = OperacoesEnum.validarEnum(Transmissao.class);
         List<Carro> carrosPorTransmisao = service.retornarTodosOsCarrosPorTransmissao(transmissao);
         CarroInterface.printarInformacoesCarros(carrosPorTransmisao);
     }
 
     private Carro encontrarCarroPorRenavam() {
         String renavam = 
-                ValidarEntradas.validarEntradaString("Informe o renavam do carro:", CarroFactory.VALIDAR_RENAVAM_CARRO_REGEX);
+                ValidarEntradas.validarEntradaString("Informe o renavam do carro: ", CarroFactory.VALIDAR_RENAVAM_CARRO_REGEX);
         return service.encontrarCarroPorRenavam(renavam);
     }
     
     public static CarroController getInstance() {
         return controller;
-    }
-    
-    public static void main(String[] args) {
-        CarroController controller = CarroController.getInstance();
-        
-        controller.visualizarInformacoesCarroMenu();
     }
 }

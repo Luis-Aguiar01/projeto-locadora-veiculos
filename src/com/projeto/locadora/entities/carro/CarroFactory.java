@@ -9,28 +9,34 @@ public class CarroFactory {
     public final static String VALIDAR_RENAVAM_CARRO_REGEX = "^\\d{11}$";
     
     public static Carro criarCarro() {
-        String renavam = ValidarEntradas.validarEntradaString("Digite o renavam do carro: ", VALIDAR_RENAVAM_CARRO_REGEX);
+        String renavam = ValidarEntradas.validarEntradaString("Digite o renavam do carro (11 digitos): ", VALIDAR_RENAVAM_CARRO_REGEX);
         
         String placa = ValidarEntradas.validarEntradaString("Digite a placa do carro (AAA-0000 ou AAA0A00): ", VALIDAR_PLACA_CARRO_REGEX);
         
-        Modelo modelo = ValidarEntradasCarro.validarModelo();
+        String nome = ValidarEntradas.validarEntradaString("Digite o nome do carro: ", "[A-Za-z0-9-]+");
         
-        int ano = ValidarEntradasCarro.validarAnoCarro("Digite o ano do carro: ");
+        Modelo modelo = OperacoesEnum.validarEnum(Modelo.class);
         
-        Cor cor = ValidarEntradasCarro.validarCorCarro();
+        Marca marca = OperacoesEnum.validarEnum(Marca.class);
+        
+        int ano = ValidarEntradasCarro.validarAnoCarro("Digite o ano do carro (maior que 2014): ");
+        
+        Cor cor = OperacoesEnum.validarEnum(Cor.class);
         
         double quilometragem = ValidarEntradasCarro.validarQuilometragemCarro("Digite a quilometragem do carro: ");
         
-        double valorDiaria = ValidarEntradasCarro.validarValorDiariaCarro("Digite o valor da diária do carro: ");
+        double valorDiaria = ValidarEntradasCarro.validarValorDiariaCarro("Digite o valor da diária do carro (>= 100): ");
         
         Motor motor = MotorFactory.criarMotor();
         
-        Transmissao transmissao = ValidarEntradasCarro.validarTransmissaoCarro();
+        Transmissao transmissao = OperacoesEnum.validarEnum(Transmissao.class);
                 
         return new CarroBuilderImp()
                 .renavam(renavam)
                 .placa(placa)
+                .nome(nome)
                 .modelo(modelo)
+                .marca(marca)
                 .ano(ano)
                 .cor(cor)
                 .quilometragem(quilometragem)

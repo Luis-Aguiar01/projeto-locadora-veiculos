@@ -1,8 +1,6 @@
 package com.projeto.locadora.utils;
 
-import com.projeto.locadora.exceptions.MinimumAgeRequirementException;
-import com.projeto.locadora.exceptions.NumberOutOfRangeException;
-import com.projeto.locadora.exceptions.RegexPatternMismatchException;
+import com.projeto.locadora.exceptions.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;

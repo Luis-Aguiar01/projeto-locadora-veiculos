@@ -12,8 +12,8 @@ public enum Marca {
     JEEP (9, "Jeep"), 
     NISSAN (10, "Nissan");
     
-    private int codigoMarca;
-    private String nomeMarca;
+    private final int codigoMarca;
+    private final String nomeMarca;
     
     Marca(int codigoMarca, String nomeMarca)
     {

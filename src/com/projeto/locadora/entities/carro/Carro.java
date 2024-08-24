@@ -7,7 +7,9 @@ import java.util.Objects;
 public class Carro {
     private final String renavam;
     private String placa;
+    private final String nome;
     private final Modelo modelo;
+    private final Marca marca;
     private final int ano;
     private Cor cor;
     private double quilometragem;
@@ -20,7 +22,9 @@ public class Carro {
     public Carro(CarroBuilder builder) {
         this.renavam = builder.getRenavam();
         this.placa = builder.getPlaca();
+        this.nome = builder.getNome();
         this.modelo = builder.getModelo();
+        this.marca = builder.getMarca();
         this.ano = builder.getAno();
         this.cor = builder.getCor();
         this.quilometragem = builder.getQuilometragem();
@@ -71,8 +75,16 @@ public class Carro {
         return estado;
     }
 
+    public String getNome() {
+        return nome;
+    }
+    
     public DisponibilidadeVeiculo getDisponibilidade() {
         return disponibilidade;
+    }
+
+    public Marca getMarca() {
+        return marca;
     }
 
     public void setPlaca(String placa) {
@@ -105,18 +117,12 @@ public class Carro {
 
     @Override
     public String toString() {
-        return "Carro{" + 
-                "renavam=" + renavam + 
-                ", placa=" + placa + 
-                ", modelo=" + modelo + 
-                ", ano=" + ano + 
-                ", cor=" + cor + 
-                ", quilometragem=" + quilometragem + 
-                ", valor=" + valor + 
-                ", estado=" + estado + 
-                ", disponibilidade=" + disponibilidade + 
-                ", motor=" + motor + 
-                ", transmissao=" + transmissao + '}';
+        return String.format("Carro %s %s\n", nome, marca.getNomeMarca()) +
+                "Modelo: " + modelo.getNomeModelo() + "\n" + 
+                "Transmissao: " + transmissao.getNomeTransmissao() + "\n" +
+                "Volume do Cilindro: " + String.format("%.1f\n", motor.getVolumeCilindros()) +
+                "Cor: " + cor.getNomeCor() + "\n" +
+                "Valor da Diaria: R$" + valor + "\n" ;
     }
 
     @Override

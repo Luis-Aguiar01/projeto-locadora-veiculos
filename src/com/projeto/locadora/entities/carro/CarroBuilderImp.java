@@ -1,16 +1,14 @@
 package com.projeto.locadora.entities.carro;
 
-import com.projeto.locadora.enums.DisponibilidadeVeiculo;
-import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.enums.Modelo;
-import com.projeto.locadora.enums.Transmissao;
+import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.motor.Motor;
-import com.projeto.locadora.enums.Cor;
 
 public class CarroBuilderImp implements CarroBuilder {
     private String renavam;
     private String placa;
+    private String nome;
     private Modelo modelo;
+    private Marca marca;
     private int ano;
     private Cor cor;
     private double quilometragem;
@@ -78,6 +76,16 @@ public class CarroBuilderImp implements CarroBuilder {
     }
     
     @Override
+    public Marca getMarca() {
+        return marca;
+    }
+    
+    @Override
+    public String getNome() {
+        return nome;
+    }
+    
+    @Override
     public CarroBuilder disponibilidade(DisponibilidadeVeiculo disponibilidade) {
         this.disponibilidade = disponibilidade;
         return this;
@@ -100,10 +108,22 @@ public class CarroBuilderImp implements CarroBuilder {
         this.placa = placa;
         return this;
     }
+    
+    @Override
+    public CarroBuilder nome(String nome) {
+        this.nome = nome;
+        return this;
+    }
 
     @Override
     public CarroBuilder modelo(Modelo modelo) {
         this.modelo = modelo;
+        return this;
+    }
+    
+    @Override
+    public CarroBuilder marca(Marca marca) {
+        this.marca = marca;
         return this;
     }
 

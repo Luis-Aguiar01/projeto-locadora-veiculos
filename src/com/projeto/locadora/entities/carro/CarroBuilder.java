@@ -1,11 +1,7 @@
 package com.projeto.locadora.entities.carro;
 
-import com.projeto.locadora.enums.DisponibilidadeVeiculo;
-import com.projeto.locadora.enums.EstadoVeiculo;
-import com.projeto.locadora.enums.Modelo;
-import com.projeto.locadora.enums.Transmissao;
+import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.motor.Motor;
-import com.projeto.locadora.enums.Cor;
 
 public interface CarroBuilder {
     CarroBuilder renavam(String renavam);
@@ -19,10 +15,14 @@ public interface CarroBuilder {
     CarroBuilder motor(Motor motor);
     CarroBuilder transmissao(Transmissao transmissao);
     CarroBuilder estadoVeiculo(EstadoVeiculo estadoVeiculo);
+    CarroBuilder marca(Marca marca);
+    CarroBuilder nome(String nome);
     Carro build();
     String getRenavam();
     String getPlaca();
+    String getNome();
     Modelo getModelo();
+    Marca getMarca();
     int getAno();
     Cor getCor();
     double getQuilometragem();
