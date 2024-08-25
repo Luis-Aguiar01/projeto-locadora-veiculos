@@ -3,6 +3,7 @@ package com.projeto.locadora.utils;
 import com.projeto.locadora.exceptions.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ValidarEntradas 
@@ -115,14 +116,15 @@ public class ValidarEntradas
     {
         boolean condicao = false;
         LocalDate dataNascimento = null;
-        LocalDate dataMinima = LocalDate.now().minusYears(18); 
+        LocalDate dataMinima = LocalDate.now().minusYears(18);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         
         while(!condicao)
         {
             try
             {
                 System.out.print(mensagem);
-                dataNascimento = LocalDate.parse(scanner.nextLine());
+                dataNascimento = LocalDate.parse(scanner.nextLine(), formatter);
                 
                 if(dataNascimento.isBefore(dataMinima) || dataNascimento.isEqual(dataMinima))
                 {

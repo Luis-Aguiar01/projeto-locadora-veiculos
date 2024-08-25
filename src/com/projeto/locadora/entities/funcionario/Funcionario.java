@@ -9,6 +9,7 @@ public class Funcionario extends Usuario {
     
     public Funcionario(FuncionarioBuilder builder) {
         super(builder);
+        this.senha = builder.getSenha();
     }
 
     public String getSenha() {

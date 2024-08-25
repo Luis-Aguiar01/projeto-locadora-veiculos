@@ -29,7 +29,7 @@ public class FuncionarioService {
     }
     
     public void inserirFuncionario(Funcionario funcionario){
-        if(!checarCpf(funcionario)){
+        if (!checarCpf(funcionario)) {
             String nome = funcionario.getNome();
             
             nome = FormatarDados.formatarNome(nome);
@@ -37,7 +37,8 @@ public class FuncionarioService {
             funcionario.setNome(nome);
             
             funcionarioRepositorio.inserirFuncionario(funcionario);
-        }else{
+        } 
+        else {
             throw new CpfAlreadyRegisteredException();
         }        
     }

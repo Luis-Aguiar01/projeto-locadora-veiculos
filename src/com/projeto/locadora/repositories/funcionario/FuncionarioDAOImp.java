@@ -1,6 +1,9 @@
 package com.projeto.locadora.repositories.funcionario;
 
 import com.projeto.locadora.entities.funcionario.Funcionario;
+import com.projeto.locadora.entities.funcionario.FuncionarioBuilderImp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +15,20 @@ public class FuncionarioDAOImp implements FuncionarioDAO{
     private static final FuncionarioDAOImp repository = new FuncionarioDAOImp();
 
     public FuncionarioDAOImp() {}
+    
+    static {
+        Funcionario funcionarioAdm = new FuncionarioBuilderImp()
+                .nome("admin")
+                .cpf("111.111.111-11")
+                .email("admin@admin.com")
+                .dataNascimento(LocalDate.of(2000, 12, 31))
+                .dataRegistro(LocalDateTime.now())
+                .endereco("Av. Aleatório, 213")
+                .telefone("(16)99999-9999")
+                .senha("admin")
+                .build();
+         funcionarios.add(funcionarioAdm);
+    }
     
     @Override
     public Optional<Funcionario> encontrarFuncionarioPorCpf(String cpf) {

@@ -32,7 +32,7 @@ public class CarroController {
         }  
     }
     
-    private void cadastrarNovoCarro() {
+    public void cadastrarNovoCarro() {
         CarroInterface.printarInterfaceCadastro();
         Carro carro = CarroFactory.criarCarro();
         
@@ -44,7 +44,7 @@ public class CarroController {
         }
     }
     
-    private void alterarDadosCarroMenu() {
+    public void alterarDadosCarroMenu() {
         int opcao = 1;
             
          while (opcao != 8)  { 
@@ -138,7 +138,7 @@ public class CarroController {
         service.alterarMotorCarro(carro, novoMotor);
     }
     
-    private void visualizarInformacoesCarroMenu() {
+    public void visualizarInformacoesCarroMenu() {
         int opcao = 1;
        
         while (opcao != 7)  { 
