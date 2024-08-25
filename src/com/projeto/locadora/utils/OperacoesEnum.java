@@ -2,12 +2,9 @@ package com.projeto.locadora.utils;
 
 import com.projeto.locadora.exceptions.InvalidEnumException;
 import java.util.Arrays;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class OperacoesEnum {
-        private static final Scanner scanner = SingletonScanner.getInstance();
     
         private OperacoesEnum() {}
     
@@ -48,7 +45,7 @@ public class OperacoesEnum {
             while (!condicao) {
                 try {
                     OperacoesEnum.exibirOpcoesEnum(classEnum);
-                    Integer escolha = scanner.nextInt();
+                    int escolha = ValidarEntradas.validarEntradaInteira("Informe a opcao desejada: ");
                                  
                     if (OperacoesEnum.validarEscolhaEnum(classEnum, m -> m.ordinal() + 1 == escolha)) {
                         condicao = true;
@@ -65,10 +62,6 @@ public class OperacoesEnum {
                 }
                 catch (InvalidEnumException enumException) {
                     System.out.println("O número escolhido para o modelo está fora do intervalo. Por favor, digite uma opção válida.");
-                }
-                catch (InputMismatchException e) {
-                    System.out.println("O formato inserido para o número não é válido. Por favor, digite apenas numeros.");
-                    scanner.next();
                 }
             }
             

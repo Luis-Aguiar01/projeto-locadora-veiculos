@@ -1,11 +1,8 @@
 package com.projeto.locadora.utils;
 
 import java.time.Year;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class ValidarEntradasMotor {
-    private static final Scanner scanner = SingletonScanner.getInstance();
     
     private ValidarEntradasMotor() {}
     
@@ -15,8 +12,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                ano = scanner.nextInt();
+                ano = ValidarEntradas.validarEntradaInteira(mensagem);
                 
                 if (ano > 2014 && ano < Year.now().getValue()) {
                     condicao = true;
@@ -27,10 +23,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para o ano do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite um numero inteiro.");
-                scanner.nextLine();
             }
         }
         
@@ -43,8 +35,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                potencia = scanner.nextInt();
+                potencia = ValidarEntradas.validarEntradaInteira(mensagem);
                 
                 if (potencia >= 50 && potencia <= 300) {
                     condicao = true;
@@ -55,10 +46,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para a potencia do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite um numero inteiro.");
-                scanner.nextLine();
             }
         }
         
@@ -71,10 +58,9 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                volumeCilindros = scanner.nextDouble();
+                volumeCilindros = ValidarEntradas.validarEntradaDouble(mensagem);
                 
-                if (volumeCilindros >= 1.0 && volumeCilindros <= 2.5) {
+                if (volumeCilindros >= 1.0 && volumeCilindros <= 3.0) {
                     condicao = true;
                 }
                 else {
@@ -83,10 +69,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para o volume dos cilindros do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite apenas numeros.");
-                scanner.nextLine();
             }
         }
         
@@ -99,8 +81,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                torque = scanner.nextInt();
+                torque = ValidarEntradas.validarEntradaInteira(mensagem);
                 
                 if (torque >= 100 && torque <= 300) {
                     condicao = true;
@@ -111,10 +92,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para o torque do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite apenas numeros.");
-                scanner.nextLine();
             }
         }
         
@@ -127,10 +104,9 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                numeroCilindros = scanner.nextInt();
+                numeroCilindros = ValidarEntradas.validarEntradaInteira(mensagem);
                 
-                if (numeroCilindros == 3 || numeroCilindros == 4 || numeroCilindros == 6) {
+                if (numeroCilindros == 3 || numeroCilindros == 4 || numeroCilindros == 5 || numeroCilindros == 6) {
                     condicao = true;
                 }
                 else {
@@ -139,10 +115,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para o numero de cilindros do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite apenas numeros.");
-                scanner.nextLine();
             }
         }
         
@@ -155,10 +127,9 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                System.out.print(mensagem);
-                consumoCombustivel = scanner.nextInt();
+                consumoCombustivel = ValidarEntradas.validarEntradaInteira(mensagem);
                 
-                if (consumoCombustivel >= 8 && consumoCombustivel <= 20) {
+                if (consumoCombustivel >= 3 && consumoCombustivel <= 20) {
                     condicao = true;
                 }
                 else {
@@ -167,10 +138,6 @@ public class ValidarEntradasMotor {
             }
             catch (IllegalArgumentException ex) {
                 System.out.println("Digite um valor válido para o consumo de combustivel do motor.");
-            }
-            catch (InputMismatchException e) {
-                System.out.println("Valor invalido. Por favor, digite apenas numeros.");
-                scanner.nextLine();
             }
         }
         

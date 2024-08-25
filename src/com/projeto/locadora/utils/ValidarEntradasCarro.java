@@ -2,10 +2,8 @@ package com.projeto.locadora.utils;
 
 import com.projeto.locadora.exceptions.*;
 import java.time.Year;
-import java.util.*;
 
 public class ValidarEntradasCarro {
-        private static final Scanner scanner = SingletonScanner.getInstance();
         
         private ValidarEntradasCarro() {}
         
@@ -15,8 +13,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    System.out.print(mensagem);
-                    ano = scanner.nextInt();
+                    ano = ValidarEntradas.validarEntradaInteira(mensagem);
                     
                     if (ano > 2014 && ano <= Year.now().getValue()) {
                         condicao = true;
@@ -27,10 +24,6 @@ public class ValidarEntradasCarro {
                 }
                 catch (InvalidYearOfCarException carException) {
                     System.out.println("Por favor, digite um ano maior que 2014.");
-                }
-                catch (InputMismatchException e) {
-                    System.out.println("Entrada invalida. Por favor, digite um numero.");
-                    scanner.nextLine();
                 }
             }
             
@@ -43,8 +36,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    System.out.print(mensagem);
-                    quilometragem = scanner.nextDouble();
+                    quilometragem = ValidarEntradas.validarEntradaInteira(mensagem);
                     
                     if (quilometragem >= 0.0) {
                         condicao = true;
@@ -55,10 +47,6 @@ public class ValidarEntradasCarro {
                 }
                 catch (InvalidValueOfQuilometragemException quilometragemException) {
                     System.out.println("Por favor, digite um valor para a quilometragem que seja maior, ou igual, a zero.");
-                }
-                catch (InputMismatchException e) {
-                    System.out.println("Entrada invalida. Por favor, digite um numero.");
-                    scanner.nextLine();
                 }
             }
             
@@ -71,8 +59,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    System.out.print(mensagem);
-                    valorDiaria = scanner.nextDouble();
+                    valorDiaria = ValidarEntradas.validarEntradaDouble(mensagem);
                     
                     if (valorDiaria >= 100.0) {
                         condicao = true;
@@ -83,10 +70,6 @@ public class ValidarEntradasCarro {
                 }
                 catch (InvalidValueOfValorDiariaException valorException) {
                     System.out.println("Por favor, digite um valor para a diária que seja maior, ou igual, a 100.0.");
-                }
-                catch (InputMismatchException e) {
-                    System.out.println("Entrada invalida. Por favor, digite um numero.");
-                    scanner.nextLine();
                 }
             }
             
