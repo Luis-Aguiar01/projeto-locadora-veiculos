@@ -214,4 +214,11 @@ public class CarroController {
     public static CarroController getInstance() {
         return controller;
     }
+    
+    public static void main(String[] args) {
+        CarroController controller = CarroController.getInstance();
+        
+        controller.exibirOpcoesCarro();
+    }
+    
 }

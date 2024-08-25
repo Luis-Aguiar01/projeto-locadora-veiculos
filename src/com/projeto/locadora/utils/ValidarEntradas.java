@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ValidarEntradas 
 {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = SingletonScanner.getInstance();
     
     public static int validarEntradaInteira(String mensagem) 
     {

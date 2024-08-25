@@ -1,6 +1,7 @@
 package com.projeto.locadora.controllers.cliente;
 
 import com.projeto.locadora.entities.cliente.*;
+import com.projeto.locadora.utils.ValidacoesRegex;
 import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.services.ClienteService;
@@ -75,7 +76,7 @@ public class ClienteController {
     
     public Cliente solicitaCpfCliente() throws EntityNotFoundException
     {
-        String cpf = ValidarEntradas.validarEntradaString("Informe o CPF do Cliente (XXX.XXX.XXX-XX): ", ClienteFactory.VALIDAR_CPF_CLIENTE_REGEX);
+        String cpf = ValidarEntradas.validarEntradaString("Informe o CPF do Cliente (XXX.XXX.XXX-XX): ", ValidacoesRegex.VALIDAR_CPF_REGEX);
         return service.encontrarClientePorCpf(cpf);
     }
     
@@ -85,7 +86,7 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String nome = ValidarEntradas.validarEntradaString("Informe o novo nome do cliente: ", ClienteFactory.VALIDAR_NOME_CLIENTE_REGEX);
+        String nome = ValidarEntradas.validarEntradaString("Informe o novo nome do cliente: ", ValidacoesRegex.VALIDAR_NOME_REGEX);
         
         nome = FormatarDados.formatarNome(nome);
         
@@ -98,7 +99,7 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String email = ValidarEntradas.validarEntradaString("Informe o novo e-mail do cliente: ", ClienteFactory.VALIDAR_EMAIL_CLIENTE_REGEX);
+        String email = ValidarEntradas.validarEntradaString("Informe o novo e-mail do cliente: ", ValidacoesRegex.VALIDAR_EMAIL_REGEX);
         
         service.alterarEmailCliente(cliente, email);
     }
@@ -109,7 +110,7 @@ public class ClienteController {
       
         Cliente cliente = solicitaCpfCliente();
         
-        String endereco = ValidarEntradas.validarEntradaString("Informe o novo endereco do cliente: ", ClienteFactory.VALIDAR_ENDERECO_CLIENTE_REGEX);
+        String endereco = ValidarEntradas.validarEntradaString("Informe o novo endereco do cliente: ", ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
         
         service.alterarEnderecoCliente(cliente, endereco);
     }
@@ -120,7 +121,7 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String telefone = ValidarEntradas.validarEntradaString("Informe o novo telefone do cliente((XX)XXXXX-XXXX): ", ClienteFactory.VALIDAR_TELEFONE_CLIENTE_REGEX);
+        String telefone = ValidarEntradas.validarEntradaString("Informe o novo telefone do cliente((XX)XXXXX-XXXX): ", ValidacoesRegex.VALIDAR_TELEFONE_REGEX);
         
         service.alterarTelefoneCliente(cliente, telefone);
     }

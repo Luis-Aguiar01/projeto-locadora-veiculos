@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 
 public class OperacoesEnum {
-        private static final Scanner scanner = new Scanner(System.in);
+        private static final Scanner scanner = SingletonScanner.getInstance();
     
         private OperacoesEnum() {}
     

@@ -5,7 +5,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ValidarEntradasMotor {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = SingletonScanner.getInstance();
     
     private ValidarEntradasMotor() {}
     

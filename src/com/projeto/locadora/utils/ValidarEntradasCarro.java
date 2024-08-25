@@ -5,7 +5,7 @@ import java.time.Year;
 import java.util.*;
 
 public class ValidarEntradasCarro {
-        private static final Scanner scanner = new Scanner(System.in);
+        private static final Scanner scanner = SingletonScanner.getInstance();
         
         private ValidarEntradasCarro() {}
         
