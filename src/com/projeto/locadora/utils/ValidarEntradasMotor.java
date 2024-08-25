@@ -18,11 +18,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor valido para o ano do motor.\nIntervalo esperado: Valor maior que 2014 e menor ou igual que " + Year.now().getValue() + ".");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para o ano do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         
@@ -41,11 +41,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para a potencia do motor.\nIntervalo esperado: Valor maior ou igual a 50 e menor ou igual a 300.");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para a potencia do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         
@@ -64,11 +64,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para o volume dos cilindros do motor.\nIntervalo esperado: Valor maior ou igual a 1.0 e menor ou igual a 3.0");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para o volume dos cilindros do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         
@@ -87,11 +87,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para o torque do motor.Intervalo esperado: Valor maior ou igual a 100 e menor ou igual a 300");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para o torque do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         
@@ -110,11 +110,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para o numero de cilindros do motor.\nIntervalo esperado: 3, 4, 5 ou 6 cilindros.");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para o numero de cilindros do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         
@@ -133,11 +133,11 @@ public class ValidarEntradasMotor {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor valido para o consumo de combustivel do motor.Intervalo esperado: Valor maior ou igual a 3 e menor ou igual a 20");
                 }
             }
             catch (IllegalArgumentException ex) {
-                System.out.println("Digite um valor válido para o consumo de combustivel do motor.");
+                System.out.println("Erro: " + ex.getMessage());
             }
         }
         

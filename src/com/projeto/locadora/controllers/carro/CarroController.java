@@ -40,7 +40,7 @@ public class CarroController {
             service.cadastrarCarro(carro);
         }
         catch (RenavamAlreadyRegisteredException renavamException) {
-            System.out.println("Carro com o renavam já cadastrado.");
+            System.out.println("Carro com o RENAVAM já cadastrado.");
         }
     }
     

@@ -9,6 +9,7 @@ public class OperacoesEnum {
         private OperacoesEnum() {}
     
         public static <T extends Enum<T>> void exibirOpcoesEnum(Class<T> enumClass) {
+            OperacoesConsole.limparConsole();
             System.out.println("================================================================");
             System.out.println("||              ESCOLHA UMA OPÇÃO ABAIXO             ||");
             System.out.println("================================================================");

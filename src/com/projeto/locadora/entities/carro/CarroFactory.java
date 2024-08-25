@@ -9,7 +9,7 @@ public class CarroFactory {
     public final static String VALIDAR_RENAVAM_CARRO_REGEX = "^\\d{11}$";
     
     public static Carro criarCarro() {
-        String renavam = ValidarEntradas.validarEntradaString("Digite o renavam do carro (11 digitos): ", VALIDAR_RENAVAM_CARRO_REGEX);
+        String renavam = ValidarEntradas.validarEntradaString("Digite o RENAVAM do carro (11 digitos): ", VALIDAR_RENAVAM_CARRO_REGEX);
         
         String placa = ValidarEntradas.validarEntradaString("Digite a placa do carro (AAA-0000 ou AAA0A00): ", VALIDAR_PLACA_CARRO_REGEX);
         

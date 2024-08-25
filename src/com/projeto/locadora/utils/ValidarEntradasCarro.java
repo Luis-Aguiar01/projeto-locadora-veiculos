@@ -19,11 +19,11 @@ public class ValidarEntradasCarro {
                         condicao = true;
                     }
                     else {
-                        throw new InvalidYearOfCarException();
+                        throw new InvalidYearOfCarException("Valor invalido. Por favor, digite um valor valor valido para o ano do carro.\nIntervalo esperado: Valor maior que 2014 e menor ou igual que " + Year.now().getValue() + ".");
                     }
                 }
-                catch (InvalidYearOfCarException carException) {
-                    System.out.println("Por favor, digite um ano maior que 2014.");
+                catch (InvalidYearOfCarException ex) {
+                    System.out.println("Erro: " + ex.getMessage());
                 }
             }
             
@@ -42,11 +42,11 @@ public class ValidarEntradasCarro {
                         condicao = true;
                     }
                     else {
-                        throw new InvalidValueOfQuilometragemException();
+                        throw new InvalidValueOfQuilometragemException("Valor invalido. Por favor, digite um valor valido para a quilometragem do veiculo.\nIntervalo esperado: Valor maior ou igual a zero.");
                     }
                 }
-                catch (InvalidValueOfQuilometragemException quilometragemException) {
-                    System.out.println("Por favor, digite um valor para a quilometragem que seja maior, ou igual, a zero.");
+                catch (InvalidValueOfQuilometragemException ex) {
+                    System.out.println("Erro: " + ex.getMessage());
                 }
             }
             
