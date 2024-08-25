@@ -2,6 +2,7 @@ package com.projeto.locadora.repositories.funcionario;
 
 import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.entities.funcionario.FuncionarioBuilderImp;
+import com.projeto.locadora.enums.Cargo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -25,9 +26,24 @@ public class FuncionarioDAOImp implements FuncionarioDAO{
                 .dataRegistro(LocalDateTime.now())
                 .endereco("Av. Aleatório, 213")
                 .telefone("(16)99999-9999")
-                .senha("admin")
+                .senha("Admin")
+                .cargo(Cargo.ADMIN)
                 .build();
-         funcionarios.add(funcionarioAdm);
+        
+        Funcionario funcionarioComum = new FuncionarioBuilderImp()
+                .nome("Gabriel")
+                .cpf("222.222.222-22")
+                .email("gabriel@gmail.com")
+                .dataNascimento(LocalDate.of(2000, 12, 31))
+                .dataRegistro(LocalDateTime.now())
+                .endereco("Av. Aleatório, 213")
+                .telefone("(16)99999-9999")
+                .senha("123")
+                .cargo(Cargo.COMUM)
+                .build();
+        
+        funcionarios.add(funcionarioAdm);
+        funcionarios.add(funcionarioComum);
     }
     
     @Override

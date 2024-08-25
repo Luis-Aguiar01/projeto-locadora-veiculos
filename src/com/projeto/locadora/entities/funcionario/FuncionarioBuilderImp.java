@@ -1,5 +1,6 @@
 package com.projeto.locadora.entities.funcionario;
 
+import com.projeto.locadora.enums.Cargo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -9,6 +10,7 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
     private String email;
     private String senha;
     private LocalDate dataNascimento;
+    private Cargo cargo;
     private String endereco;
     private String telefone;
     private LocalDateTime dataRegistro;
@@ -18,7 +20,13 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
         this.cpf = cpf;
         return this;
     }
-
+    
+    @Override
+    public FuncionarioBuilderImp cargo(Cargo cargo) {
+        this.cargo = cargo;
+        return this;
+    }
+    
     @Override
     public FuncionarioBuilderImp nome(String nome) {
         this.nome = nome;
@@ -69,6 +77,11 @@ public class FuncionarioBuilderImp implements FuncionarioBuilder {
     @Override
     public String getCpf() {
         return cpf;
+    }
+    
+    @Override
+    public Cargo getCargo() {
+        return cargo;
     }
 
     @Override

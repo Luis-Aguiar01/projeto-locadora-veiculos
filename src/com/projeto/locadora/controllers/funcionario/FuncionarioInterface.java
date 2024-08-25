@@ -6,22 +6,29 @@ public class FuncionarioInterface {
     
     private FuncionarioInterface() {}
     
+    public static void printarMenuFuncionariosGeral() {
+        OperacoesConsole.limparConsole();
+        System.out.println("=============================================================");
+        System.out.println("||              MENU FUNCIONARIO                           ||");
+        System.out.println("=============================================================");
+        System.out.println("|| [1] - Cadastrar Funcionario.                            ||");
+        System.out.println("|| [2] - Alterar Dados Funcionario.                        ||");
+        System.out.println("|| [3] - Consultar Dados Funcionario.                      ||");
+        System.out.println("|| [4] - Sair.                                             ||");
+        System.out.println("=============================================================");
+    }
+
     public static void printarMenuFuncionarioAdministrador() {
         OperacoesConsole.limparConsole();
         System.out.println("=============================================================");
         System.out.println("||              MENU FUNCIONARIO ADMIN                     ||");
         System.out.println("=============================================================");
-        System.out.println("|| [1] - Cadastrar Funcionario.                            ||");
-        System.out.println("|| [2] - Cadastrar Cliente.                                ||");
-        System.out.println("|| [3] - Cadastrar Carro.                                  ||");
-        System.out.println("|| [4] - Pagina Locacao.                                   ||");
-        System.out.println("|| [5] - Alterar Dados do Carro.                           ||");
-        System.out.println("|| [6] - Alterar Dados do Funcionario.                     ||");
-        System.out.println("|| [7] - Alterar Dados do Cliente.                         ||");
-        System.out.println("|| [8] - Visualizar Informacoes dos Carros.                ||");
-        System.out.println("|| [9] - Visualizar Informacoes dos Clientes.              ||");
-        System.out.println("|| [10] - Visualizar informacoes dos Funcionarios.         ||");
-        System.out.println("|| [11] - Sair.                                            ||");
+        System.out.println("|| [1] - Opcoes Clientes                                   ||");
+        System.out.println("|| [2] - Opcoes Carros                                     ||");
+        System.out.println("|| [3] - Opcoes Locacao                                    ||");
+        System.out.println("|| [4] - Opcoes Multa                                      ||");
+        System.out.println("|| [5] - Opcoes Admin                               ||");
+        System.out.println("|| [6] - Sair.                                             ||");
         System.out.println("=============================================================");
     }
     
@@ -30,14 +37,20 @@ public class FuncionarioInterface {
         System.out.println("=============================================================");
         System.out.println("||              MENU FUNCIONARIO COMUM                     ||");
         System.out.println("=============================================================");
-        System.out.println("|| [1] - Cadastrar Cliente.                                ||");
-        System.out.println("|| [2] - Cadastrar Carro.                                  ||");
-        System.out.println("|| [3] - Pagina Locacao.                                   ||");
-        System.out.println("|| [4] - Alterar Dados do Carro.                           ||");
-        System.out.println("|| [5] - Alterar Dados do Cliente.                         ||");
-        System.out.println("|| [6] - Visualizar Informacoes dos Carros.                ||");
-        System.out.println("|| [7] - Visualizar Informacoes dos Clientes.              ||");
-        System.out.println("|| [8] - Sair.                                            ||");
+        System.out.println("|| [1] - Opcoes Clientes                                   ||");
+        System.out.println("|| [2] - Opcoes Carros                                     ||");
+        System.out.println("|| [3] - Opcoes Locacao                                    ||");
+        System.out.println("|| [4] - Opcoes Multa                                      ||");
+        System.out.println("|| [5] - Sair.                                             ||");
+        System.out.println("=============================================================");
+    }
+    
+    public static void printarInterfaceLogin() {
+        System.out.println("=============================================================");
+        System.out.println("||              LOGIN FUNCIONARIO                          ||");
+        System.out.println("=============================================================");
+        System.out.println("|| [1] - Login                                             ||");
+        System.out.println("|| [2] - Sair.                                             ||");
         System.out.println("=============================================================");
     }
     
@@ -99,6 +112,6 @@ public class FuncionarioInterface {
     }
     
     public static void main(String[] args) {
-        printarMenuFuncionarioAdministrador();
+        printarInterfaceLogin();
     }
 }

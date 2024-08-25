@@ -3,6 +3,7 @@ package com.projeto.locadora.controllers.funcionario;
 import com.projeto.locadora.controllers.carro.CarroController;
 import com.projeto.locadora.controllers.cliente.ClienteController;
 import com.projeto.locadora.entities.funcionario.*;
+import com.projeto.locadora.enums.Cargo;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.FuncionarioService;
 import com.projeto.locadora.utils.*;
@@ -16,26 +17,60 @@ public class FuncionarioController {
 
     private FuncionarioController() {}
     
+    public void paginaLogin() {
+        int op = 1;
+        
+        while (op != 2) {
+            FuncionarioInterface.printarInterfaceLogin();
+            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            
+            switch (op) {
+                case 1 -> realizarLogin();
+                case 2 -> {}
+                default -> System.out.println("Erro: Por favor, digite uma opcao valida do menu.");
+            }
+        }
+    }
+    
+    public void realizarLogin() {
+        String cpf = ValidarEntradas.validarEntradaString("Digite o seu CPF: ", ValidacoesRegex.VALIDAR_CPF_REGEX);
+        
+        String senha = ValidarEntradas.validarEntradaString("Digite a sua senha: ", ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        
+        try {
+            Funcionario funcionario = service.encontrarFuncionarioPorCpf(cpf);
+            if (funcionario.getSenha().equals(senha)) {
+                if (funcionario.getCargo().equals(Cargo.ADMIN)) {
+                    operacoesFuncionarioAdministradorMenu();
+                }
+                else {
+                    operacoesFuncionarioComumMenu();
+                }
+            }
+            else {
+                 throw new IncorrectPasswordException("A senha fornecida esta errada.");
+            }
+        }
+        catch (EntityNotFoundException | IncorrectPasswordException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+    
     public void operacoesFuncionarioAdministradorMenu() {
         int op = 1;
 
-        while(op != 11) {
+        while(op != 6) {
             FuncionarioInterface.printarMenuFuncionarioAdministrador();
             
             op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
             
             switch (op) {
-                case 1 -> cadastrarFuncionario();
-                case 2 -> clienteController.cadastrarCliente();
-                case 3 -> carroController.cadastrarNovoCarro();
-                case 4 -> {}
-                case 5 -> carroController.alterarDadosCarroMenu();
-                case 6 -> alterarFuncionarioMenu();
-                case 7 -> {}
-                case 8 -> carroController.visualizarInformacoesCarroMenu();
-                case 9 -> {}
-                case 10 -> {}
-                case 11 -> {}
+                case 1 -> clienteController.exibirOpcoesCliente();
+                case 2 ->carroController.exibirOpcoesCarro();
+                case 3 -> {} // Locação
+                case 4 -> {} // Multa
+                case 5 -> exibirOpcoesAdministrador();
+                case 6 -> {}
                 default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
             }
         }
@@ -44,20 +79,35 @@ public class FuncionarioController {
     public void operacoesFuncionarioComumMenu() {
         int op = 1;
         
-        while(op != 8) {
+        while(op != 5) {
             FuncionarioInterface.printarMenuFuncionarioComum();
             
             op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
             
             switch (op) {
-                case 1 -> clienteController.cadastrarCliente();
-                case 2 -> carroController.cadastrarNovoCarro();
-                case 3 -> {}
-                case 4 -> carroController.alterarDadosCarroMenu();
+                case 1 -> clienteController.exibirOpcoesCliente();
+                case 2 -> carroController.exibirOpcoesCarro();
+                case 3 -> {} // Locação
+                case 4 -> {} // Multa
                 case 5 -> {}
-                case 6 -> carroController.visualizarInformacoesCarroMenu();
-                case 7 -> {}
-                case 8 -> {}
+                default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
+            }
+        }
+    }
+    
+    public void exibirOpcoesAdministrador() {
+        int op = 1;
+        
+        while(op != 4) {
+            FuncionarioInterface.printarMenuFuncionariosGeral();
+            
+            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            
+            switch (op) {
+                case 1 -> cadastrarFuncionario();
+                case 2 -> alterarFuncionarioMenu();
+                case 3 -> {} // Consultar dados
+                case 4 -> {} // Sair
                 default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
             }
         }

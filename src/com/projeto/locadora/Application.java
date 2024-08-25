@@ -1,7 +1,11 @@
 package com.projeto.locadora;
 
+import com.projeto.locadora.controllers.funcionario.FuncionarioController;
+
 public class Application {
     public static void main(String[] args) {
-        System.out.println("Teste");
+        FuncionarioController controller = FuncionarioController.getInstance();
+        
+        controller.paginaLogin();
     }
 }

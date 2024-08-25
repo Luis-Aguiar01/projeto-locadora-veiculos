@@ -141,7 +141,7 @@ public class CarroController {
     public void visualizarInformacoesCarroMenu() {
         int opcao = 1;
        
-        while (opcao != 7)  { 
+        while (opcao != 8)  { 
             try {
                 CarroInterface.printarMenuVisualizarInformacoes();
                 opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");

@@ -1,19 +1,26 @@
 package com.projeto.locadora.entities.funcionario;
 
 import com.projeto.locadora.entities.usuario.Usuario;
+import com.projeto.locadora.enums.Cargo;
 import java.util.Objects;
 
 public class Funcionario extends Usuario {
     
+    private final Cargo cargo;
     private String senha;
     
     public Funcionario(FuncionarioBuilder builder) {
         super(builder);
         this.senha = builder.getSenha();
+        this.cargo = builder.getCargo();
     }
 
     public String getSenha() {
         return senha;
+    }
+    
+    public Cargo getCargo() {
+        return cargo;
     }
     
     public void setSenha(String senha) {
