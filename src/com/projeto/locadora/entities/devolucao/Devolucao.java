@@ -58,6 +58,4 @@ public class Devolucao {
                     ", Pagamento: " + pagamento + 
                 '}';
     }
-    
-
 }
