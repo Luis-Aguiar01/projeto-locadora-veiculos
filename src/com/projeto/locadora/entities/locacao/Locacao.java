@@ -11,9 +11,12 @@ public class Locacao {
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
     
+    private int nextCodigo = 1;
     
     public Locacao(LocacaoBuilder builder) {
-        this.codigo = builder.getCodigo();
+        this.codigo = nextCodigo;
+        this.nextCodigo++;
+        
         this.cliente = builder.getCliente();
         this.funcionarioCadastro = builder.getFuncionarioCadastro();
         this.dataInicio = builder.getDataInicio();

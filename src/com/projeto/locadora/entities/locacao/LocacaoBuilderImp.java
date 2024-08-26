@@ -12,12 +12,6 @@ public class LocacaoBuilderImp implements LocacaoBuilder {
     private LocalDateTime dataFim;
 
     @Override
-    public LocacaoBuilder setCodigo(Integer codigo) {
-        this.codigo = codigo;
-        return this;
-    }
-
-    @Override
     public LocacaoBuilder setCliente(Cliente cliente) {
         this.cliente = cliente;
         return this;
@@ -39,11 +33,6 @@ public class LocacaoBuilderImp implements LocacaoBuilder {
     public LocacaoBuilder setDataFim(LocalDateTime dataFim) {
         this.dataFim = dataFim;
         return this;
-    }
-
-    @Override
-    public Integer getCodigo() {
-        return codigo;
     }
 
     @Override

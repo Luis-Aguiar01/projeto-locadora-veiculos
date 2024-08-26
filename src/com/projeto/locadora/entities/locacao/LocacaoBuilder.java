@@ -6,7 +6,6 @@ import java.time.LocalDateTime;
 
 public interface LocacaoBuilder {
     //Setters de atributos
-    public LocacaoBuilder setCodigo(Integer codigo);
     public LocacaoBuilder setDataInicio(LocalDateTime dataInicio);
     public LocacaoBuilder setDataFim(LocalDateTime dataFim);
     
@@ -15,7 +14,6 @@ public interface LocacaoBuilder {
     public LocacaoBuilder setFuncionarioCadastro(Funcionario funcionario);
     
     //Getters
-    public Integer getCodigo();
     public Cliente getCliente();
     public Funcionario getFuncionarioCadastro();
     public LocalDateTime getDataInicio();
