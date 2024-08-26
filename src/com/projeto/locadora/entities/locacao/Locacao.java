@@ -5,11 +5,11 @@ import com.projeto.locadora.entities.funcionario.Funcionario;
 import java.time.LocalDateTime;
 
 public class Locacao {
-    private Integer codigo;
-    private Cliente cliente;
-    private Funcionario funcionarioCadastro;
-    private LocalDateTime dataInicio;
-    private LocalDateTime dataFim;
+    private final Integer codigo;
+    private final Cliente cliente;
+    private final Funcionario funcionarioCadastro;
+    private final LocalDateTime dataInicio;
+    private final LocalDateTime dataFim;
     
     private int nextCodigo = 1;
     
@@ -41,26 +41,6 @@ public class Locacao {
 
     public LocalDateTime getDataFim() {
         return dataFim;
-    }
-
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
-    }
-
-    public void setCpfCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public void setFuncionarioCadastro(Funcionario funcionarioCadastro) {
-        this.funcionarioCadastro = funcionarioCadastro;
-    }
-
-    public void setDataInicio(LocalDateTime dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public void setDataFim(LocalDateTime dataFim) {
-        this.dataFim = dataFim;
     }
     
     @Override
