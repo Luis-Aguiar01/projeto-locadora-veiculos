@@ -5,7 +5,6 @@ import com.projeto.locadora.entities.funcionario.Funcionario;
 import java.time.LocalDateTime;
 
 public class LocacaoBuilderImp implements LocacaoBuilder {
-    private Integer codigo;
     private Cliente cliente;
     private Funcionario funcionarioCadastro;
     private LocalDateTime dataInicio;

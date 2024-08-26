@@ -12,10 +12,12 @@ public interface DevolucaoBuilder {
     public DevolucaoBuilder setDataDevolucao(LocalDateTime dataDevolucao);
     public DevolucaoBuilder setPagamento(Pagamento pagamento);
     
-    
     //getters
     public Locacao getLocacao();
     public Funcionario getFuncionarioCadastro();
     public LocalDateTime getDataDevolucao();
     public Pagamento getPagamento();
+    
+    //build
+    public Devolucao build();
 }

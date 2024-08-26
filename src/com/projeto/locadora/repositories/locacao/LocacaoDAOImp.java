@@ -9,6 +9,8 @@ public class LocacaoDAOImp implements LocacaoDAO {
     private static final List<Locacao> locacoes = new ArrayList<>();
     private static final LocacaoDAOImp repositorio = new LocacaoDAOImp();
     
+    private LocacaoDAOImp() {}
+    
     @Override
     public void cadastrarLocacao(Locacao locacao) {
         locacoes.add(locacao);

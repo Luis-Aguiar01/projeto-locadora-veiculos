@@ -54,5 +54,9 @@ public class DevolucaoBuilderImp implements DevolucaoBuilder {
     public Pagamento getPagamento() {
         return pagamento;
     }
-    
+
+    @Override
+    public Devolucao build() {
+        return new Devolucao(this);
+    }
 }

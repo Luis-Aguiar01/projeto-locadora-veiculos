@@ -11,7 +11,7 @@ public class Locacao {
     private final LocalDateTime dataInicio;
     private final LocalDateTime dataFim;
     
-    private int nextCodigo = 1;
+    private static int nextCodigo = 1;
     
     public Locacao(LocacaoBuilder builder) {
         this.codigo = nextCodigo;

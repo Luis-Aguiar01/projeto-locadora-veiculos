@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 
 public class Devolucao {
     private final int codigo;
-    private int nextCodigo = 1;
+    private static int nextCodigo = 1;
     
     private final Locacao locacao;
     private final Funcionario funcionarioCadastro;
     private final LocalDateTime dataDevolucao;
     private final Pagamento pagamento;
     
-    public Devolucao(DevolucaoBuilderImp builder) {
+    public Devolucao(DevolucaoBuilder builder) {
         this.codigo = nextCodigo;
         this.nextCodigo++;
         
@@ -58,4 +58,6 @@ public class Devolucao {
                     ", Pagamento: " + pagamento + 
                 '}';
     }
+    
+
 }

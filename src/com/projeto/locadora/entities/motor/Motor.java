@@ -11,7 +11,7 @@ public class Motor {
     private final Combustivel combustivel;
     private final int anoFabricacao;
 
-    public Motor(MotorBuilderImp motorBuilder) {
+    public Motor(MotorBuilder motorBuilder) {
         this.potencia = motorBuilder.getPotencia();
         this.volumeCilindros = motorBuilder.getVolumeCilindros();
         this.numeroCilindros = motorBuilder.getNumeroCilindros();

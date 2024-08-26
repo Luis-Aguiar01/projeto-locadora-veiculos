@@ -15,7 +15,7 @@ public class FuncionarioDAOImp implements FuncionarioDAO{
     private static final List<Funcionario> funcionarios = new ArrayList<>();
     private static final FuncionarioDAOImp repository = new FuncionarioDAOImp();
 
-    public FuncionarioDAOImp() {}
+    private FuncionarioDAOImp() {}
     
     static {
         Funcionario funcionarioAdm = new FuncionarioBuilderImp()
