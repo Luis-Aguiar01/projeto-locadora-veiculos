@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum Marca {
+public enum Marca implements PrintarNome {
     VOLKSWAGEN (1, "Volkswagen"), 
     CHEVROLET (2, "Chevrolet"), 
     FIAT (3, "Fiat"), 
@@ -27,5 +27,10 @@ public enum Marca {
 
     public String getNomeMarca() {
         return nomeMarca;
+    }
+    
+    @Override
+    public String getNome() {
+        return getNomeMarca();
     }
 }

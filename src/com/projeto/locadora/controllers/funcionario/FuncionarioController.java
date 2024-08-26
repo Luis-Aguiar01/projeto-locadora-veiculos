@@ -7,6 +7,7 @@ import com.projeto.locadora.enums.Cargo;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.FuncionarioService;
 import com.projeto.locadora.utils.*;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 
 public class FuncionarioController {
     
@@ -33,6 +34,8 @@ public class FuncionarioController {
     }
     
     public void realizarLogin() {
+        FuncionarioInterface.printarInterfaceLoginEntrada();
+         
         String cpf = ValidarEntradas.validarEntradaString("Digite o seu CPF: ", ValidacoesRegex.VALIDAR_CPF_REGEX);
         
         String senha = ValidarEntradas.validarEntradaString("Digite a sua senha: ", ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
@@ -48,7 +51,7 @@ public class FuncionarioController {
                 }
             }
             else {
-                 throw new IncorrectPasswordException("A senha fornecida esta errada.");
+                 throw new IncorrectPasswordException("A senha fornecida nao confere.");
             }
         }
         catch (EntityNotFoundException | IncorrectPasswordException e) {

@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum Cor {
+public enum Cor implements PrintarNome {
     BRANCO(1, "Branco"),
     PRETO(2, "Preto"),
     CINZA(3, "Cinza"),
@@ -26,5 +26,10 @@ public enum Cor {
 
     public String getNomeCor() {
         return nomeCor;
+    }
+    
+    @Override
+    public String getNome() {
+        return getNomeCor();
     }
 }

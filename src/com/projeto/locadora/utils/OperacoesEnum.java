@@ -3,43 +3,32 @@ package com.projeto.locadora.utils;
 import com.projeto.locadora.exceptions.InvalidEnumException;
 import java.util.Arrays;
 import java.util.function.Predicate;
+import com.projeto.locadora.enums.PrintarNome;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 
 public class OperacoesEnum {
     
         private OperacoesEnum() {}
     
-        public static <T extends Enum<T>> void exibirOpcoesEnum(Class<T> enumClass) {
-            OperacoesConsole.limparConsole();
+        public static <T extends Enum<T> & PrintarNome> void exibirOpcoesEnum(Class<T> enumClass) {
+            limparConsole();
             System.out.println("================================================================");
-            System.out.println("||              ESCOLHA UMA OPÇÃO ABAIXO             ||");
+            System.out.println("||                   MENU DE OPCOES                           ||");
             System.out.println("================================================================");
 
             for (T enumConstant : enumClass.getEnumConstants()) {
-                System.out.printf("|| [%d] - %s\n", enumConstant.ordinal() + 1, enumConstant.name());
+                System.out.printf("|| [%d] - %s\n", enumConstant.ordinal() + 1, enumConstant.getNome());
             }
             
             System.out.println("================================================================");
         }
         
-        public static <T extends Enum<T>> boolean validarEscolhaEnum(Class<T> enumClass, Predicate<T> predicate) {
+        public static <T extends Enum<T> & PrintarNome> boolean validarEscolhaEnum(Class<T> enumClass, Predicate<T> predicate) {
             return Arrays.stream(enumClass.getEnumConstants())
-                .filter(predicate)
                 .anyMatch(predicate);
         }
         
-        public static <T extends Enum<T>> String encontrarNomeEnum(Class<T> enumClass, int escolha) {
-            String enumName = "";
-            
-            for (T e : enumClass.getEnumConstants()) {
-                if (e.ordinal() == escolha) {
-                    enumName = e.name();
-                }
-            }
-            
-            return enumName;
-        }
-        
-        public static <T extends Enum> T validarEnum(Class<T> classEnum) {
+        public static <T extends Enum<T> & PrintarNome> T validarEnum(Class<T> classEnum) {
             boolean condicao = false;
             T result = null;
             

@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum EstadoVeiculo {
+public enum EstadoVeiculo implements PrintarNome {
     MANUTENCAO_NECESSARIA(1, "Manutencao Necessaria"),
     EM_MANUTENCAO(2, "Em Manutencao"),
     MANUTENCAO_EM_DIA(3, "Manutencao em Dia");
@@ -20,5 +20,10 @@ public enum EstadoVeiculo {
     
     public String getEstadoVeiculo() {
         return estadoVeiculo;
+    }
+    
+    @Override
+    public String getNome() {
+        return getEstadoVeiculo();
     }
 }

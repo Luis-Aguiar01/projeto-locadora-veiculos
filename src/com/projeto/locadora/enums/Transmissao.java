@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum Transmissao {
+public enum Transmissao implements PrintarNome {
     MANUAL (1, "Manual"),
     AUTOMATICO (2, "Automatico"),
     SEMI_AUTOMATICO (3, "Semi-Automatico");
@@ -19,5 +19,10 @@ public enum Transmissao {
 
     public String getNomeTransmissao() {
         return nomeTransmissao;
+    }
+    
+    @Override
+    public String getNome() {
+        return getNomeTransmissao();
     }
 }

@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum DisponibilidadeVeiculo {
+public enum DisponibilidadeVeiculo implements PrintarNome {
     DISPONIVEL (1, "Disponivel"),
     INDISPONIVEL (2, "Indisponivel");
     
@@ -19,5 +19,10 @@ public enum DisponibilidadeVeiculo {
 
     public String getSituacaoDisponibilidade() {
         return situacaoDisponibilidade;
+    }
+    
+    @Override
+    public String getNome() {
+        return getSituacaoDisponibilidade();
     }
 }

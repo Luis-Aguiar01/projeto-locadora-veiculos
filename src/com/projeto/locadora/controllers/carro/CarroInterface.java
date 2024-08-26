@@ -1,13 +1,13 @@
 package com.projeto.locadora.controllers.carro;
 
 import com.projeto.locadora.entities.carro.Carro;
-import com.projeto.locadora.utils.OperacoesConsole;
 import java.util.List;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 
 public class CarroInterface {
     
     public static void printarMenuCarro() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||              MENU CARRO                                 ||");
         System.out.println("=============================================================");
@@ -19,7 +19,7 @@ public class CarroInterface {
     }
     
     public static void printarMenuEscolhasAlteracao() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR DADOS DO CARRO                    ||");
         System.out.println("=============================================================");
@@ -35,14 +35,14 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceCadastro() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=========================================================");
         System.out.println("||               CADASTRAR NOVO VEÍCULO                ||");
         System.out.println("=========================================================");
     }
     
     public static void printarInterfaceAlteracaoCor() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR COR DO CARRO                      ||");
         System.out.println("=============================================================");
@@ -50,7 +50,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoQuilometragem() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||         ALTERAR QUILOMETRAGEM DO CARRO                  ||");
         System.out.println("=============================================================");
@@ -58,7 +58,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoValor() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR VALOR DO CARRO                    ||");
         System.out.println("=============================================================");
@@ -66,7 +66,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoDisponibilidade() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||         ALTERAR DISPONIBILIDADE DO CARRO                ||");
         System.out.println("=============================================================");
@@ -74,7 +74,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoEstado() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR ESTADO DO CARRO                   ||");
         System.out.println("=============================================================");
@@ -82,7 +82,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoPlaca() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR PLACA DO CARRO                    ||");
         System.out.println("=============================================================");
@@ -90,7 +90,7 @@ public class CarroInterface {
     }
     
     public static void printarInterfaceAlteracaoMotor() {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||               ALTERAR MOTOR DO CARRO                    ||");
         System.out.println("=============================================================");
@@ -98,6 +98,7 @@ public class CarroInterface {
     }
     
     public static void printarMenuVisualizarInformacoes() {
+        limparConsole();
         System.out.println("=============================================================");
         System.out.println("||           VISUALIZAR INFORMACOES CARRO                  ||");
         System.out.println("=============================================================");
@@ -113,11 +114,16 @@ public class CarroInterface {
     }
     
     public static void printarInformacoesCarros(List<Carro> carros) {
-        OperacoesConsole.limparConsole();
+        limparConsole();
         
-        for (Carro carro : carros) {
-            System.out.println(carro);
-            System.out.println("\n------------------------------------------------------------------------------------\n");
+        if (carros.isEmpty()) {
+            System.out.println(RED + "Nenhum carro encontrado." + RESET);
+        }
+        else {
+            System.out.println(GREEN + "\tCarros encontrados:\n" + RESET);
+            for (Carro carro : carros) {
+                System.out.println(carro + "\n");
+            }
         }
     }
 }

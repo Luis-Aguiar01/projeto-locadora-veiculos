@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum Cargo {
+public enum Cargo implements PrintarNome {
     ADMIN(1, "Adminstrador"),
     COMUM(2, "Comum");
     
@@ -18,5 +18,10 @@ public enum Cargo {
 
     public int getCodigoCargo() {
         return codigoCargo;
-    }    
+    }
+
+    @Override
+    public String getNome() {
+        return getNomeCargo();
+    }
 }

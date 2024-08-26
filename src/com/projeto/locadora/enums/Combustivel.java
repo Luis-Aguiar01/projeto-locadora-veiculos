@@ -1,6 +1,6 @@
 package com.projeto.locadora.enums;
 
-public enum Combustivel {
+public enum Combustivel implements PrintarNome {
     GASOLINA (1, "Gasolina"),
     FLEX (2, "Etanol e Gasolina"),
     DIESEL (3, "Diesel");
@@ -20,5 +20,10 @@ public enum Combustivel {
 
     public String getNomeCombustivel() {
         return nomeCombustivel;
+    }
+
+    @Override
+    public String getNome() {
+         return getNomeCombustivel();
     }
 }

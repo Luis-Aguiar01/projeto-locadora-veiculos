@@ -26,7 +26,7 @@ public class FuncionarioDAOImp implements FuncionarioDAO{
                 .dataRegistro(LocalDateTime.now())
                 .endereco("Av. Aleatório, 213")
                 .telefone("(16)99999-9999")
-                .senha("Admin")
+                .senha("admin")
                 .cargo(Cargo.ADMIN)
                 .build();
         
