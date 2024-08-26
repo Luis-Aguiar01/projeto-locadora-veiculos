@@ -1,4 +1,4 @@
-package com.projeto.locadora.services;
+package com.projeto.locadora.services.cliente;
 
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.entities.cliente.Cliente;

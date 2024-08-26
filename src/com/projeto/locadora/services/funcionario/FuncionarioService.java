@@ -1,4 +1,4 @@
-package com.projeto.locadora.services;
+package com.projeto.locadora.services.funcionario;
 
 import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;

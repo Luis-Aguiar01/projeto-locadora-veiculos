@@ -5,7 +5,7 @@ import com.projeto.locadora.controllers.cliente.ClienteController;
 import com.projeto.locadora.entities.funcionario.*;
 import com.projeto.locadora.enums.Cargo;
 import com.projeto.locadora.exceptions.*;
-import com.projeto.locadora.services.FuncionarioService;
+import com.projeto.locadora.services.funcionario.FuncionarioService;
 import com.projeto.locadora.utils.*;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
 

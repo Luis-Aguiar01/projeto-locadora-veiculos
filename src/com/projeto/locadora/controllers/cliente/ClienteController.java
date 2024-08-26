@@ -4,7 +4,7 @@ import com.projeto.locadora.entities.cliente.*;
 import com.projeto.locadora.utils.ValidacoesRegex;
 import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
-import com.projeto.locadora.services.ClienteService;
+import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.utils.FormatarDados;
 import com.projeto.locadora.utils.ValidarEntradas;
 

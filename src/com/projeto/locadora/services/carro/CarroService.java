@@ -1,4 +1,4 @@
-package com.projeto.locadora.services;
+package com.projeto.locadora.services.carro;
 
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.motor.Motor;

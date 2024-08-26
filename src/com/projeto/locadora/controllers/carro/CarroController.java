@@ -4,7 +4,7 @@ import com.projeto.locadora.entities.carro.*;
 import com.projeto.locadora.entities.motor.*;
 import com.projeto.locadora.enums.*;
 import com.projeto.locadora.exceptions.*;
-import com.projeto.locadora.services.CarroService;
+import com.projeto.locadora.services.carro.CarroService;
 import com.projeto.locadora.utils.*;
 import java.util.List;
 
