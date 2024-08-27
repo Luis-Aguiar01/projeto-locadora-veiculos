@@ -6,6 +6,7 @@ import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.utils.FormatarDados;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 import com.projeto.locadora.utils.ValidarEntradas;
 
 public class ClienteController {
@@ -30,7 +31,7 @@ public class ClienteController {
                 case 2 -> alterarCliente();
                 case 3 -> visualizarInformacoesClientePorCpf();
                 case 4 -> System.out.println("Saindo.");
-                default -> System.out.println("Opcao Invalida.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }  
     }
@@ -43,10 +44,12 @@ public class ClienteController {
         try
         {
             service.inserirCliente(cliente);
+            
+            System.out.println(GREEN + "\nCliente Cadastrado com Sucesso." + RESET);
         }
         catch(CpfAlreadyRegisteredException e)
         {
-            System.out.println("Usuario com CPF já cadastrado.");
+            System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
         }
     }
     
@@ -64,12 +67,12 @@ public class ClienteController {
                     case 2 -> alterarEmailCliente();
                     case 3 -> alterarEnderecoCliente();
                     case 4 -> alterarTelefoneCliente();
-                    case 5 -> System.out.println("Saindo");
-                    default -> System.out.println("Opcao invalida");
+                    case 5 -> System.out.println("Saindo.");
+                    default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
                 }
             }
             catch(EntityNotFoundException e ) {
-                System.out.println("Erro: " + e.getMessage());
+                System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
             }
         }
     }

@@ -9,7 +9,6 @@ public class FuncionarioFactory {
     private FuncionarioFactory() {}
     
     public static Funcionario criarFuncionario() {
-        System.out.println("Insira as informações do cliente abaixo:");
         
         String nome = ValidarEntradas.validarEntradaString("Informe o Nome Completo: ", ValidacoesRegex.VALIDAR_NOME_REGEX);
 

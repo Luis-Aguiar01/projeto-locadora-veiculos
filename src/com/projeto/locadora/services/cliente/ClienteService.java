@@ -15,7 +15,7 @@ public class ClienteService {
 
     private ClienteService() {}
 
-    public Cliente encontrarClientePorCpf(String cpf) {
+    public Cliente encontrarClientePorCpf(String cpf) throws EntityNotFoundException{
         return clienteRepositorio.encontrarClientePorCpf(cpf)
                 .orElseThrow(
                         () -> new EntityNotFoundException("Cliente com o CPF: \"" + cpf + "\" não encontrado.")
@@ -29,11 +29,10 @@ public class ClienteService {
                 .anyMatch(c -> c.getCpf().equals(cliente.getCpf()));
     }
 
-    public void inserirCliente(Cliente cliente) 
+    public void inserirCliente(Cliente cliente) throws CpfAlreadyRegisteredException
     {
         if(!checarCpf(cliente))
         {
-            
             String nome = cliente.getNome();
             
             nome = FormatarDados.formatarNome(nome);
@@ -44,7 +43,7 @@ public class ClienteService {
         }
         else
         {
-            throw new CpfAlreadyRegisteredException();
+            throw new CpfAlreadyRegisteredException("Usuario com CPF já cadastrado.");
         }
     }
 

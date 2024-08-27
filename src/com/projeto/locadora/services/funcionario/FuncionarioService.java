@@ -15,7 +15,7 @@ public class FuncionarioService {
 
     public FuncionarioService() {}
     
-    public Funcionario encontrarFuncionarioPorCpf(String cpf){
+    public Funcionario encontrarFuncionarioPorCpf(String cpf) throws EntityNotFoundException{
         return funcionarioRepositorio.encontrarFuncionarioPorCpf(cpf)
                 .orElseThrow(
                         () -> new EntityNotFoundException("Funcionário com o CPF: \"" + cpf + "\" não encontrado.")               
@@ -28,7 +28,7 @@ public class FuncionarioService {
                 .anyMatch(f -> f.getCpf().equals(funcionario.getCpf()));
     }
     
-    public void inserirFuncionario(Funcionario funcionario){
+    public void inserirFuncionario(Funcionario funcionario) throws CpfAlreadyRegisteredException{
         if (!checarCpf(funcionario)) {
             String nome = funcionario.getNome();
             
@@ -39,7 +39,7 @@ public class FuncionarioService {
             funcionarioRepositorio.inserirFuncionario(funcionario);
         } 
         else {
-            throw new CpfAlreadyRegisteredException();
+            throw new CpfAlreadyRegisteredException("Usuario com CPF já cadastrado.");
         }        
     }
     

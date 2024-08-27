@@ -28,7 +28,7 @@ public class FuncionarioController {
             switch (op) {
                 case 1 -> realizarLogin();
                 case 2 -> {}
-                default -> System.out.println("Erro: Por favor, digite uma opcao valida do menu.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
     }
@@ -51,11 +51,11 @@ public class FuncionarioController {
                 }
             }
             else {
-                 throw new IncorrectPasswordException("A senha fornecida nao confere.");
+                throw new IncorrectPasswordException("A senha fornecida nao confere.");
             }
         }
         catch (EntityNotFoundException | IncorrectPasswordException e) {
-            System.out.println("Erro: " + e.getMessage());
+            System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
         }
     }
     
@@ -74,7 +74,7 @@ public class FuncionarioController {
                 case 4 -> {} // Multa
                 case 5 -> exibirOpcoesAdministrador();
                 case 6 -> {}
-                default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
     }
@@ -93,7 +93,7 @@ public class FuncionarioController {
                 case 3 -> {} // Locação
                 case 4 -> {} // Multa
                 case 5 -> {}
-                default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
     }
@@ -111,7 +111,7 @@ public class FuncionarioController {
                 case 2 -> alterarFuncionarioMenu();
                 case 3 -> {} // Consultar dados
                 case 4 -> {} // Sair
-                default -> System.out.println("Operacao invalida. Digite uma opcao do menu.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
     }
@@ -123,9 +123,11 @@ public class FuncionarioController {
 
         try {
             service.inserirFuncionario(funcionario);
+            
+            System.out.println(GREEN + "\nFuncionario Cadastrado com Sucesso." + RESET);
         }
         catch(CpfAlreadyRegisteredException e) {
-            System.out.println("Usuario com CPF já cadastrado.");
+            System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
         }
     }
     
@@ -144,11 +146,11 @@ public class FuncionarioController {
                     case 4 -> alterarEnderecoFuncionario();                   
                     case 5 -> alterarTelefoneFuncionario();            
                     case 6 -> {}                  
-                    default -> System.out.println("Opcao invalida");   
+                    default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);   
                 }
             }
             catch(EntityNotFoundException e) {
-                System.out.println("Erro: " + e.getMessage());
+                System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
             }    
         }
     }

@@ -6,6 +6,7 @@ import com.projeto.locadora.enums.*;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.carro.CarroService;
 import com.projeto.locadora.utils.*;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 import java.util.List;
 
 public class CarroController {
@@ -27,7 +28,7 @@ public class CarroController {
                 case 2 -> alterarDadosCarroMenu();
                 case 3 -> visualizarInformacoesCarroMenu();
                 case 4 -> {}
-                default -> System.out.println("Opcao Invalida.");
+                default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }  
     }
@@ -38,9 +39,10 @@ public class CarroController {
         
         try {
             service.cadastrarCarro(carro);
+            System.out.println(GREEN + "Carro Cadastrado com Sucesso." + RESET);
         }
-        catch (RenavamAlreadyRegisteredException renavamException) {
-            System.out.println("Carro com o RENAVAM já cadastrado.");
+        catch (RenavamAlreadyRegisteredException e) {
+            System.out.println("\nErro: " + e.getMessage());
         }
     }
     
@@ -61,11 +63,11 @@ public class CarroController {
                     case 6 -> alterarPlacaCarro();
                     case 7 -> alterarMotorCarro();
                     case 8 -> {}
-                    default -> System.out.println("Opcao invalida");
+                    default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
                 }
             }
             catch(EntityNotFoundException e ) {
-                System.out.println("Erro: " + e.getMessage());
+                System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
             }   
         }
     }
@@ -155,11 +157,11 @@ public class CarroController {
                     case 6 -> visualizarCarrosPorTransmissao();
                     case 7 -> visualizarCarrosPorMarca();
                     case 8 -> {}
-                    default -> System.out.println("Opcao invalida");
+                    default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
                 }
             }
             catch(EntityNotFoundException e ) {
-                System.out.println("Erro: " + e.getMessage());
+                System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
             }
         }
     }
@@ -215,10 +217,10 @@ public class CarroController {
         return controller;
     }
     
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         CarroController controller = CarroController.getInstance();
         
         controller.exibirOpcoesCarro();
-    }
+    }*/
     
 }

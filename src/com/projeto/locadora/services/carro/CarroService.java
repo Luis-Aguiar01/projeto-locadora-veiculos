@@ -13,19 +13,19 @@ public class CarroService {
 
     private CarroService() {}
 
-    public void cadastrarCarro(Carro carro) {
+    public void cadastrarCarro(Carro carro) throws RenavamAlreadyRegisteredException{
         if (!encontrarRenavamCarro(carro)) {
             carroRepositorio.cadastrarCarro(carro);
         }
         else {
-            throw new RenavamAlreadyRegisteredException();
+            throw new RenavamAlreadyRegisteredException("Carro com o RENAVAM já cadastrado.");
         }
     }
 
-    public Carro encontrarCarroPorRenavam(String renavam) {
+    public Carro encontrarCarroPorRenavam(String renavam) throws EntityNotFoundException{
         return carroRepositorio.encontrarCarroPorRenavam(renavam)
                 .orElseThrow(
-                        () -> new EntityNotFoundException("Carro com renavam " + renavam + " não encontrado.")
+                        () -> new EntityNotFoundException("Carro com RENAVAM " + renavam + " não encontrado.")
                 );
     }
     
