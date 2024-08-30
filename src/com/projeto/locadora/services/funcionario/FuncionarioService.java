@@ -13,7 +13,7 @@ public class FuncionarioService {
     private static final FuncionarioDAO funcionarioRepositorio = FuncionarioDAOImp.getInstance();
     private static final FuncionarioService service = new FuncionarioService();
 
-    public FuncionarioService() {}
+    private FuncionarioService() {}
     
     public Funcionario encontrarFuncionarioPorCpf(String cpf) throws EntityNotFoundException{
         return funcionarioRepositorio.encontrarFuncionarioPorCpf(cpf)
