@@ -10,6 +10,8 @@ public class PagamentoDAOImp implements PagamentoDAO {
     private static final List<Pagamento> pagamentos = new ArrayList<>();
     private static final PagamentoDAOImp repositorio = new PagamentoDAOImp();
 
+    private PagamentoDAOImp() {}
+    
     @Override
     public Optional<Pagamento> encontrarPagamentoPorId(int id) {
         Optional<Pagamento> pagamento = pagamentos.stream()
