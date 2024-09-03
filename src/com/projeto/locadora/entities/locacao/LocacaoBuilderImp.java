@@ -1,5 +1,6 @@
 package com.projeto.locadora.entities.locacao;
 
+import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.entities.funcionario.Funcionario;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ public class LocacaoBuilderImp implements LocacaoBuilder {
     private Funcionario funcionarioCadastro;
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
+    private Carro carro;
 
     @Override
     public LocacaoBuilder setCliente(Cliente cliente) {
@@ -52,6 +54,17 @@ public class LocacaoBuilderImp implements LocacaoBuilder {
     @Override
     public LocalDateTime getDataFim() {
         return dataFim;
+    }
+    
+    @Override
+    public LocacaoBuilder setCarro(Carro carro) {
+        this.carro = carro;
+        return this;
+    }
+
+    @Override
+    public Carro getCarro() {
+        return carro;
     }
 
     @Override

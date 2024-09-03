@@ -24,20 +24,9 @@ public class DevolucaoBuilderImp implements DevolucaoBuilder {
     }
 
     @Override
-    public DevolucaoBuilder setDataDevolucao(LocalDateTime dataDevolucao) {
-        this.dataDevolucao = dataDevolucao;
-        return this;
-    }
-
-    @Override
     public DevolucaoBuilder setPagamento(Pagamento pagamento) {
         this.pagamento = pagamento;
         return this;
-    }
-
-    @Override
-    public Locacao getLocacao() {
-        return locacao;
     }
 
     @Override
