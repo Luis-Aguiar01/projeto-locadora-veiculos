@@ -3,12 +3,10 @@ package com.projeto.locadora.entities.devolucao;
 import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.entities.locacao.Locacao;
 import com.projeto.locadora.entities.pagamento.Pagamento;
-import java.time.LocalDateTime;
 
 public class DevolucaoBuilderImp implements DevolucaoBuilder {
     private Locacao locacao;
     private Funcionario funcionarioCadastro;
-    private LocalDateTime dataDevolucao;
     private Pagamento pagamento;
     
     @Override
@@ -32,11 +30,6 @@ public class DevolucaoBuilderImp implements DevolucaoBuilder {
     @Override
     public Funcionario getFuncionarioCadastro() {
         return funcionarioCadastro;
-    }
-
-    @Override
-    public LocalDateTime getDataDevolucao() {
-        return dataDevolucao;
     }
 
     @Override

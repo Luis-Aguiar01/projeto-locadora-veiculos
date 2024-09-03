@@ -11,14 +11,16 @@ import com.projeto.locadora.entities.multa.Multa;
 import com.projeto.locadora.entities.multa.MultaBuilderImp;
 import com.projeto.locadora.entities.pagamento.Pagamento;
 import com.projeto.locadora.entities.pagamento.PagamentoBuilderImp;
+import com.projeto.locadora.enums.EstadoLocacao;
+import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.services.carro.CarroService;
 import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.services.funcionario.FuncionarioService;
 import com.projeto.locadora.services.locacao.LocacaoService;
-import com.projeto.locadora.utils.ValidadorDouble;
-import com.projeto.locadora.utils.ValidadorInteiro;
-import com.projeto.locadora.utils.ValidadorString;
+import com.projeto.locadora.utils.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class LocacaoController {
     private static final LocacaoService service = LocacaoService.getInstance();
@@ -32,10 +34,15 @@ public class LocacaoController {
     
     private LocacaoController() {}
     
-    public void cadastrarLocacao() {
+    public void cadastrarLocacao() throws EntityNotFoundException
+    {
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
+        
         String cpfCliente = validadorString.validar("Digite o CPF do cliente: ");
         
         String cpfFuncionario = validadorString.validar("Digite o CPF do funcionario: ");
+        
+        validadorString.setRegex("\\d{11}");
         
         String renavam = validadorString.validar("Digite o renavam do carro: ");
         
@@ -66,43 +73,76 @@ public class LocacaoController {
         System.out.println(locacao);
     }
     
-    public void realizarDevolucao() {
+    public void realizarDevolucao() throws EntityNotFoundException
+    {
         int id = validadorInteiro.validar("Digite o id da locacao: ");
+        
+        Locacao locacao = service.retornarLocacaoPorId(id);
+        
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
         
         String cpfFuncionario = validadorString.validar("Digite o CPF do funcionario: ");
         
         Funcionario funcionario = funcionarioService.encontrarFuncionarioPorCpf(cpfFuncionario);
                 
-        Locacao locacao = service.retornarLocacaoPorId(id);
+        if(LocalDate.now().isAfter(locacao.getDataFim().toLocalDate()))
+        {
+            long diasAtraso = ChronoUnit.DAYS.between(LocalDate.now(), locacao.getDataFim());
+            Multa multa = new MultaBuilderImp()
+                    .valor(diasAtraso * (locacao.getCarro().getValor() + locacao.getCarro().getValor() * 0.50))
+                    .descricao("Devolucao Realizada Apos a Data Estipulada.")
+                    .build();
+            
+            locacao.adicionarMulta(multa);
+        }
         
-//        Pagamento pagamento = new PagamentoBuilderImp()
-//                .valor()
-//                       
-//        Devolucao devolucao = new DevolucaoBuilderImp()
-//                .setFuncionarioCadastro(funcionario)
-//                .setPagamento()
+        locacao.setEstado(EstadoLocacao.FINALIZADA);
+       
+        Pagamento pagamento = new PagamentoBuilderImp()
+                .valor(service.somarTotal(locacao))
+                .build();
+                       
+        Devolucao devolucao = new DevolucaoBuilderImp()
+                .setFuncionarioCadastro(funcionario)
+                .setPagamento(pagamento)
+                .build();
                 
     }
 
-    public void cadastrarMulta() {
-         int id = validadorInteiro.validar("Digite o id da locacao: ");
+    public void cadastrarMulta() throws EntityNotFoundException 
+    {
+        int id = validadorInteiro.validar("Digite o id da locacao: ");
          
-         Locacao locacao =  service.retornarLocacaoPorId(id);
+        Locacao locacao =  service.retornarLocacaoPorId(id);
          
-         double valor = validadorDouble.validar("Digite o valor da multa: ");
+        double valor = validadorDouble.validar("Digite o valor da multa: ");
          
-         String descricao = validadorString.validar("Informe o motivo da multa: ");
+        validadorString.setRegex("[ÇçÀ-Ü-à-üa-zA-Z0-9\\s-/,.]+");
+        
+        String descricao = validadorString.validar("Informe o motivo da multa: ");
          
-         Multa multa = new MultaBuilderImp()
-                 .valor(valor)
-                 .descricao(descricao)
-                 .build();
+        Multa multa = new MultaBuilderImp()
+                .valor(valor)
+                .descricao(descricao)
+                .build();
          
-         locacao.adicionarMulta(multa);
+        locacao.adicionarMulta(multa);
     }
     
     
     public static LocacaoController getInstance() {
         return controller;
+    }
+    
+    public static void main(String[] args) {
+        
+        controller.cadastrarLocacao();
+        
+        controller.retornarLocacaoPorId();
+        
+        controller.realizarDevolucao();
+        
+        controller.retornarLocacaoPorId();
+        
     }
 }

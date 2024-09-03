@@ -5,6 +5,7 @@ import com.projeto.locadora.entities.locacao.Locacao;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.repositories.locacao.LocacaoDAO;
 import com.projeto.locadora.repositories.locacao.LocacaoDAOImp;
+import java.time.temporal.ChronoUnit;
 
 public class LocacaoService {
     private static final LocacaoDAO repositorio = LocacaoDAOImp.getInstance();
@@ -32,9 +33,12 @@ public class LocacaoService {
                 .sum();
     }
     
-//    public double somarTotal(Locacao locacao) {
-//       
-//    }
+    public double somarTotal(Locacao locacao) 
+    {
+        long diasComum = ChronoUnit.DAYS.between(locacao.getDataFim(), locacao.getDataInicio());
+        
+        return (diasComum * locacao.getCarro().getValor()) + somarMultas(locacao);
+    }
     
     public static LocacaoService getInstance() {
         return service;

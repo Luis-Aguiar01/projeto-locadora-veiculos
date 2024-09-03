@@ -35,7 +35,7 @@ public class Locacao {
         this.dataFim = builder.getDataFim();
         this.carro = builder.getCarro();
         
-        this.multa = new ArrayList<>();
+        this.multas = new ArrayList<>();
     }
 
     public Integer getCodigo() {
@@ -93,6 +93,7 @@ public class Locacao {
         info += "Cadastrado por: " + funcionarioCadastro.getNome() + "\n";
         info += "Data início: " + dataInicio + "\n";
         info += "Data fim: " + dataFim + "\n";
+        info += "Estado: " + estado + "\n";
         return info;
     }
 }

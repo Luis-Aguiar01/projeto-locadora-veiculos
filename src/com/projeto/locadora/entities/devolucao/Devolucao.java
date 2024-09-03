@@ -16,7 +16,7 @@ public class Devolucao {
         this.nextCodigo++;
      
         this.funcionarioCadastro = builder.getFuncionarioCadastro();
-        this.dataDevolucao = builder.getDataDevolucao();
+        this.dataDevolucao = LocalDateTime.now();
         this.pagamento = builder.getPagamento();
     }
 

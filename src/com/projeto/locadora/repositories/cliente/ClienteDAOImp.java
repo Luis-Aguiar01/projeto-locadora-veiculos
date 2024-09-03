@@ -1,17 +1,33 @@
 package com.projeto.locadora.repositories.cliente;
 
-import com.projeto.locadora.entities.cliente.Cliente;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import com.projeto.locadora.entities.cliente.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
 
 public class ClienteDAOImp implements ClienteDAO {
+    
     private static final List<Cliente> clientes = new ArrayList<>();
     private static final ClienteDAOImp repository = new ClienteDAOImp();
 
     private ClienteDAOImp() {}
+    
+    
+    static 
+    {
+        Cliente cliente = new ClienteBuilderImp()
+                .nome("Cristiano Oliveira")
+                .cpf("111.111.111-22")
+                .email("c@gmail.com")
+                .endereco("Av. vapo")
+                .dataNascimento(LocalDate.of(2000,02,02))
+                .dataRegistro(LocalDateTime.now())
+                .build();
 
+        clientes.add(cliente);
+    }
+    
+    
     @Override
     public Optional<Cliente> encontrarClientePorCpf(String cpf) {
         return clientes.stream()
