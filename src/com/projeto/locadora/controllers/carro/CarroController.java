@@ -12,6 +12,9 @@ import java.util.List;
 public class CarroController {
     private final static CarroService service = CarroService.getInstance();
     private final static CarroController controller = new CarroController();
+    private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
+    private static final ValidadorString validadorString = ValidadorString.getInstance();
+    private static final ValidadorDouble validadorDouble = ValidadorDouble.getInstance();
     
     private CarroController() {}
     
@@ -21,7 +24,7 @@ public class CarroController {
         while(op != 4) {
             CarroInterface.printarMenuCarro();
             
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
+            op = validadorInteiro.validar("Informe a Opcao Desejada:");
             
             switch (op) {
                 case 1 -> cadastrarNovoCarro();
@@ -52,7 +55,7 @@ public class CarroController {
          while (opcao != 8)  { 
             try {
                 CarroInterface.printarMenuEscolhasAlteracao();
-                opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+                opcao = validadorInteiro.validar("Informe a Opcao Desejada: ");
 
                 switch(opcao)  {
                     case 1 -> alterarCorCarro();
@@ -86,7 +89,7 @@ public class CarroController {
         
         Carro carro = encontrarCarroPorRenavam();
         double novaQuilometragem = 
-                carro.getQuilometragem() + ValidarEntradas.validarEntradaDouble("Digite quantos quilometros foram rodados: ");
+                carro.getQuilometragem() + validadorDouble.validar("Digite quantos quilometros foram rodados: ");
         
         service.alterarQuilometragemCarro(carro, novaQuilometragem);
     }
@@ -95,7 +98,7 @@ public class CarroController {
         CarroInterface.printarInterfaceAlteracaoValor();
         
         Carro carro = encontrarCarroPorRenavam();
-        double novoValor = ValidarEntradas.validarEntradaDouble("Digite o novo valor da diaria do carro: ");
+        double novoValor = validadorDouble.validar("Digite o novo valor da diaria do carro: ");
         
         service.alterarValorCarro(carro, novoValor);
     }
@@ -121,12 +124,10 @@ public class CarroController {
     private void alterarPlacaCarro() throws EntityNotFoundException {
         CarroInterface.printarInterfaceAlteracaoPlaca();
         
+        validadorString.setRegex(CarroFactory.VALIDAR_PLACA_CARRO_REGEX);
+        
         Carro carro = encontrarCarroPorRenavam();
-        String novaPlaca = 
-                ValidarEntradas.validarEntradaString(
-                        "Digite a nova placa do carro (AAA-0000 ou AAA0A00):  ",
-                        CarroFactory.VALIDAR_PLACA_CARRO_REGEX
-                );
+        String novaPlaca = validadorString.validar("Digite a nova placa do carro (AAA-0000 ou AAA0A00):  ");
          
         service.alterarPlacaCarro(carro, novaPlaca);
     }
@@ -146,7 +147,7 @@ public class CarroController {
         while (opcao != 8)  { 
             try {
                 CarroInterface.printarMenuVisualizarInformacoes();
-                opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+                opcao = validadorInteiro.validar("Informe a Opcao Desejada: ");
                 
                 switch(opcao)  {
                     case 1 -> visualizarCarroPorRenavam();
@@ -208,19 +209,12 @@ public class CarroController {
     }
 
     private Carro encontrarCarroPorRenavam() {
-        String renavam = 
-                ValidarEntradas.validarEntradaString("Informe o renavam do carro: ", CarroFactory.VALIDAR_RENAVAM_CARRO_REGEX);
+        validadorString.setRegex(CarroFactory.VALIDAR_RENAVAM_CARRO_REGEX);
+        String renavam = validadorString.validar("Informe o renavam do carro: ");
         return service.encontrarCarroPorRenavam(renavam);
     }
     
     public static CarroController getInstance() {
         return controller;
     }
-    
-    /*public static void main(String[] args) {
-        CarroController controller = CarroController.getInstance();
-        
-        controller.exibirOpcoesCarro();
-    }*/
-    
 }

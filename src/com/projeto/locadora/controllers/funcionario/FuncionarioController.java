@@ -15,6 +15,8 @@ public class FuncionarioController {
     private static final FuncionarioController funcionarioController = new FuncionarioController();
     private static final ClienteController clienteController = ClienteController.getInstance();
     private static final CarroController carroController = CarroController.getInstance();
+    private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
+    private static final ValidadorString validadorString = ValidadorString.getInstance();
 
     private FuncionarioController() {}
     
@@ -23,7 +25,7 @@ public class FuncionarioController {
         
         while (op != 2) {
             FuncionarioInterface.printarInterfaceLogin();
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            op = validadorInteiro.validar("Informe a Opcao Desejada: ");
             
             switch (op) {
                 case 1 -> realizarLogin();
@@ -35,10 +37,12 @@ public class FuncionarioController {
     
     public void realizarLogin() {
         FuncionarioInterface.printarInterfaceLoginEntrada();
-         
-        String cpf = ValidarEntradas.validarEntradaString("Digite o seu CPF: ", ValidacoesRegex.VALIDAR_CPF_REGEX);
         
-        String senha = ValidarEntradas.validarEntradaString("Digite a sua senha: ", ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
+        String cpf = validadorString.validar("Digite o seu CPF: ");
+        
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        String senha = validadorString.validar("Digite a sua senha: ");
         
         try {
             Funcionario funcionario = service.encontrarFuncionarioPorCpf(cpf);
@@ -65,7 +69,7 @@ public class FuncionarioController {
         while(op != 6) {
             FuncionarioInterface.printarMenuFuncionarioAdministrador();
             
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            op = validadorInteiro.validar("Informe a Opcao Desejada: ");
             
             switch (op) {
                 case 1 -> clienteController.exibirOpcoesCliente();
@@ -85,7 +89,7 @@ public class FuncionarioController {
         while(op != 5) {
             FuncionarioInterface.printarMenuFuncionarioComum();
             
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            op = validadorInteiro.validar("Informe a Opcao Desejada: ");
             
             switch (op) {
                 case 1 -> clienteController.exibirOpcoesCliente();
@@ -104,7 +108,7 @@ public class FuncionarioController {
         while(op != 4) {
             FuncionarioInterface.printarMenuFuncionariosGeral();
             
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+            op = validadorInteiro.validar("Informe a Opcao Desejada: ");
             
             switch (op) {
                 case 1 -> cadastrarFuncionario();
@@ -137,7 +141,7 @@ public class FuncionarioController {
         while(opcao != 6) {
             try {
                 FuncionarioInterface.printarMenuAlteracaoDados();
-                opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada: ");
+                opcao = validadorInteiro.validar("Informe a Opcao Desejada: ");
                 
                 switch(opcao)  {
                     case 1 -> alterarNomeFuncionario();
@@ -156,7 +160,9 @@ public class FuncionarioController {
     }
     
     public Funcionario solicitaCpfFuncionario() throws EntityNotFoundException {
-        String cpf = ValidarEntradas.validarEntradaString("Informe o CPF do Funcionario (XXX.XXX.XXX-XX): ", "\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
+        validadorString.setRegex("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}");
+        String cpf = validadorString.validar("Informe o CPF do Funcionario (XXX.XXX.XXX-XX): ");
+        
         return service.encontrarFuncionarioPorCpf(cpf);
     }
     
@@ -165,7 +171,8 @@ public class FuncionarioController {
         
         Funcionario funcionario = solicitaCpfFuncionario();
         
-        String nome = ValidarEntradas.validarEntradaString("Informe o novo nome do funcionario: ", "([A-Za-zÀ-Ü-à-ü]+)(\\s[A-Za-zÀ-Ü-à-ü]+)+");
+        validadorString.setRegex( "([A-Za-zÀ-Ü-à-ü]+)(\\s[A-Za-zÀ-Ü-à-ü]+)+");
+        String nome = validadorString.validar("Informe o novo nome do funcionario: ");
         
         nome = FormatarDados.formatarNome(nome);
         
@@ -177,7 +184,8 @@ public class FuncionarioController {
         
         Funcionario funcionario = solicitaCpfFuncionario();
         
-        String email = ValidarEntradas.validarEntradaString("Informe o novo e-mail do funcionario: ", "([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+");
+        validadorString.setRegex("([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+");
+        String email = validadorString.validar("Informe o novo e-mail do funcionario: ");
         
         service.alterarEmailFuncionario(funcionario, email);
     }
@@ -186,8 +194,9 @@ public class FuncionarioController {
         FuncionarioInterface.printarInterfaceAlteracaoSenha();
         
         Funcionario funcionario = solicitaCpfFuncionario();
-      
-        String senha = ValidarEntradas.validarEntradaString("Informe a nova senha do funcionario: ", "^[A-Z][A-Za-z0-9!@#$%^&*(),.?\":{}|<>]{7,15}$");
+        
+        validadorString.setRegex("^[A-Z][A-Za-z0-9!@#$%^&*(),.?\":{}|<>]{7,15}$");
+        String senha = validadorString.validar("Informe a nova senha do funcionario: ");
         
         service.alterarSenhaFuncionario(funcionario, senha);
     }
@@ -197,7 +206,8 @@ public class FuncionarioController {
         
         Funcionario funcionario = solicitaCpfFuncionario();
         
-        String endereco = ValidarEntradas.validarEntradaString("Informe o novo endereco do funcionario: ", "[A-Za-zÀ-Ü-à-ü1-9,.-°]+");
+        validadorString.setRegex("[A-Za-zÀ-Ü-à-ü1-9,.-°]+");
+        String endereco = validadorString.validar("Informe o novo endereco do funcionario: ");
         
         service.alterarEnderecoFuncionario(funcionario, endereco);
     }
@@ -207,7 +217,8 @@ public class FuncionarioController {
         
         Funcionario funcionario = solicitaCpfFuncionario();
         
-        String telefone = ValidarEntradas.validarEntradaString("Informe o novo telefone do funcionario((XX)XXXXX-XXXX): ", "\\([1-9]{2}\\)[1-9]{5}-[1-9]{4}");
+        validadorString.setRegex("\\([1-9]{2}\\)[1-9]{5}-[1-9]{4}");
+        String telefone = validadorString.validar("Informe o novo telefone do funcionario((XX)XXXXX-XXXX): ");
         
         service.alterarTelefoneFuncionario(funcionario, telefone);
     }

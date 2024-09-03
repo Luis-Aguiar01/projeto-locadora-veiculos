@@ -7,12 +7,16 @@ import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.utils.FormatarDados;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
+import com.projeto.locadora.utils.ValidadorInteiro;
+import com.projeto.locadora.utils.ValidadorString;
 import com.projeto.locadora.utils.ValidarEntradas;
 
 public class ClienteController {
     private static final ClienteService service = ClienteService.getInstance();
     private static final ClienteController controller = new ClienteController();
-
+    private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
+    private static final ValidadorString validadorString = ValidadorString.getInstance();
+    
     private ClienteController() {}
     
     public void exibirOpcoesCliente()
@@ -23,7 +27,7 @@ public class ClienteController {
         {
             ClienteInterface.printarMenuCliente();
             
-            op = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
+            op = validadorInteiro.validar("Informe a Opcao Desejada:");
             
             switch (op) 
             {
@@ -60,7 +64,7 @@ public class ClienteController {
         {
             try{
                 ClienteInterface.printarMenuEscolhasAlteracao();
-                opcao = ValidarEntradas.validarEntradaInteira("Informe a Opcao Desejada:");
+                opcao = validadorInteiro.validar("Informe a Opcao Desejada:");
 
                 switch(opcao){
                     case 1 -> alterarNomeCliente();
@@ -78,8 +82,9 @@ public class ClienteController {
     }
     
     public Cliente solicitaCpfCliente() throws EntityNotFoundException
-    {
-        String cpf = ValidarEntradas.validarEntradaString("Informe o CPF do Cliente (XXX.XXX.XXX-XX): ", ValidacoesRegex.VALIDAR_CPF_REGEX);
+    {   
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
+        String cpf = validadorString.validar("Informe o CPF do Cliente (XXX.XXX.XXX-XX): ");
         return service.encontrarClientePorCpf(cpf);
     }
     
@@ -89,7 +94,8 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String nome = ValidarEntradas.validarEntradaString("Informe o novo nome do cliente: ", ValidacoesRegex.VALIDAR_NOME_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_NOME_REGEX);
+        String nome = validadorString.validar("Informe o novo nome do cliente: ");
         
         nome = FormatarDados.formatarNome(nome);
         
@@ -102,7 +108,8 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String email = ValidarEntradas.validarEntradaString("Informe o novo e-mail do cliente: ", ValidacoesRegex.VALIDAR_EMAIL_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_EMAIL_REGEX);
+        String email = validadorString.validar("Informe o novo e-mail do cliente: ");
         
         service.alterarEmailCliente(cliente, email);
     }
@@ -113,7 +120,8 @@ public class ClienteController {
       
         Cliente cliente = solicitaCpfCliente();
         
-        String endereco = ValidarEntradas.validarEntradaString("Informe o novo endereco do cliente: ", ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        String endereco = validadorString.validar("Informe o novo endereco do cliente: ");
         
         service.alterarEnderecoCliente(cliente, endereco);
     }
@@ -124,7 +132,8 @@ public class ClienteController {
         
         Cliente cliente = solicitaCpfCliente();
         
-        String telefone = ValidarEntradas.validarEntradaString("Informe o novo telefone do cliente((XX)XXXXX-XXXX): ", ValidacoesRegex.VALIDAR_TELEFONE_REGEX);
+        validadorString.setRegex( ValidacoesRegex.VALIDAR_TELEFONE_REGEX);
+        String telefone = validadorString.validar("Informe o novo telefone do cliente((XX)XXXXX-XXXX): ");
         
         service.alterarTelefoneCliente(cliente, telefone);
     }

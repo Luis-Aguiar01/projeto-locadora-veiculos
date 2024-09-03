@@ -5,12 +5,14 @@ import com.projeto.locadora.entities.pagamento.PagamentoFactory;
 import com.projeto.locadora.services.pagamento.PagamentoService;
 import static com.projeto.locadora.utils.OperacoesConsole.GREEN;
 import static com.projeto.locadora.utils.OperacoesConsole.RESET;
+import com.projeto.locadora.utils.ValidadorInteiro;
 import com.projeto.locadora.utils.ValidarEntradas;
 import java.util.List;
 
 public class PagamentoController {
     private static final PagamentoService service = PagamentoService.getInstance();
     private static final PagamentoController pagamentoController = new PagamentoController();
+    private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
 
     private PagamentoController() {}
     
@@ -30,7 +32,7 @@ public class PagamentoController {
     }
     
     public void encontrarPagamento() {
-        int id = ValidarEntradas.validarEntradaInteira("Digite o ID do pagamento:");
+        int id = validadorInteiro.validar("Digite o ID do pagamento:");
         Pagamento pagamento = service.encontrarPagamentoPorId(id);
         
         PagamentoInterface.printarInformacoesPagamentos(List.of(pagamento));

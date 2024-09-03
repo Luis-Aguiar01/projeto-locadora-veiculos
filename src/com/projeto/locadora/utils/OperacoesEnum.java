@@ -9,6 +9,7 @@ import static com.projeto.locadora.utils.OperacoesConsole.*;
 public class OperacoesEnum {
     
         private OperacoesEnum() {}
+        private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
     
         public static <T extends Enum<T> & PrintarNome> void exibirOpcoesEnum(Class<T> enumClass) {
             limparConsole();
@@ -35,7 +36,7 @@ public class OperacoesEnum {
             while (!condicao) {
                 try {
                     OperacoesEnum.exibirOpcoesEnum(classEnum);
-                    int escolha = ValidarEntradas.validarEntradaInteira("Informe a opcao desejada: ");
+                    int escolha = validadorInteiro.validar("Informe a opcao desejada: ");
                                  
                     if (OperacoesEnum.validarEscolhaEnum(classEnum, m -> m.ordinal() + 1 == escolha)) {
                         condicao = true;

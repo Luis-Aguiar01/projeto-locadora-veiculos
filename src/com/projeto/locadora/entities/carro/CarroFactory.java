@@ -7,13 +7,18 @@ import com.projeto.locadora.utils.*;
 public class CarroFactory {
     public final static String VALIDAR_PLACA_CARRO_REGEX = "([a-zA-Z]{3}-\\d{4})|([a-zA-Z]{3}\\d[a-zA-Z]\\d{2})";
     public final static String VALIDAR_RENAVAM_CARRO_REGEX = "^\\d{11}$";
+    private static final ValidadorString validador = ValidadorString.getInstance();
     
     public static Carro criarCarro() {
-        String renavam = ValidarEntradas.validarEntradaString("Digite o RENAVAM do carro (11 digitos): ", VALIDAR_RENAVAM_CARRO_REGEX);
         
-        String placa = ValidarEntradas.validarEntradaString("Digite a placa do carro (AAA-0000 ou AAA0A00): ", VALIDAR_PLACA_CARRO_REGEX);
+        validador.setRegex(VALIDAR_RENAVAM_CARRO_REGEX);
+        String renavam = validador.validar("Digite o RENAVAM do carro (11 digitos): ");
         
-        String nome = ValidarEntradas.validarEntradaString("Digite o nome do carro: ", "[A-Za-z0-9-]+");
+        validador.setRegex(VALIDAR_PLACA_CARRO_REGEX);
+        String placa = validador.validar("Digite a placa do carro (AAA-0000 ou AAA0A00): ");
+        
+        validador.setRegex("[A-Za-z0-9-]+");
+        String nome = validador.validar("Digite o nome do carro: ");
         
         Modelo modelo = OperacoesEnum.validarEnum(Modelo.class);
         

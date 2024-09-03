@@ -5,6 +5,8 @@ import java.time.Year;
 public class ValidarEntradasMotor {
     
     private ValidarEntradasMotor() {}
+    private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
+    private static final ValidadorDouble validadorDouble = ValidadorDouble.getInstance();
     
     public static int validarAnoMotor(String mensagem) {
         boolean condicao = false;
@@ -12,7 +14,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                ano = ValidarEntradas.validarEntradaInteira(mensagem);
+                ano = validadorInteiro.validar(mensagem);
                 
                 if (ano > 2014 && ano < Year.now().getValue()) {
                     condicao = true;
@@ -35,7 +37,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                potencia = ValidarEntradas.validarEntradaInteira(mensagem);
+                potencia = validadorInteiro.validar(mensagem);
                 
                 if (potencia >= 50 && potencia <= 300) {
                     condicao = true;
@@ -58,7 +60,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                volumeCilindros = ValidarEntradas.validarEntradaDouble(mensagem);
+                volumeCilindros = validadorDouble.validar(mensagem);
                 
                 if (volumeCilindros >= 1.0 && volumeCilindros <= 3.0) {
                     condicao = true;
@@ -81,7 +83,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                torque = ValidarEntradas.validarEntradaInteira(mensagem);
+                torque = validadorInteiro.validar(mensagem);
                 
                 if (torque >= 100 && torque <= 300) {
                     condicao = true;
@@ -104,7 +106,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                numeroCilindros = ValidarEntradas.validarEntradaInteira(mensagem);
+                numeroCilindros = validadorInteiro.validar(mensagem);
                 
                 if (numeroCilindros == 3 || numeroCilindros == 4 || numeroCilindros == 5 || numeroCilindros == 6) {
                     condicao = true;
@@ -127,7 +129,7 @@ public class ValidarEntradasMotor {
         
         while (!condicao) {
             try {
-                consumoCombustivel = ValidarEntradas.validarEntradaInteira(mensagem);
+                consumoCombustivel = validadorInteiro.validar(mensagem);
                 
                 if (consumoCombustivel >= 3 && consumoCombustivel <= 20) {
                     condicao = true;

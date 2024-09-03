@@ -6,6 +6,7 @@ import java.time.Year;
 public class ValidarEntradasCarro {
         
         private ValidarEntradasCarro() {}
+        private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
         
         public static int validarAnoCarro(String mensagem) {
             boolean condicao = false;
@@ -13,7 +14,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    ano = ValidarEntradas.validarEntradaInteira(mensagem);
+                    ano = validadorInteiro.validar(mensagem);
                     
                     if (ano > 2014 && ano <= Year.now().getValue()) {
                         condicao = true;
@@ -36,7 +37,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    quilometragem = ValidarEntradas.validarEntradaInteira(mensagem);
+                    quilometragem = validadorInteiro.validar(mensagem);
                     
                     if (quilometragem >= 0.0) {
                         condicao = true;
@@ -59,7 +60,7 @@ public class ValidarEntradasCarro {
             
             while (!condicao) {
                 try {
-                    valorDiaria = ValidarEntradas.validarEntradaDouble(mensagem);
+                    valorDiaria = validadorInteiro.validar(mensagem);
                     
                     if (valorDiaria >= 100.0) {
                         condicao = true;
