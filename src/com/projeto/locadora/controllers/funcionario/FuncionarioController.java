@@ -9,6 +9,12 @@ import com.projeto.locadora.services.funcionario.FuncionarioService;
 import com.projeto.locadora.utils.*;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
 
+/*
+    Implementação do Padrão de Projeto Facade - A classe FuncionarioController
+    é responsável por agrupar todas as funcionalidades do sistema, e fornece
+    uma interface simples, para que essas funcionalidades possam ser acessadas,
+    diminuindo a complexidade.
+*/
 public class FuncionarioController {
     
     private static final FuncionarioService service = FuncionarioService.getInstance();

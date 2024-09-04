@@ -2,6 +2,10 @@ package com.projeto.locadora.entities.pagamento;
 
 import java.time.LocalDateTime;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O Pagamento recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Pagamento {
     
     private final int codigo;

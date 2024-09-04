@@ -4,6 +4,11 @@ import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.entities.locacao.Locacao;
 import com.projeto.locadora.entities.pagamento.Pagamento;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relevantes do objeto.
+*/
 public class DevolucaoBuilderImp implements DevolucaoBuilder {
     private Locacao locacao;
     private Funcionario funcionarioCadastro;

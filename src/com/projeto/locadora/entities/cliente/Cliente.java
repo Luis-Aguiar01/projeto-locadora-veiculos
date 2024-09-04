@@ -3,6 +3,10 @@ package com.projeto.locadora.entities.cliente;
 import com.projeto.locadora.entities.usuario.Usuario;
 import java.util.Objects;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O Cliente recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Cliente extends Usuario {
     
     public Cliente(ClienteBuilder clienteBuilder) {

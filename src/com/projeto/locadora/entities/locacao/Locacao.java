@@ -10,6 +10,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Implementação do Padrão de Projeto Flyweight - Um objeto do tipo locação
+    é composto pelas referências de outros objetos, como: Cliente, Carro e Funcionario,
+    evitando a multiplicidade dos dados entre os diferentes objetos de locação.
+*/
 public class Locacao {
     private final Integer codigo;
     private EstadoLocacao estado;

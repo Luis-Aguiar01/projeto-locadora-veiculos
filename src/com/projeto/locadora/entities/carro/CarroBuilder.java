@@ -3,6 +3,10 @@ package com.projeto.locadora.entities.carro;
 import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.motor.Motor;
 
+/* 
+    Interface base responsável por fornecer todos os métodos do Builder, além dos get's
+    para que seja possivel recuperar os valores
+*/
 public interface CarroBuilder {
     CarroBuilder renavam(String renavam);
     CarroBuilder placa(String placa);

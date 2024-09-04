@@ -4,6 +4,10 @@ import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.motor.Motor;
 import java.util.Objects;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O carro recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Carro {
     private final String renavam;
     private String placa;

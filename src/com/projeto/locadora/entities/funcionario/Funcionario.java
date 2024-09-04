@@ -4,6 +4,10 @@ import com.projeto.locadora.entities.usuario.Usuario;
 import com.projeto.locadora.enums.Cargo;
 import java.util.Objects;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O Funcionario recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Funcionario extends Usuario {
     
     private final Cargo cargo;

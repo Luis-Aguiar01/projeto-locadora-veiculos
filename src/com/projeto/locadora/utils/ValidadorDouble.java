@@ -1,5 +1,9 @@
 package com.projeto.locadora.utils;
 
+/* 
+    Implementação do Padrão de Projeto Template Method - A classe ValidadorDouble
+    é uma implementação concreta da classe abstrata.
+*/
 public class ValidadorDouble extends Validador<Double> {
 
     private static final ValidadorDouble validador = new ValidadorDouble();

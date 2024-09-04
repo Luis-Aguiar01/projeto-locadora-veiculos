@@ -5,6 +5,11 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/*
+    Aplicação do Padrão de Projeto Singleton - O ClienteDAOImp possui apenas 
+    uma única instância da sua classe, que é inicializada como um atributo.
+    Essa instância é fornecidada pelo método getInstance().
+*/
 public class ClienteDAOImp implements ClienteDAO {
     
     private static final List<Cliente> clientes = new ArrayList<>();

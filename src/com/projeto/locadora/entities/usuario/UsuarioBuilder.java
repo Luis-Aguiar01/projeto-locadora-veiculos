@@ -3,6 +3,10 @@ package com.projeto.locadora.entities.usuario;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/* 
+    Interface base responsável por fornecer todos os métodos do Builder, além dos get's
+    para que seja possivel recuperar os valores
+*/
 public interface UsuarioBuilder {
     UsuarioBuilder cpf(String cpf);
     UsuarioBuilder nome(String nome);

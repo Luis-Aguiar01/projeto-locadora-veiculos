@@ -1,5 +1,10 @@
 package com.projeto.locadora.entities.multa;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relevantes do objeto.
+*/
 public class MultaBuilderImp implements MultaBuilder {
     private String descricao;
     private Double valor;

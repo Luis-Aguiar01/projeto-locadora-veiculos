@@ -2,6 +2,11 @@ package com.projeto.locadora.utils;
 
 import java.util.Scanner;
 
+/* 
+    Implementação do Padrão de Projeto Template Method - A classe Validador
+    serve para definir as operações padrões, que possuem implementaçoes, e as
+    operações que precisam de uma implementação por parte das subclasses.
+*/
 public abstract class Validador<T> {
     private final Scanner scanner = SingletonScanner.getInstance();
     

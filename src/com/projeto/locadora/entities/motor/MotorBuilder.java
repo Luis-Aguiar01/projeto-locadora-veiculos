@@ -7,7 +7,7 @@ public interface MotorBuilder {
     MotorBuilder volumeCilindros(double volumeCilindros);
     MotorBuilder numeroCilindros(int numeroCilindros);
     MotorBuilder torque(int torque);
-    MotorBuilder combustivel(Combustivel combustivel); // Passar um ou mais argumentos.
+    MotorBuilder combustivel(Combustivel combustivel); 
     MotorBuilder anoFabricacao(int ano);
     MotorBuilder consumoCombustivel(double consumo);
     Motor build();

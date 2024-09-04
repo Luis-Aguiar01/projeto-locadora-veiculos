@@ -1,5 +1,9 @@
 package com.projeto.locadora.utils;
 
+/* 
+    Implementação do Padrão de Projeto Template Method - A classe ValidadorString
+    é uma implementação concreta da classe abstrata.
+*/
 public class ValidadorString extends Validador<String> {
     
     private static final ValidadorString validador = new ValidadorString();

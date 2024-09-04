@@ -5,6 +5,11 @@ import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.entities.funcionario.Funcionario;
 import java.time.LocalDateTime;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relevantes do objeto.
+*/
 public class LocacaoBuilderImp implements LocacaoBuilder {
     private Cliente cliente;
     private Funcionario funcionarioCadastro;

@@ -3,6 +3,11 @@ package com.projeto.locadora.entities.motor;
 import com.projeto.locadora.enums.Combustivel;
 import java.util.List;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relavantes do objeto.
+*/
 public class MotorBuilderImp implements MotorBuilder{
     private int potencia;
     private double volumeCilindros;

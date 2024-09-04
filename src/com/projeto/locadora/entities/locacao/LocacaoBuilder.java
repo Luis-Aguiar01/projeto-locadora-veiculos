@@ -3,9 +3,12 @@ package com.projeto.locadora.entities.locacao;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.entities.funcionario.Funcionario;
-import com.projeto.locadora.entities.multa.Multa;
 import java.time.LocalDateTime;
 
+/* 
+    Interface base responsável por fornecer todos os métodos do Builder, além dos get's
+    para que seja possivel recuperar os valores
+*/
 public interface LocacaoBuilder {
     //Setters de atributos
     public LocacaoBuilder setDataInicio(LocalDateTime dataInicio);

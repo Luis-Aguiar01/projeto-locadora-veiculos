@@ -7,6 +7,11 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/*
+    Aplicação do Padrão de Projeto Singleton - O CarroDAOImp possui apenas 
+    uma única instância da sua classe, que é inicializada como um atributo.
+    Essa instância é fornecidada pelo método getInstance().
+*/
 public class CarroDAOImp implements CarroDAO {
    
     private static final List<Carro> carros = new ArrayList<>();

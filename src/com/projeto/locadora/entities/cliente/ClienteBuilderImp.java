@@ -3,6 +3,11 @@ package com.projeto.locadora.entities.cliente;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relevantes do objeto.
+*/
 public class ClienteBuilderImp implements ClienteBuilder {
     private String cpf;
     private String nome;

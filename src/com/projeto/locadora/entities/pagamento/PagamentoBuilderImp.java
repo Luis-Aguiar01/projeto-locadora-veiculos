@@ -1,5 +1,10 @@
 package com.projeto.locadora.entities.pagamento;
 
+/* 
+    Implementação Concreta da Interface base do Builder.
+    Basicamente, fornece uma forma de inicializar todos os
+    atributos relevantes do objeto.
+*/
 public class PagamentoBuilderImp implements PagamentoBuilder {
     
     private double valor;

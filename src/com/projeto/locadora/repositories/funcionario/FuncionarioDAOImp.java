@@ -10,6 +10,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/*
+    Aplicação do Padrão de Projeto Singleton - O FuncionarioDAOImp possui apenas 
+    uma única instância da sua classe, que é inicializada como um atributo.
+    Essa instância é fornecidada pelo método getInstance().
+*/
 public class FuncionarioDAOImp implements FuncionarioDAO{
 
     private static final List<Funcionario> funcionarios = new ArrayList<>();

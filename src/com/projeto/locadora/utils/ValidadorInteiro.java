@@ -1,5 +1,9 @@
 package com.projeto.locadora.utils;
 
+/* 
+    Implementação do Padrão de Projeto Template Method - A classe ValidadorInteiro
+    é uma implementação concreta da classe abstrata.
+*/
 public class ValidadorInteiro extends Validador<Integer> {
 
     private static final ValidadorInteiro validador = new ValidadorInteiro();

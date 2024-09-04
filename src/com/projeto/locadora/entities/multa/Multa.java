@@ -2,6 +2,10 @@ package com.projeto.locadora.entities.multa;
 
 import java.time.LocalDateTime;
 
+/*
+    Aplicação do Padrão de Projeto Builder - A Multa recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Multa {
     private final Integer codigo;
     private final String descricao;

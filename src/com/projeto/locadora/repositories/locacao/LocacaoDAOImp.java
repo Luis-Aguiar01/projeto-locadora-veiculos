@@ -5,6 +5,11 @@ import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/*
+    Aplicação do Padrão de Projeto Singleton - O LocacaoDAOImp possui apenas 
+    uma única instância da sua classe, que é inicializada como um atributo.
+    Essa instância é fornecidada pelo método getInstance().
+*/
 public class LocacaoDAOImp implements LocacaoDAO {
     private static final List<Locacao> locacoes = new ArrayList<>();
     private static final LocacaoDAOImp repositorio = new LocacaoDAOImp();

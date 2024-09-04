@@ -4,6 +4,10 @@ import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.entities.pagamento.Pagamento;
 import java.time.LocalDateTime;
 
+/*
+    Aplicação do Padrão de Projeto Builder - A Devolução recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Devolucao {
     private final int codigo;
     private static int nextCodigo = 1;

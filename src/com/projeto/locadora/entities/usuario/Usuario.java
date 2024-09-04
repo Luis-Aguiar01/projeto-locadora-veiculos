@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O Usuário recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public abstract class Usuario {
     private final String cpf;
     private String nome;

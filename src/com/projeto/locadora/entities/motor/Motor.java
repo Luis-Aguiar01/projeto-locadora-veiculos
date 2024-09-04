@@ -2,6 +2,10 @@ package com.projeto.locadora.entities.motor;
 
 import com.projeto.locadora.enums.Combustivel;
 
+/*
+    Aplicação do Padrão de Projeto Builder - O Motor recebe uma interface do builder,
+    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+*/
 public class Motor {
     private final int potencia;
     private final double volumeCilindros;
