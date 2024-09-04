@@ -7,6 +7,7 @@ import com.projeto.locadora.entities.funcionario.Funcionario;
 import com.projeto.locadora.entities.multa.Multa;
 import com.projeto.locadora.enums.EstadoLocacao;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,15 +91,27 @@ public class Locacao {
     public void setDevolucao(Devolucao devolucao) {
         this.devolucao = devolucao;
     }
-    
+
     @Override
     public String toString() {
-        String info = "LOCAÇÃO\n\n";
-        info += "CPF Cliente: " + cliente.getCpf() + "\n";
-        info += "Cadastrado por: " + funcionarioCadastro.getNome() + "\n";
-        info += "Data início: " + dataInicio + "\n";
-        info += "Data fim: " + dataFim + "\n";
-        info += "Estado: " + estado + "\n";
+        String info = "\n\nLOCACAO\n\n";
+        info += "CPF Cliente: " + cliente.getCpf() + ".\n";
+        info += "Cadastrado por: " + funcionarioCadastro.getNome() + ".\n";
+        info += "Data inicio: " + dataInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
+        info += "Data fim: " + dataFim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
+        info += "Estado: " + estado.getNome()+ ".\n";
+        
+        info += "\nMULTAS DA LOCACAO:";
+        if(!multas.isEmpty()) {
+            for(Multa multa : multas) {
+                info += "\n\nMotivo multa: " + multa.getDescricao() + ".\n";
+                info += "Valor: R$ " + multa.getValor() + ".\n";
+            }            
+        } else {
+            info += " Nenhuma multa aplicada.\n";
+        }
+        
         return info;
     }
+
 }

@@ -17,7 +17,7 @@ public class PagamentoInterface {
         System.out.println("=============================================================");
         System.out.println("||               CADASTRO DE PAGAMENTOS                  ||");
         System.out.println("=============================================================");
-        System.out.println("Insira as informações do pagamento abaixo:");
+        System.out.println("Insira as informacoes do pagamento abaixo:");
     }
     
     public static void printarInformacoesPagamentos(List<Pagamento> pagamentos) {

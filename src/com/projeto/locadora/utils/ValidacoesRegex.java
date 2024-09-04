@@ -7,7 +7,8 @@ public class ValidacoesRegex
     public static final String VALIDAR_EMAIL_REGEX = "([a-z0-9\\._])+@([a-z])+(\\.([a-zA-Z])+)+";
     public static final String VALIDAR_ENDERECO_REGEX = "[ A-Za-zÀ-Ü-à-ü1-9,.-°]+";
     public static final String VALIDAR_TELEFONE_REGEX = "\\([1-9]{2}\\)[1-9]{5}-[1-9]{4}";
-    public static final String VALIDAR_SENHA_REGEX = "^[A-Z][A-Za-z0-9!@#$%^&*(),.?\":{}|<>]{7,15}$";
+    public static final String VALIDAR_SENHA_REGEX = "[A-Za-z0-9]{4,15}";
+    public static final String VALIDAR_CAMPO_TEXTO_REGEX = "[ÇçÀ-Ü-à-üa-zA-Z0-9\\s-/,.]+";
             
     private ValidacoesRegex(){};
 }

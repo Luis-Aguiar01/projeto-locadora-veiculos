@@ -159,7 +159,7 @@ public class LocacaoController {
          
         double valor = validadorDouble.validar("Digite o valor da multa: ");
          
-        validadorString.setRegex("[ÇçÀ-Ü-à-üa-zA-Z0-9\\s-/,.]+");
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CAMPO_TEXTO_REGEX);
         
         String descricao = validadorString.validar("Informe o motivo da multa: ");
          

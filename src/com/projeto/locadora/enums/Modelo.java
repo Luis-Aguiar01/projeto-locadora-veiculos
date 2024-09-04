@@ -7,7 +7,8 @@ public enum Modelo implements PrintarNome {
     COUPE (4, "Coupe"),
     CONVERSIVEL (5, "Conversivel"),
     PICAPE (6, "Picape"),
-    ESPORTIVO (7, "Esportivo");
+    ESPORTIVO (7, "Esportivo"),
+    CAMIONETE(8, "Camionete");
     
     private final int codigoModelo;
     private final String nomeModelo;

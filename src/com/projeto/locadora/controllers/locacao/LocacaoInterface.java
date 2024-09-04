@@ -22,7 +22,7 @@ public class LocacaoInterface {
         System.out.println("=============================================================");
         System.out.println("||               CADASTRO DE LOCACAO                       ||");
         System.out.println("=============================================================");
-        System.out.println("Insira as informações da locacao abaixo:");
+        System.out.println("Insira as informacoes da locacao abaixo:");
     }
     
     public static void printarInterfaceMulta() {
@@ -30,7 +30,7 @@ public class LocacaoInterface {
         System.out.println("=============================================================");
         System.out.println("||               CADASTRO DE MULTA                       ||");
         System.out.println("=============================================================");
-        System.out.println("Insira as informações da multa abaixo:");
+        System.out.println("Insira as informacoes da multa abaixo:");
     }
     
     public static void printarInterfaceDevolucao() {
@@ -38,7 +38,7 @@ public class LocacaoInterface {
         System.out.println("=============================================================");
         System.out.println("||               REALIZAR DEVOLUCAO                        ||");
         System.out.println("=============================================================");
-        System.out.println("Insira as informações da devolucao abaixo:");
+        System.out.println("Insira as informacoes da devolucao abaixo:");
     }
     
     public static void printarInterfaceConsultaLocacao() {

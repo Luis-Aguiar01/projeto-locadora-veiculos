@@ -49,7 +49,7 @@ public class FuncionarioController {
         validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
         String cpf = validadorString.validar("Digite o seu CPF: ");
         
-        validadorString.setRegex(ValidacoesRegex.VALIDAR_ENDERECO_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_SENHA_REGEX);
         String senha = validadorString.validar("Digite a sua senha: ");
         
         try {
