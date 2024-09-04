@@ -7,6 +7,7 @@ import com.projeto.locadora.entities.funcionario.*;
 import com.projeto.locadora.enums.Cargo;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.funcionario.FuncionarioService;
+import com.projeto.locadora.services.observer.EventManager;
 import com.projeto.locadora.utils.*;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
 
@@ -25,7 +26,8 @@ public class FuncionarioController {
     private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
     private static final ValidadorString validadorString = ValidadorString.getInstance();
     private static final LocacaoController locacaoController = LocacaoController.getInstance();
-
+    private static final EventManager eventManager = EventManager.getInstance();
+    
     private FuncionarioController() {}
     
     public void paginaLogin() {
@@ -74,7 +76,7 @@ public class FuncionarioController {
     public void operacoesFuncionarioAdministradorMenu() {
         int op = 1;
 
-        while(op != 5) {
+        while(op != 6) {
             FuncionarioInterface.printarMenuFuncionarioAdministrador();
             
             op = validadorInteiro.validar("Informe a Opcao Desejada: ");
@@ -84,7 +86,8 @@ public class FuncionarioController {
                 case 2 -> carroController.exibirOpcoesCarro();
                 case 3 -> locacaoController.menuLocacao();
                 case 4 -> exibirOpcoesAdministrador();
-                case 5 -> {}
+                case 5 -> notificarUsuarios();
+                case 6 -> {}
                 default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
@@ -93,7 +96,7 @@ public class FuncionarioController {
     public void operacoesFuncionarioComumMenu() {
         int op = 1;
         
-        while(op != 4) {
+        while(op != 5) {
             FuncionarioInterface.printarMenuFuncionarioComum();
             
             op = validadorInteiro.validar("Informe a Opcao Desejada: ");
@@ -102,7 +105,8 @@ public class FuncionarioController {
                 case 1 -> clienteController.exibirOpcoesCliente();
                 case 2 -> carroController.exibirOpcoesCarro();
                 case 3 -> locacaoController.menuLocacao();
-                case 4 -> {}
+                case 4 -> notificarUsuarios();
+                case 5 -> {}
                 default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
@@ -111,7 +115,7 @@ public class FuncionarioController {
     public void exibirOpcoesAdministrador() {
         int op = 1;
         
-        while(op != 4) {
+        while(op != 3) {
             FuncionarioInterface.printarMenuFuncionariosGeral();
             
             op = validadorInteiro.validar("Informe a Opcao Desejada: ");
@@ -119,8 +123,7 @@ public class FuncionarioController {
             switch (op) {
                 case 1 -> cadastrarFuncionario();
                 case 2 -> alterarFuncionarioMenu();
-                case 3 -> {} // Consultar dados
-                case 4 -> {} // Sair
+                case 3 -> {} // Sair
                 default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }
@@ -227,6 +230,14 @@ public class FuncionarioController {
         String telefone = validadorString.validar("Informe o novo telefone do funcionario((XX)XXXXX-XXXX): ");
         
         service.alterarTelefoneFuncionario(funcionario, telefone);
+    }
+    
+    public void notificarUsuarios() {
+        
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_CAMPO_TEXTO_REGEX);
+        String mensagem = validadorString.validar("Informe a mensagem: ");
+        
+        eventManager.notificar(mensagem);
     }
 
     public static FuncionarioController getInstance() {

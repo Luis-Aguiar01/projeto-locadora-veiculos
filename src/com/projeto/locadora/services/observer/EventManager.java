@@ -3,11 +3,15 @@ package com.projeto.locadora.services.observer;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    Implementação do padrão de projeto Observer
+*/
 public class EventManager {
     
     private List<EventListener> inscricoes;
+    private static final EventManager event = new EventManager();
 
-    public EventManager() {
+    private EventManager() {
         inscricoes = new ArrayList<>();
     }
     
@@ -27,5 +31,9 @@ public class EventManager {
         for(EventListener e : inscricoes){
             e.update(mensagem);
         }
+    }
+    
+    public static EventManager getInstance() {
+        return event;
     }
 }

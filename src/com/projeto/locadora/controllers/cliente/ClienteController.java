@@ -1,21 +1,18 @@
 package com.projeto.locadora.controllers.cliente;
 
 import com.projeto.locadora.entities.cliente.*;
-import com.projeto.locadora.utils.ValidacoesRegex;
-import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
-import com.projeto.locadora.exceptions.EntityNotFoundException;
+import com.projeto.locadora.utils.*;
+import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.cliente.ClienteService;
-import com.projeto.locadora.utils.FormatarDados;
+import com.projeto.locadora.services.observer.EventManager;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
-import com.projeto.locadora.utils.ValidadorInteiro;
-import com.projeto.locadora.utils.ValidadorString;
-import com.projeto.locadora.utils.ValidarEntradas;
 
 public class ClienteController {
     private static final ClienteService service = ClienteService.getInstance();
     private static final ClienteController controller = new ClienteController();
     private static final ValidadorInteiro validadorInteiro = ValidadorInteiro.getInstance();
     private static final ValidadorString validadorString = ValidadorString.getInstance();
+    private static final EventManager eventManager = EventManager.getInstance();
     
     private ClienteController() {}
     
@@ -50,6 +47,8 @@ public class ClienteController {
             service.inserirCliente(cliente);
             
             System.out.println(GREEN + "\nCliente Cadastrado com Sucesso." + RESET);
+            
+            eventManager.inscrever(cliente);
         }
         catch(CpfAlreadyRegisteredException e)
         {

@@ -9,12 +9,11 @@ public class FuncionarioInterface {
     public static void printarMenuFuncionariosGeral() {
         limparConsole();
         System.out.println("=============================================================");
-        System.out.println("||              MENU FUNCIONARIO                           ||");
+        System.out.println("||                     MENU FUNCIONARIO                    ||");
         System.out.println("=============================================================");
         System.out.println("|| [1] - Cadastrar Funcionario.                            ||");
         System.out.println("|| [2] - Alterar Dados Funcionario.                        ||");
-        System.out.println("|| [3] - Consultar Dados Funcionario.                      ||");
-        System.out.println("|| [4] - Sair.                                             ||");
+        System.out.println("|| [3] - Sair.                                             ||");
         System.out.println("=============================================================");
     }
 
@@ -27,19 +26,21 @@ public class FuncionarioInterface {
         System.out.println("|| [2] - Opcoes Carros                                     ||");
         System.out.println("|| [3] - Opcoes Locacao                                    ||");
         System.out.println("|| [4] - Opcoes Admin                                      ||");
-        System.out.println("|| [5] - Sair.                                             ||");
+        System.out.println("|| [5] - Notificar Usuarios.                               ||");
+        System.out.println("|| [6] - Sair.                                             ||");
         System.out.println("=============================================================");
     }
     
     public static void printarMenuFuncionarioComum() {
         limparConsole();
         System.out.println("=============================================================");
-        System.out.println("||              MENU FUNCIONARIO COMUM                     ||");
+        System.out.println("||                 MENU FUNCIONARIO COMUM                  ||");
         System.out.println("=============================================================");
         System.out.println("|| [1] - Opcoes Clientes                                   ||");
         System.out.println("|| [2] - Opcoes Carros                                     ||");
         System.out.println("|| [3] - Opcoes Locacao                                    ||");
-        System.out.println("|| [4] - Sair.                                             ||");
+        System.out.println("|| [4] - Notificar Usuarios.                               ||");
+        System.out.println("|| [5] - Sair.                                             ||");
         System.out.println("=============================================================");
     }
     
