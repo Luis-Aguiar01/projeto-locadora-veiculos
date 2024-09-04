@@ -1,8 +1,7 @@
 package com.projeto.locadora.repositories.funcionario;
 
 import com.projeto.locadora.entities.funcionario.Funcionario;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface FuncionarioDAO {
     Optional<Funcionario> encontrarFuncionarioPorCpf(String cpf);

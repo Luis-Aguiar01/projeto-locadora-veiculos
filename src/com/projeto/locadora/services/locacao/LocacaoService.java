@@ -3,8 +3,7 @@ package com.projeto.locadora.services.locacao;
 import com.projeto.locadora.entities.devolucao.Devolucao;
 import com.projeto.locadora.entities.locacao.Locacao;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
-import com.projeto.locadora.repositories.locacao.LocacaoDAO;
-import com.projeto.locadora.repositories.locacao.LocacaoDAOImp;
+import com.projeto.locadora.repositories.locacao.*;
 import java.time.temporal.ChronoUnit;
 
 public class LocacaoService {

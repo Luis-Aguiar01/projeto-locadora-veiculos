@@ -1,7 +1,6 @@
 package com.projeto.locadora.services.observer;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /*
     Implementação do padrão de projeto Observer

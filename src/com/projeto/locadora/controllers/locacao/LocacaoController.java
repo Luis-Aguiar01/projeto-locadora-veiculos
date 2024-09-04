@@ -1,17 +1,12 @@
 package com.projeto.locadora.controllers.locacao;
 
-import com.projeto.locadora.controllers.funcionario.FuncionarioInterface;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.cliente.Cliente;
-import com.projeto.locadora.entities.devolucao.Devolucao;
-import com.projeto.locadora.entities.devolucao.DevolucaoBuilderImp;
+import com.projeto.locadora.entities.devolucao.*;
 import com.projeto.locadora.entities.funcionario.Funcionario;
-import com.projeto.locadora.entities.locacao.Locacao;
-import com.projeto.locadora.entities.locacao.LocacaoBuilderImp;
-import com.projeto.locadora.entities.multa.Multa;
-import com.projeto.locadora.entities.multa.MultaBuilderImp;
-import com.projeto.locadora.entities.pagamento.Pagamento;
-import com.projeto.locadora.entities.pagamento.PagamentoBuilderImp;
+import com.projeto.locadora.entities.locacao.*;
+import com.projeto.locadora.entities.multa.*;
+import com.projeto.locadora.entities.pagamento.*;
 import com.projeto.locadora.enums.EstadoLocacao;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.services.carro.CarroService;
@@ -19,10 +14,8 @@ import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.services.funcionario.FuncionarioService;
 import com.projeto.locadora.services.locacao.LocacaoService;
 import com.projeto.locadora.utils.*;
-import static com.projeto.locadora.utils.OperacoesConsole.RED;
-import static com.projeto.locadora.utils.OperacoesConsole.RESET;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 public class LocacaoController {

@@ -1,8 +1,6 @@
 package com.projeto.locadora.entities.funcionario;
 
-import com.projeto.locadora.utils.ValidacoesRegex;
-import com.projeto.locadora.utils.ValidadorString;
-import com.projeto.locadora.utils.ValidarEntradas;
+import com.projeto.locadora.utils.*;
 import java.time.*;
 
 public class FuncionarioFactory {

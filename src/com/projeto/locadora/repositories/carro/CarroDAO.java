@@ -1,12 +1,9 @@
 package com.projeto.locadora.repositories.carro;
 
-import com.projeto.locadora.enums.DisponibilidadeVeiculo;
-import com.projeto.locadora.enums.EstadoVeiculo;
+import com.projeto.locadora.enums.*;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.motor.Motor;
-import com.projeto.locadora.enums.Cor;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Predicate;
 
 public interface CarroDAO {

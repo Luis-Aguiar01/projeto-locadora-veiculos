@@ -1,7 +1,6 @@
 package com.projeto.locadora.entities.usuario;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 /*

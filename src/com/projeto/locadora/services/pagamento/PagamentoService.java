@@ -2,8 +2,7 @@ package com.projeto.locadora.services.pagamento;
 
 import com.projeto.locadora.entities.pagamento.Pagamento;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
-import com.projeto.locadora.repositories.pagamento.PagamentoDAO;
-import com.projeto.locadora.repositories.pagamento.PagamentoDAOImp;
+import com.projeto.locadora.repositories.pagamento.*;
 import java.util.List;
 
 public class PagamentoService {

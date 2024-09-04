@@ -8,8 +8,7 @@ import com.projeto.locadora.entities.multa.Multa;
 import com.projeto.locadora.enums.EstadoLocacao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /*
     Implementação do Padrão de Projeto Flyweight - Um objeto do tipo locação

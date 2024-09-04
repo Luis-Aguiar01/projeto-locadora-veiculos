@@ -1,14 +1,9 @@
 package com.projeto.locadora.repositories.funcionario;
 
-import com.projeto.locadora.entities.funcionario.Funcionario;
-import com.projeto.locadora.entities.funcionario.FuncionarioBuilderImp;
+import com.projeto.locadora.entities.funcionario.*;
 import com.projeto.locadora.enums.Cargo;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.time.*;
+import java.util.*;
 
 /*
     Aplicação do Padrão de Projeto Singleton - O FuncionarioDAOImp possui apenas 

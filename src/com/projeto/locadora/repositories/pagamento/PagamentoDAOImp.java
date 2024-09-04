@@ -1,10 +1,7 @@
 package com.projeto.locadora.repositories.pagamento;
 
 import com.projeto.locadora.entities.pagamento.Pagamento;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class PagamentoDAOImp implements PagamentoDAO {
     private static final List<Pagamento> pagamentos = new ArrayList<>();

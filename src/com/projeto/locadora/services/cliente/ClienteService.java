@@ -1,10 +1,8 @@
 package com.projeto.locadora.services.cliente;
 
-import com.projeto.locadora.exceptions.EntityNotFoundException;
+import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.entities.cliente.Cliente;
-import com.projeto.locadora.exceptions.CpfAlreadyRegisteredException;
-import com.projeto.locadora.repositories.cliente.ClienteDAO;
-import com.projeto.locadora.repositories.cliente.ClienteDAOImp;
+import com.projeto.locadora.repositories.cliente.*;
 import com.projeto.locadora.utils.FormatarDados;
 
 import java.util.List;

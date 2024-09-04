@@ -1,8 +1,7 @@
 package com.projeto.locadora.entities.funcionario;
 
 import com.projeto.locadora.enums.Cargo;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 
 /* 
     Implementação Concreta da Interface base do Builder.

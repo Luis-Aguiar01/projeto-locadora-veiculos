@@ -1,12 +1,9 @@
 package com.projeto.locadora.controllers.pagamento;
 
-import com.projeto.locadora.entities.pagamento.Pagamento;
-import com.projeto.locadora.entities.pagamento.PagamentoFactory;
+import com.projeto.locadora.entities.pagamento.*;
 import com.projeto.locadora.services.pagamento.PagamentoService;
-import static com.projeto.locadora.utils.OperacoesConsole.GREEN;
-import static com.projeto.locadora.utils.OperacoesConsole.RESET;
+import static com.projeto.locadora.utils.OperacoesConsole.*;
 import com.projeto.locadora.utils.ValidadorInteiro;
-import com.projeto.locadora.utils.ValidarEntradas;
 import java.util.List;
 
 public class PagamentoController {

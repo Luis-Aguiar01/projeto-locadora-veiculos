@@ -1,7 +1,6 @@
 package com.projeto.locadora.entities.usuario;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
 
 /* 
     Interface base responsável por fornecer todos os métodos do Builder, além dos get's

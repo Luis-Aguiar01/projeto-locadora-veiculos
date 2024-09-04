@@ -1,10 +1,8 @@
 package com.projeto.locadora.entities.cliente;
 
-import com.projeto.locadora.utils.ValidarEntradas;
-import com.projeto.locadora.utils.ValidacoesRegex;
-import com.projeto.locadora.utils.ValidadorString;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import com.projeto.locadora.utils.*;
+import java.time.*;
+
 
 public class ClienteFactory {
     

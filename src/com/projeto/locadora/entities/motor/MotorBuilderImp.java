@@ -1,7 +1,6 @@
 package com.projeto.locadora.entities.motor;
 
 import com.projeto.locadora.enums.Combustivel;
-import java.util.List;
 
 /* 
     Implementação Concreta da Interface base do Builder.

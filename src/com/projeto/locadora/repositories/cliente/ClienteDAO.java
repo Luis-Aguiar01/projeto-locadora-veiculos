@@ -1,8 +1,7 @@
 package com.projeto.locadora.repositories.cliente;
 
 import com.projeto.locadora.entities.cliente.Cliente;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface ClienteDAO {
     Optional<Cliente> encontrarClientePorCpf(String cpf);
