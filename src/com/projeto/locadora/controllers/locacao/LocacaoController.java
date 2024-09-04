@@ -1,5 +1,6 @@
 package com.projeto.locadora.controllers.locacao;
 
+import com.projeto.locadora.controllers.funcionario.FuncionarioInterface;
 import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.entities.devolucao.Devolucao;
@@ -18,6 +19,8 @@ import com.projeto.locadora.services.cliente.ClienteService;
 import com.projeto.locadora.services.funcionario.FuncionarioService;
 import com.projeto.locadora.services.locacao.LocacaoService;
 import com.projeto.locadora.utils.*;
+import static com.projeto.locadora.utils.OperacoesConsole.RED;
+import static com.projeto.locadora.utils.OperacoesConsole.RESET;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -34,8 +37,41 @@ public class LocacaoController {
     
     private LocacaoController() {}
     
+    public void menuLocacao() {       
+        int op = 1;
+        
+        try {
+            while (op != 5) {
+                LocacaoInterface.printarMenuLocacao();
+
+                op = validadorInteiro.validar("Informe a Opcao Desejada: ");
+
+                switch (op) {
+                    case 1 ->
+                        cadastrarLocacao();
+                    case 2 ->
+                        cadastrarMulta();
+                    case 3 ->
+                        realizarDevolucao();
+                    case 4 ->
+                        retornarLocacaoPorId();
+                    case 5 -> {
+                    }
+                    default ->
+                        System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
+                }
+            }
+        }
+        catch (EntityNotFoundException e) {
+            System.out.println(RED + "\nErro: " + e.getMessage() + RESET);
+        }
+        
+    }
+    
     public void cadastrarLocacao() throws EntityNotFoundException
     {
+        LocacaoInterface.printarInterfaceCadastro();
+        
         validadorString.setRegex(ValidacoesRegex.VALIDAR_CPF_REGEX);
         
         String cpfCliente = validadorString.validar("Digite o CPF do cliente: ");
@@ -66,6 +102,8 @@ public class LocacaoController {
     }
     
     public void retornarLocacaoPorId() {
+        LocacaoInterface.printarInterfaceConsultaLocacao();
+        
         int id = validadorInteiro.validar("Digite o id da locacao: ");
                 
         Locacao locacao = service.retornarLocacaoPorId(id);
@@ -74,7 +112,9 @@ public class LocacaoController {
     }
     
     public void realizarDevolucao() throws EntityNotFoundException
-    {
+    {   
+        LocacaoInterface.printarInterfaceDevolucao();
+        
         int id = validadorInteiro.validar("Digite o id da locacao: ");
         
         Locacao locacao = service.retornarLocacaoPorId(id);
@@ -111,6 +151,8 @@ public class LocacaoController {
 
     public void cadastrarMulta() throws EntityNotFoundException 
     {
+        LocacaoInterface.printarInterfaceMulta();
+        
         int id = validadorInteiro.validar("Digite o id da locacao: ");
          
         Locacao locacao =  service.retornarLocacaoPorId(id);
