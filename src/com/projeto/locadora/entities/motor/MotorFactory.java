@@ -123,4 +123,16 @@ public class MotorFactory
                 .build();
     }
     
+    public static Motor motorDiesel()
+    {
+        return new MotorBuilderImp().potencia(180)
+                .volumeCilindros(3.0)
+                .numeroCilindros(4)
+                .torque(50)
+                .combustivel(Combustivel.DIESEL)
+                .anoFabricacao(2023)
+                .consumoCombustivel(6)
+                .build();
+    }
+    
 }

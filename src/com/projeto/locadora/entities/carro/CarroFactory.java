@@ -13,6 +13,7 @@ import static com.projeto.locadora.utils.OperacoesConsole.limparConsole;
     mesmo atributo por atributo, com base nas preferências do usuário.
     Essa  classe faz parte da implementação do Padrão Builder, para criar carros de diferentes formas.
 */
+
 public class CarroFactory {
     private static final ValidadorString validador = ValidadorString.getInstance();
 
@@ -77,11 +78,11 @@ public class CarroFactory {
      public static void printarOpcoesCriacaoCarro() {
         limparConsole();
         System.out.println("=============================================================");
-        System.out.println("||                      OPCOES MOTOR                       ||");
+        System.out.println("||                      OPCOES CARRO                       ||");
         System.out.println("=============================================================");
-        System.out.println("|| [1] - Criar Carro Personalizado                   ||");
-        System.out.println("|| [2] - Criar Carro Popular                              ||");
-        System.out.println("|| [3] - Criar Carro Esportivo                           ||");
+        System.out.println("|| [1] - Criar Carro Personalizado                         ||");
+        System.out.println("|| [2] - Criar Carro Popular                               ||");
+        System.out.println("|| [3] - Criar Carro Esportivo                             ||");
         System.out.println("|| [4] - Criar Carro SUV                                   ||");
         System.out.println("|| [5] - Criar Camionete                                   ||");
         System.out.println("=============================================================");
@@ -196,7 +197,7 @@ public class CarroFactory {
                 .cor(Cor.PRETO)
                 .quilometragem(0.0)
                 .valor(150.0)
-                .motor(MotorFactory.motorPotenciaMedia())
+                .motor(MotorFactory.motorDiesel())
                 .transmissao(Transmissao.AUTOMATICO)
                 .estadoVeiculo(EstadoVeiculo.MANUTENCAO_EM_DIA)
                 .disponibilidade(DisponibilidadeVeiculo.DISPONIVEL)
