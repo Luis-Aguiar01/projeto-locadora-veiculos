@@ -55,7 +55,6 @@ public class MotorFactory
                 default -> System.out.println(RED + "\nOperação inválida. Digite uma opção do menu." + RESET);
             }
         }
-        
     }
     
     public static void printarOpcoesCriacaoMotor() {
