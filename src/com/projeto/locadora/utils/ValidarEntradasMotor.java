@@ -85,11 +85,11 @@ public class ValidarEntradasMotor {
             try {
                 torque = validadorInteiro.validar(mensagem);
                 
-                if (torque >= 100 && torque <= 300) {
+                if (torque >= 10 && torque <= 200) {
                     condicao = true;
                 }
                 else {
-                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para o torque do motor.Intervalo esperado: Valor maior ou igual a 100 e menor ou igual a 300");
+                    throw new IllegalArgumentException("Valor invalido. Por favor, digite um valor válido para o torque do motor.Intervalo esperado: Valor maior ou igual a 10 e menor ou igual a 200");
                 }
             }
             catch (IllegalArgumentException ex) {

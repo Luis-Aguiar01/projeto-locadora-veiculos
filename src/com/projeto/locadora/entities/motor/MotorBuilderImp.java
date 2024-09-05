@@ -18,7 +18,6 @@ public class MotorBuilderImp implements MotorBuilder{
 
     public MotorBuilderImp() {}
 
-
     @Override
     public MotorBuilder potencia(int potencia) {
         this.potencia = potencia;
@@ -100,4 +99,5 @@ public class MotorBuilderImp implements MotorBuilder{
     public int getAnoFabricacao() {
         return anoFabricacao;
     }
+    
 }
