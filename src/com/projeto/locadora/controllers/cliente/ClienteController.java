@@ -25,13 +25,14 @@ public class ClienteController {
             ClienteInterface.printarMenuCliente();
             
             op = validadorInteiro.validar("Informe a Opcao Desejada:");
+            System.out.println("");
             
             switch (op) 
             {
                 case 1 -> cadastrarCliente();
                 case 2 -> alterarCliente();
                 case 3 -> visualizarInformacoesClientePorCpf();
-                case 4 -> System.out.println("Saindo.");
+                case 4 -> {}
                 default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
             }
         }  
@@ -64,13 +65,14 @@ public class ClienteController {
             try{
                 ClienteInterface.printarMenuEscolhasAlteracao();
                 opcao = validadorInteiro.validar("Informe a Opcao Desejada:");
+                System.out.println("");
 
                 switch(opcao){
                     case 1 -> alterarNomeCliente();
                     case 2 -> alterarEmailCliente();
                     case 3 -> alterarEnderecoCliente();
                     case 4 -> alterarTelefoneCliente();
-                    case 5 -> System.out.println("Saindo.");
+                    case 5 -> {}
                     default -> System.out.println(RED + "\nOperacao invalida. Digite uma opcao do menu." + RESET);
                 }
             }
@@ -149,11 +151,5 @@ public class ClienteController {
 
     public static ClienteController getInstance() {
         return controller;
-    }
-
-    public static void main(String[] args) {
-        ClienteController controller = ClienteController.getInstance();
-
-        controller.exibirOpcoesCliente();
     }
 }

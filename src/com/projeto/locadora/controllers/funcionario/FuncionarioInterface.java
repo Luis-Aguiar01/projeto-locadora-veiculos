@@ -67,7 +67,7 @@ public class FuncionarioInterface {
         System.out.println("=============================================================");
         System.out.println("||               CADASTRO DE FUNCIONARIOS                  ||");
         System.out.println("=============================================================");
-        System.out.println("Insira as informações do funcionario abaixo:");
+        System.out.println("Insira as informações do funcionario abaixo:\n");
     }
     
     public static void printarMenuAlteracaoDados() {

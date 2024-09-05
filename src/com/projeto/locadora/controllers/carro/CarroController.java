@@ -25,6 +25,7 @@ public class CarroController {
             CarroInterface.printarMenuCarro();
             
             op = validadorInteiro.validar("Informe a Opcao Desejada:");
+            System.out.println("");
             
             switch (op) {
                 case 1 -> cadastrarNovoCarro();
@@ -56,6 +57,7 @@ public class CarroController {
             try {
                 CarroInterface.printarMenuEscolhasAlteracao();
                 opcao = validadorInteiro.validar("Informe a Opcao Desejada: ");
+                System.out.println("");
 
                 switch(opcao)  {
                     case 1 -> alterarCorCarro();
@@ -124,7 +126,7 @@ public class CarroController {
     private void alterarPlacaCarro() throws EntityNotFoundException {
         CarroInterface.printarInterfaceAlteracaoPlaca();
         
-        validadorString.setRegex(CarroFactory.VALIDAR_PLACA_CARRO_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_PLACA_CARRO_REGEX);
         
         Carro carro = encontrarCarroPorRenavam();
         String novaPlaca = validadorString.validar("Digite a nova placa do carro (AAA-0000 ou AAA0A00):  ");
@@ -148,6 +150,7 @@ public class CarroController {
             try {
                 CarroInterface.printarMenuVisualizarInformacoes();
                 opcao = validadorInteiro.validar("Informe a Opcao Desejada: ");
+                System.out.println("");
                 
                 switch(opcao)  {
                     case 1 -> visualizarCarroPorRenavam();
@@ -209,7 +212,7 @@ public class CarroController {
     }
 
     private Carro encontrarCarroPorRenavam() {
-        validadorString.setRegex(CarroFactory.VALIDAR_RENAVAM_CARRO_REGEX);
+        validadorString.setRegex(ValidacoesRegex.VALIDAR_RENAVAM_CARRO_REGEX);
         String renavam = validadorString.validar("Informe o renavam do carro: ");
         return service.encontrarCarroPorRenavam(renavam);
     }

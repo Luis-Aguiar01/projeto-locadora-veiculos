@@ -1,5 +1,7 @@
 package com.projeto.locadora.utils;
 
+import static com.projeto.locadora.utils.OperacoesConsole.RED;
+import static com.projeto.locadora.utils.OperacoesConsole.RESET;
 import java.util.Scanner;
 
 /* 
@@ -7,6 +9,7 @@ import java.util.Scanner;
     serve para definir as operações padrões, que possuem implementaçoes, e as
     operações que precisam de uma implementação por parte das subclasses.
 */
+
 public abstract class Validador<T> {
     private final Scanner scanner = SingletonScanner.getInstance();
     
@@ -29,7 +32,7 @@ public abstract class Validador<T> {
                 }
             } 
             catch (Exception e) {
-                System.err.println(mensagemErro(e));
+                System.out.println(RED + "\nErro: " + mensagemErro(e) + RESET);
             }
         }
         

@@ -8,6 +8,7 @@ import com.projeto.locadora.entities.multa.Multa;
 import com.projeto.locadora.enums.EstadoLocacao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 /*
@@ -95,19 +96,38 @@ public class Locacao {
     public String toString() {
         String info = "\n\nLOCACAO\n\n";
         info += "CPF Cliente: " + cliente.getCpf() + ".\n";
-        info += "Cadastrado por: " + funcionarioCadastro.getNome() + ".\n";
+        info += "Funcionario Responsavel: " + funcionarioCadastro.getCpf()+ ".\n";
+        info += "Veiculo Locado: " + carro.getMarca().getNome() + " " + carro.getNome() + ".\n";
+        info += "Valor Diaria Veiculo: R$ " + carro.getValor() + ".\n";
         info += "Data inicio: " + dataInicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
         info += "Data fim: " + dataFim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
         info += "Estado: " + estado.getNome()+ ".\n";
+        info += "Valor Inicial Locacao: R$ " + getCarro().getValor() * ChronoUnit.DAYS.between(getDataInicio(), getDataFim()) + ".\n";
+        info += "Valor Final Locacao: ";
         
-        info += "\nMULTAS DA LOCACAO:";
+        if(devolucao != null)
+        {
+            info += "Data de Devolucacao: " + devolucao.getDataDevolucao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) + ".\n";
+            info += "R$ " + devolucao.getPagamento().getValor() + ".\n";
+            info += "Pagamento Realizado.\n";
+        }
+        else
+        {
+            info += "Data de Devolucacao: A registrar.\n";
+            info += "A calcular.\n";
+            info += "Aguardando Pagamento.\n";
+        }  
+
+        info += "\nMULTAS DA LOCACAO: ";
         if(!multas.isEmpty()) {
             for(Multa multa : multas) {
                 info += "\n\nMotivo multa: " + multa.getDescricao() + ".\n";
-                info += "Valor: R$ " + multa.getValor() + ".\n";
+                info += "Valor: R$ " + multa.getValor() + ".";
             }            
-        } else {
-            info += " Nenhuma multa aplicada.\n";
+        } 
+        else 
+        {
+            info += "Nenhuma multa aplicada.\n";
         }
         
         return info;

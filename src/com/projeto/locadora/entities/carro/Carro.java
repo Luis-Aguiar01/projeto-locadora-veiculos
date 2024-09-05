@@ -121,7 +121,7 @@ public class Carro {
 
     @Override
     public String toString() {
-        return String.format("Carro %s %s\n", nome, marca.getNomeMarca()) +
+        return String.format("Veiculo: %s %s\n", marca.getNome(), nome) +
                 "Modelo: " + modelo.getNomeModelo() + "\n" + 
                 "Transmissao: " + transmissao.getNomeTransmissao() + "\n" +
                 "Volume do Cilindro: " + String.format("%.1f\n", motor.getVolumeCilindros()) +

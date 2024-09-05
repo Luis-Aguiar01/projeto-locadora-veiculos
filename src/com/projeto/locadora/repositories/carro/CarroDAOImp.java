@@ -19,7 +19,7 @@ public class CarroDAOImp implements CarroDAO {
 
     private CarroDAOImp() {}
 
-    static {
+    /*static {
         Carro carro = new CarroBuilderImp()
                 .renavam("11111111111")
                 .placa("AAA-0000")
@@ -28,6 +28,7 @@ public class CarroDAOImp implements CarroDAO {
                 .cor(Cor.PRETO)
                 .quilometragem(0.0)
                 .valor(200.0)
+                .marca(Marca.FORD)
                 .transmissao(Transmissao.AUTOMATICO)
                 .disponibilidade(DisponibilidadeVeiculo.DISPONIVEL)
                 .estadoVeiculo(EstadoVeiculo.EM_MANUTENCAO)
@@ -41,6 +42,7 @@ public class CarroDAOImp implements CarroDAO {
                 .cor(Cor.BRANCO)
                 .quilometragem(0.0)
                 .valor(200.0)
+                .marca(Marca.FORD)
                 .transmissao(Transmissao.SEMI_AUTOMATICO)
                 .disponibilidade(DisponibilidadeVeiculo.INDISPONIVEL)
                 .estadoVeiculo(EstadoVeiculo.MANUTENCAO_EM_DIA)
@@ -48,7 +50,7 @@ public class CarroDAOImp implements CarroDAO {
         
         carros.add(carro);
         carros.add(carro2);
-    }
+    }*/
     
     @Override
     public void cadastrarCarro(Carro carro) {

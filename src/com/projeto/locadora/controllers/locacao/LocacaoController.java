@@ -38,6 +38,7 @@ public class LocacaoController {
                 LocacaoInterface.printarMenuLocacao();
 
                 op = validadorInteiro.validar("Informe a Opcao Desejada: ");
+                System.out.println("");
 
                 switch (op) {
                     case 1 ->
@@ -91,7 +92,9 @@ public class LocacaoController {
                 .setFuncionarioCadastro(funcionario)
                 .build();
         
-        service.cadastrarLocacao(locacao);     
+        service.cadastrarLocacao(locacao);  
+        
+        System.out.println(GREEN + "\nLocacao Realizada com Sucesso." + RESET);
     }
     
     public void retornarLocacaoPorId() {
@@ -139,6 +142,10 @@ public class LocacaoController {
                 .setFuncionarioCadastro(funcionario)
                 .setPagamento(pagamento)
                 .build();
+        
+        locacao.setDevolucao(devolucao);
+        
+        System.out.println(GREEN + "\nDevolucao Realizada com Sucesso." + RESET);
                 
     }
 
@@ -167,17 +174,5 @@ public class LocacaoController {
     
     public static LocacaoController getInstance() {
         return controller;
-    }
-    
-    public static void main(String[] args) {
-        
-        controller.cadastrarLocacao();
-        
-        controller.retornarLocacaoPorId();
-        
-        controller.realizarDevolucao();
-        
-        controller.retornarLocacaoPorId();
-        
     }
 }

@@ -34,7 +34,7 @@ public class ClienteInterface {
         System.out.println("=========================================================");
         System.out.println("||               CADASTRAR NOVO CLIENTE                ||");
         System.out.println("=========================================================");
-        System.out.println("Insira as informações do cliente abaixo:");
+        System.out.println("Insira as informações do cliente abaixo:\n");
     }
     
     public static void printarInterfaceAlteracaoNome() {

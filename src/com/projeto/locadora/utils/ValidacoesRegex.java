@@ -9,6 +9,8 @@ public class ValidacoesRegex
     public static final String VALIDAR_TELEFONE_REGEX = "\\([0-9]{2}\\)[0-9]{4,5}-[0-9]{4}";
     public static final String VALIDAR_SENHA_REGEX = "[A-Za-z0-9]{4,15}";
     public static final String VALIDAR_CAMPO_TEXTO_REGEX = "[ÇçÀ-Ü-à-üa-zA-Z0-9\\s-/,.]+";
+    public final static String VALIDAR_PLACA_CARRO_REGEX = "([a-zA-Z]{3}-\\d{4})|([a-zA-Z]{3}\\d[a-zA-Z]\\d{2})";
+    public final static String VALIDAR_RENAVAM_CARRO_REGEX = "^\\d{11}$";
             
     private ValidacoesRegex(){};
 }

@@ -1,6 +1,5 @@
 package com.projeto.locadora.controllers.pagamento;
 
-import com.projeto.locadora.entities.carro.Carro;
 import com.projeto.locadora.entities.pagamento.Pagamento;
 import static com.projeto.locadora.utils.OperacoesConsole.GREEN;
 import static com.projeto.locadora.utils.OperacoesConsole.RED;

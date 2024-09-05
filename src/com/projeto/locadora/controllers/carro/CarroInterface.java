@@ -120,7 +120,7 @@ public class CarroInterface {
             System.out.println(RED + "Nenhum carro encontrado." + RESET);
         }
         else {
-            System.out.println(GREEN + "\tCarros encontrados:\n" + RESET);
+            System.out.println("CARROS ENCONTRADOS:\n");
             for (Carro carro : carros) {
                 System.out.println(carro + "\n");
             }

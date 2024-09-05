@@ -4,6 +4,7 @@ import com.projeto.locadora.entities.devolucao.Devolucao;
 import com.projeto.locadora.entities.locacao.Locacao;
 import com.projeto.locadora.exceptions.EntityNotFoundException;
 import com.projeto.locadora.repositories.locacao.*;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 public class LocacaoService {
@@ -34,7 +35,23 @@ public class LocacaoService {
     
     public double somarTotal(Locacao locacao) 
     {
-        long diasComum = ChronoUnit.DAYS.between(locacao.getDataFim(), locacao.getDataInicio());
+        long diasComum;
+        
+        LocalDateTime data = LocalDateTime.now();
+        
+        if(data.isBefore(locacao.getDataFim()))
+        {
+            diasComum = ChronoUnit.DAYS.between(locacao.getDataInicio(), data);
+            
+            if(diasComum == 0)
+            {
+                diasComum = 1;
+            }
+        }
+        else
+        {
+            diasComum = ChronoUnit.DAYS.between(locacao.getDataInicio(), locacao.getDataFim());
+        }
         
         return (diasComum * locacao.getCarro().getValor()) + somarMultas(locacao);
     }
