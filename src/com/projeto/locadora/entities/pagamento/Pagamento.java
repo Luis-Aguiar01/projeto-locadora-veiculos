@@ -5,6 +5,11 @@ import java.time.LocalDateTime;
 /*
     Aplicação do Padrão de Projeto Builder - O Pagamento recebe uma interface do builder,
     ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+
+    OBS: Assim como as demais entidades, com exceção de Carro e Motor, esta possui 
+    um Builder para a criação de instâncias dessa classe. No entanto, o Builder de
+    dela apenas fornece um meio de inicializar o objeto personalizado, atributo por atributo,
+    sem ter disponível métodos que criam Pagamentos com características especificas.     
 */
 public class Pagamento {
     

@@ -1,12 +1,19 @@
 package com.projeto.locadora.entities.cliente;
 
 import com.projeto.locadora.entities.usuario.Usuario;
-import com.projeto.locadora.services.observer.EventListener;
+import com.projeto.locadora.entities.cliente.observer.EventListener;
 import java.util.Objects;
 
 /*
-    Aplicação do Padrão de Projeto Builder - O Cliente recebe uma interface do builder,
-    ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+    Implementação do Padrão de Projeto Observer - A classe cliente
+    implementa a interface EventListener, que, basicamente, fornece
+    um método para enviar uma mensagem para um Cliente.
+
+    OBS: Assim como as demais entidades, Cliente possui um Builder
+    para a criação de instâncias dessa classe. No entanto, o Builder de
+    cliente apenas fornece um meio de inicializar o objeto personalizado,
+    sem ter disponível métodos que criam clientes com características
+    especificas.
 */
 public class Cliente extends Usuario implements EventListener{
     

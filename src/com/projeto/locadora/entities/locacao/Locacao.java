@@ -15,6 +15,11 @@ import java.util.*;
     Implementação do Padrão de Projeto Flyweight - Um objeto do tipo locação
     é composto pelas referências de outros objetos, como: Cliente, Carro e Funcionario,
     evitando a multiplicidade dos dados entre os diferentes objetos de locação.
+
+    OBS: Assim como as demais entidades, com exceção de Carro e Motor, esta possui 
+    um Builder para a criação de instâncias dessa classe. No entanto, o Builder de
+    dela apenas fornece um meio de inicializar o objeto personalizado, atributo por atributo,
+    sem ter disponível métodos que criam Locacão com características especificas.
 */
 public class Locacao {
     private final Integer codigo;

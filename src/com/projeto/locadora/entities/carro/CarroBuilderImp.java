@@ -5,8 +5,9 @@ import com.projeto.locadora.entities.motor.Motor;
 
 /* 
     Implementação Concreta da Interface base do Builder.
-    Basicamente, fornece uma forma de inicializar todos os
-    atributos relevantes do objeto.
+    Basicamente, fornece uma forma sequencial de inicializar todos os
+    atributos relevantes do objeto. Utilizada na implementação do padrão
+    Builder.
 */
 public class CarroBuilderImp implements CarroBuilder {
     private String renavam;

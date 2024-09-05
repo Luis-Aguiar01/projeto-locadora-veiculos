@@ -3,7 +3,11 @@ package com.projeto.locadora.entities.cliente;
 import com.projeto.locadora.utils.*;
 import java.time.*;
 
-
+/*
+    Classe responsável por fornecer  um método para criar um cliente personalizado
+    inicializando o mesmo atributo por atributo, com base nas preferências do usuário.
+    Essa  classe faz parte da implementação do Padrão Builder.
+*/
 public class ClienteFactory {
     
     private static final ValidadorString validador = ValidadorString.getInstance();

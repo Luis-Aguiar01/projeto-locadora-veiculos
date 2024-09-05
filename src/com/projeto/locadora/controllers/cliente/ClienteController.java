@@ -4,9 +4,14 @@ import com.projeto.locadora.entities.cliente.*;
 import com.projeto.locadora.utils.*;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.cliente.ClienteService;
-import com.projeto.locadora.services.observer.EventManager;
+import com.projeto.locadora.entities.cliente.observer.EventManager;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
 
+/*
+    Implementação do Padrão de Projeto Singleton - Todas as classes controllers possuem
+    apenas uma única instância sua, sendo esta armazenada na classe e recebida pelo 
+    método getInstance(). O construtor é privado para impedir a criação de objetos da classe.
+*/
 public class ClienteController {
     private static final ClienteService service = ClienteService.getInstance();
     private static final ClienteController controller = new ClienteController();

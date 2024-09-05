@@ -3,10 +3,15 @@ package com.projeto.locadora.utils;
 /* 
     Implementação do Padrão de Projeto Template Method - A classe ValidadorDouble
     é uma implementação concreta da classe abstrata.
+
+    OBS: Essa classe também é um Singleton, pois apenas uma instância sua é 
+    utilizada para validar os doubles no programa.
 */
 public class ValidadorDouble extends Validador<Double> {
 
     private static final ValidadorDouble validador = new ValidadorDouble();
+    
+    private ValidadorDouble(){}
     
     @Override
     protected Double transformarEntrada(String entrada) throws NumberFormatException {

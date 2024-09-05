@@ -5,8 +5,13 @@ import com.projeto.locadora.enums.Cargo;
 import java.util.Objects;
 
 /*
-    Aplicação do Padrão de Projeto Builder - O Funcionario recebe uma interface do builder,
+    Aplicação do Padrão de Projeto Builder - Funcionario recebe uma interface do builder,
     ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+    
+    OBS: Assim como as demais entidades, com exceção de Carro e Motor, esta possui 
+    um Builder para a criação de instâncias dessa classe. No entanto, o Builder de
+    dela apenas fornece um meio de inicializar o objeto personalizado, atributo por atributo,
+    sem ter disponível métodos que criam Funcionarios com características especificas.
 */
 public class Funcionario extends Usuario {
     

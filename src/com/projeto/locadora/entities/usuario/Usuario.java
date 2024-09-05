@@ -6,6 +6,11 @@ import java.time.format.DateTimeFormatter;
 /*
     Aplicação do Padrão de Projeto Builder - O Usuário recebe uma interface do builder,
     ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+
+    OBS: Assim como as demais entidades, com exceção de Carro e Motor, esta possui 
+    um Builder para a criação de instâncias dessa classe. No entanto, o Builder de
+    dela apenas fornece um meio de inicializar o objeto personalizado, atributo por atributo,
+    sem ter disponível métodos que criam Usuario com características especificas. 
 */
 public abstract class Usuario {
     private final String cpf;

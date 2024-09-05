@@ -4,8 +4,13 @@ import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.entities.cliente.Cliente;
 import com.projeto.locadora.repositories.cliente.*;
 import com.projeto.locadora.utils.FormatarDados;
-
 import java.util.List;
+
+/*
+    Implementação do Padrão de Projeto Singleton - Todas as classes services possuem
+    apenas uma única instância sua, sendo esta armazenada na classe e recebida pelo 
+    método getInstance(). O construtor é privado para impedir a criação de objetos da classe.
+*/
 
 public class ClienteService {
     private static final ClienteDAO clienteRepositorio = ClienteDAOImp.getInstance();

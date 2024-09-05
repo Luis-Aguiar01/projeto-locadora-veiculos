@@ -3,11 +3,16 @@ package com.projeto.locadora.utils;
 /* 
     Implementação do Padrão de Projeto Template Method - A classe ValidadorString
     é uma implementação concreta da classe abstrata.
+
+    OBS: Essa classe também é um Singleton, pois apenas uma instância sua é 
+    utilizada para validar as Strings no programa.
 */
 public class ValidadorString extends Validador<String> {
     
     private static final ValidadorString validador = new ValidadorString();
     private String regex;
+    
+    private ValidadorString(){}
       
     @Override
     protected String transformarEntrada(String entrada) throws Exception {

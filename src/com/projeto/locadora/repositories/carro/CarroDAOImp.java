@@ -19,39 +19,6 @@ public class CarroDAOImp implements CarroDAO {
 
     private CarroDAOImp() {}
 
-    /*static {
-        Carro carro = new CarroBuilderImp()
-                .renavam("11111111111")
-                .placa("AAA-0000")
-                .modelo(Modelo.CONVERSIVEL)
-                .ano(2020)
-                .cor(Cor.PRETO)
-                .quilometragem(0.0)
-                .valor(200.0)
-                .marca(Marca.FORD)
-                .transmissao(Transmissao.AUTOMATICO)
-                .disponibilidade(DisponibilidadeVeiculo.DISPONIVEL)
-                .estadoVeiculo(EstadoVeiculo.EM_MANUTENCAO)
-                .build();
-        
-        Carro carro2 = new CarroBuilderImp()
-                .renavam("22222222222")
-                .placa("BBB-1111")
-                .modelo(Modelo.ESPORTIVO)
-                .ano(2020)
-                .cor(Cor.BRANCO)
-                .quilometragem(0.0)
-                .valor(200.0)
-                .marca(Marca.FORD)
-                .transmissao(Transmissao.SEMI_AUTOMATICO)
-                .disponibilidade(DisponibilidadeVeiculo.INDISPONIVEL)
-                .estadoVeiculo(EstadoVeiculo.MANUTENCAO_EM_DIA)
-                .build();
-        
-        carros.add(carro);
-        carros.add(carro2);
-    }*/
-    
     @Override
     public void cadastrarCarro(Carro carro) {
         carros.add(carro);

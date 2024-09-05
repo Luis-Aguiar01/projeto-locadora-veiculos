@@ -3,6 +3,9 @@ package com.projeto.locadora.utils;
 /* 
     Implementação do Padrão de Projeto Template Method - A classe ValidadorInteiro
     é uma implementação concreta da classe abstrata.
+
+    OBS: Essa classe também é um Singleton, pois apenas uma instância sua é 
+    utilizada para validar os inteiros no programa.
 */
 public class ValidadorInteiro extends Validador<Integer> {
 

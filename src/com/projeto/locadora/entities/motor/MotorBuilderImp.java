@@ -4,8 +4,9 @@ import com.projeto.locadora.enums.Combustivel;
 
 /* 
     Implementação Concreta da Interface base do Builder.
-    Basicamente, fornece uma forma de inicializar todos os
-    atributos relavantes do objeto.
+    Basicamente, fornece uma forma sequencial de inicializar todos os
+    atributos relevantes do objeto. Utilizada na implementação do padrão
+    Builder.
 */
 public class MotorBuilderImp implements MotorBuilder{
     private int potencia;

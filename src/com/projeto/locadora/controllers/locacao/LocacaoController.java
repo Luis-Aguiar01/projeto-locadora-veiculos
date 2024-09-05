@@ -18,6 +18,11 @@ import static com.projeto.locadora.utils.OperacoesConsole.*;
 import java.time.*;
 import java.time.temporal.ChronoUnit;
 
+/*
+    Implementação do Padrão de Projeto Singleton - Todas as classes controllers possuem
+    apenas uma única instância sua, sendo esta armazenada na classe e recebida pelo 
+    método getInstance(). O construtor é privado para impedir a criação de objetos da classe.
+*/
 public class LocacaoController {
     private static final LocacaoService service = LocacaoService.getInstance();
     private static final LocacaoController controller = new LocacaoController();

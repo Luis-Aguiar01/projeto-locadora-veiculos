@@ -7,6 +7,12 @@ import com.projeto.locadora.repositories.locacao.*;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
+/*
+    Implementação do Padrão de Projeto Singleton - Todas as classes services possuem
+    apenas uma única instância sua, sendo esta armazenada na classe e recebida pelo 
+    método getInstance(). O construtor é privado para impedir a criação de objetos da classe.
+*/
+
 public class LocacaoService {
     private static final LocacaoDAO repositorio = LocacaoDAOImp.getInstance();
     private static final LocacaoService service = new LocacaoService();

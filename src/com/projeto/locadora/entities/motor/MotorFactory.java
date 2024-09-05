@@ -6,6 +6,12 @@ import static com.projeto.locadora.utils.OperacoesConsole.RED;
 import static com.projeto.locadora.utils.OperacoesConsole.RESET;
 import static com.projeto.locadora.utils.OperacoesConsole.limparConsole;
 
+/*
+    Classe responsável por fornecer instâncias prontas para a classe Motor,
+    além da possibilidade de poder criar um Motor personalizado, inicializando o
+    mesmo atributo por atributo, com base nas preferências do usuário.
+    Essa  classe faz parte da implementação do Padrão Builder, para criar motores de diferentes formas.
+*/
 public class MotorFactory 
 {   
     public static Motor criarMotor() 

@@ -11,28 +11,6 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/locacao/LocacaoInterface.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/cliente/ClienteController.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/locacao/LocacaoController.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/entities/carro/CarroBuilderImp.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/pagamento/PagamentoController.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/utils/ValidadorInteiro.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/entities/carro/CarroFactory.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/Application.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/carro/CarroController.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/funcionario/FuncionarioController.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/entities/locacao/Locacao.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/services/locacao/LocacaoService.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/utils/ValidacoesRegex.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/pagamento/PagamentoInterface.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/utils/Validador.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/utils/ValidadorString.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/repositories/carro/CarroDAOImp.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/carro/CarroInterface.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/entities/carro/Carro.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/cliente/ClienteInterface.java</file>
-            <file>file:/C:/Users/crisr/Área%20de%20Trabalho/Projeto/locadora/src/com/projeto/locadora/controllers/funcionario/FuncionarioInterface.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

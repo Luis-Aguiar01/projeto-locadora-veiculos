@@ -8,6 +8,12 @@ import com.projeto.locadora.repositories.funcionario.FuncionarioDAOImp;
 import com.projeto.locadora.utils.FormatarDados;
 import java.util.List;
 
+/*
+    Implementação do Padrão de Projeto Singleton - Todas as classes services possuem
+    apenas uma única instância sua, sendo esta armazenada na classe e recebida pelo 
+    método getInstance(). O construtor é privado para impedir a criação de objetos da classe.
+*/
+
 public class FuncionarioService {
     
     private static final FuncionarioDAO funcionarioRepositorio = FuncionarioDAOImp.getInstance();

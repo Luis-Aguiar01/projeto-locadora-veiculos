@@ -5,7 +5,8 @@ import com.projeto.locadora.entities.motor.Motor;
 
 /* 
     Interface base responsável por fornecer todos os métodos do Builder, além dos get's
-    para que seja possivel recuperar os valores
+    para que seja possivel recuperar os valores. Utilizada na implementação do padrão
+    Builder.
 */
 public interface CarroBuilder {
     CarroBuilder renavam(String renavam);

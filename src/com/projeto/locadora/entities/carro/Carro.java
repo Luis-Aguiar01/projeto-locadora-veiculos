@@ -7,6 +7,10 @@ import java.util.Objects;
 /*
     Aplicação do Padrão de Projeto Builder - O carro recebe uma interface do builder,
     ou seja, pode ser inicializado com qualquer implementação concreta dessa interface.
+    Cada um dos modelos prontos do carro são criados dentro da classe CarroFactory,
+    que, usando da implementação do builder para criar um objeto carro, cria e fornece
+    várias implementações padrões para alguns modelos de carros específicos, além
+    de uma opção de criação para um veículo personalizado (criado atributo por atributo).
 */
 public class Carro {
     private final String renavam;

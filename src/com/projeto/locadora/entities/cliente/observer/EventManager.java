@@ -1,9 +1,14 @@
-package com.projeto.locadora.services.observer;
+package com.projeto.locadora.entities.cliente.observer;
 
 import java.util.*;
 
 /*
-    Implementação do padrão de projeto Observer
+    Essa classe é responsável por registrar os inscritos para o observer,
+    contendo uma lista para armazenar qualquer objeto que implemente
+    EventListener, que, no nosso caso, se trata de objetos do tipo Cliente.
+    Além disso, a classe fornece métodos de cadastrar incritos e de 
+    excluir inscritos. O método "notificar" envia uma mensagem para
+    cada um dos clientes cadastrados, usando o método update de cada um.
 */
 public class EventManager {
     

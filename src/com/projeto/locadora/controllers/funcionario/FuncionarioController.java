@@ -7,15 +7,23 @@ import com.projeto.locadora.entities.funcionario.*;
 import com.projeto.locadora.enums.Cargo;
 import com.projeto.locadora.exceptions.*;
 import com.projeto.locadora.services.funcionario.FuncionarioService;
-import com.projeto.locadora.services.observer.EventManager;
+import com.projeto.locadora.entities.cliente.observer.EventManager;
 import com.projeto.locadora.utils.*;
 import static com.projeto.locadora.utils.OperacoesConsole.*;
 
 /*
     Implementação do Padrão de Projeto Facade - A classe FuncionarioController
-    é responsável por agrupar todas as funcionalidades do sistema, e fornece
-    uma interface simples, para que essas funcionalidades possam ser acessadas,
-    diminuindo a complexidade.
+    é responsável por agrupar todas as funcionalidades do sistema, interagindo com
+    os diferentes controladores disponíveis, como o Controlador de Carro, de Locação
+    e de Cliente. Usando destes controladores, o classe fornece uma interface simples, 
+    para que essas funcionalidades possam ser  acessadas, diminuindo a complexidade do seu uso, 
+    fazendo com que os usuários tenham apenas que consultar a interface para poder usar as 
+    demais funcionalidades disponíveis do sistema. Por mais que existam várias interfaces (menus), é mais
+    simples implementar  o padrão dessa forma, já que cada funcionalidade fica dividia, e o 
+    cliente pode acessar cada uma delas da maneira que preferir, sem precisar conhecer como cada uma das 
+    operações é implementada internamente.
+
+    OBS: Além disso, como qualquer outro controller, essa classe implementa o Singleton. 
 */
 
 public class FuncionarioController {
@@ -251,5 +259,4 @@ public class FuncionarioController {
     public static FuncionarioController getInstance() {
         return funcionarioController;
     }
-
 }
