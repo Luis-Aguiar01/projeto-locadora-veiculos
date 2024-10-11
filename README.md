@@ -12,7 +12,7 @@ As funcionalidades implementadas incluem o cadastro de novos carros, a adição 
 - Conformidade com o diagrama de classes desenvolvido na disciplina de Análise e Projeto Orientado a Objetos.
 
 ## Diagrama de Classes
-![Diagrama de Classes](/diagrama/Diagrama de Classes.png)
+![Diagrama de Classes](diagrama/Diagrama_de_Classes.png)
 
 ## Responsabilidades no Projeto
 Como o projeto foi realizado em equipe, as tarefas foram distribuídas entre os membros. 
